@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eaquirs Tech — AI-Native Software Engineering Partner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#161B33;
+    --navy-2:#242B52;
+    --ink:#14171F;
+    --sub:#5B6170;
+    --muted:#8B90A0;
+    --line:#E7E8EE;
+    --paper:#FAFAF9;
+    --card:#FFFFFF;
+    --amber:#E2A63B;
+    --amber-deep:#9A6B14;
+    --amber-tint:#FCF2DF;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'Inter',sans-serif; font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand{font-family:'Sora',sans-serif;}
+  a{text-decoration:none; color:inherit;}
+  .wrap{max-width:1160px; margin:0 auto; padding:0 28px;}
+  section{padding:88px 0;}
+  .eyebrow{font-size:13px; color:var(--amber-deep); font-weight:500; margin-bottom:10px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 24px; border-radius:8px; font-weight:600; font-size:14.5px;
+    cursor:pointer; border:1px solid transparent;
+  }
+  .btn-primary{background:var(--navy); color:#fff;}
+  .btn-primary:hover{background:var(--navy-2);}
+  .btn-ghost{border-color:var(--line); color:var(--ink); background:#fff;}
+  .btn-ghost:hover{border-color:#C9CBD6;}
+
+  /* Nav */
+  header{
+    position:sticky; top:0; z-index:50; background:rgba(250,250,249,.92);
+    backdrop-filter:blur(8px); border-bottom:1px solid var(--line);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0;}
+  .brand{font-size:19px; font-weight:700; letter-spacing:.2px; display:flex; align-items:center; gap:9px;}
+  .brand-mark{
+    width:30px; height:30px; border-radius:7px; background:var(--navy);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--amber); font-size:14px; font-weight:700;
+  }
+  .nav-links{display:flex; gap:34px; font-size:14.5px; color:var(--sub); font-weight:500;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-right{display:flex; align-items:center; gap:14px;}
+  @media (max-width:840px){.nav-links{display:none;}}
+
+  /* Hero */
+  .hero{padding:76px 0 60px;}
+  .hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center;}
+  .hero h1{font-size:46px; font-weight:700; line-height:1.14; letter-spacing:-.5px; color:var(--navy);}
+  .hero h1 .accent{color:var(--amber-deep);}
+  .hero p{font-size:16.5px; color:var(--sub); margin:20px 0 30px; max-width:480px;}
+  .hero-cta{display:flex; gap:12px; margin-bottom:34px;}
+  .trust-row{display:flex; gap:26px; flex-wrap:wrap; font-size:13px; color:var(--muted); font-weight:500;}
+  .trust-row span{display:flex; align-items:center; gap:6px;}
+  .trust-row b{color:var(--ink);}
+
+  .hero-panel{
+    background:var(--navy); border-radius:16px; padding:30px 26px;
+    color:#fff; position:relative; overflow:hidden;
+  }
+  .hero-panel::after{
+    content:''; position:absolute; top:-60px; right:-60px; width:180px; height:180px;
+    border-radius:50%; background:radial-gradient(circle, rgba(226,166,59,.28), transparent 70%);
+  }
+  .panel-stat{display:flex; justify-content:space-between; align-items:baseline; padding:14px 0; border-bottom:1px solid rgba(255,255,255,.12);}
+  .panel-stat:last-child{border-bottom:none;}
+  .panel-stat .label{font-size:13px; color:#B7BBD1;}
+  .panel-stat .value{font-family:'Sora',sans-serif; font-size:21px; font-weight:600; color:#fff;}
+  .panel-stat .value .accent{color:var(--amber);}
+
+  /* Logos strip */
+  .logos-strip{border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:26px 0;}
+  .logos-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
+  .logos-row span{font-size:12.5px; color:var(--muted); font-weight:500;}
+  .logo-chip{font-family:'Sora',sans-serif; font-weight:600; font-size:15px; color:#B6B9C6;}
+
+  /* Section heads */
+  .sec-head{max-width:620px; margin-bottom:48px;}
+  .sec-head h2{font-size:32px; font-weight:700; color:var(--navy); letter-spacing:-.3px;}
+  .sec-head p{color:var(--sub); margin-top:12px; font-size:15.5px;}
+
+  /* Services */
+  .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden;}
+  .svc-card{background:#fff; padding:30px 26px; transition:background .15s;}
+  .svc-card:hover{background:#FCFBF8;}
+  .svc-num{font-family:'Sora',sans-serif; font-size:12.5px; color:var(--amber-deep); font-weight:600; margin-bottom:16px;}
+  .svc-card h3{font-size:17.5px; font-weight:600; color:var(--ink); margin-bottom:9px;}
+  .svc-card p{font-size:14px; color:var(--sub); line-height:1.55;}
+  @media (max-width:840px){.svc-grid{grid-template-columns:1fr;}}
+
+  /* Process */
+  .process-wrap{background:var(--navy); border-radius:18px; padding:56px 48px; color:#fff;}
+  .process-wrap .sec-head h2{color:#fff;}
+  .process-wrap .sec-head p{color:#B7BBD1;}
+  .proc-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:28px;}
+  .proc-step .num{font-family:'Sora',sans-serif; font-size:26px; font-weight:700; color:var(--amber); margin-bottom:14px;}
+  .proc-step h3{font-size:16px; font-weight:600; margin-bottom:8px;}
+  .proc-step p{font-size:13.5px; color:#AEB2C6; line-height:1.6;}
+  @media (max-width:840px){.proc-grid{grid-template-columns:1fr 1fr;}}
+
+  /* Portfolio */
+  .work-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .work-card{
+    border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#fff;
+  }
+  .work-thumb{height:150px; background:linear-gradient(135deg, var(--navy), var(--navy-2)); position:relative;}
+  .work-thumb .tag{
+    position:absolute; bottom:12px; left:14px; font-size:11.5px; color:#fff; background:rgba(255,255,255,.14);
+    padding:4px 10px; border-radius:20px; font-weight:500;
+  }
+  .work-body{padding:20px 20px 24px;}
+  .work-body h3{font-size:16px; font-weight:600; margin-bottom:8px;}
+  .work-body p{font-size:13.5px; color:var(--sub); margin-bottom:14px;}
+  .work-metrics{display:flex; gap:16px; font-size:12px; color:var(--amber-deep); font-weight:600;}
+  @media (max-width:840px){.work-grid{grid-template-columns:1fr;}}
+
+  /* Why us */
+  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  .why-card{border:1px solid var(--line); border-radius:12px; padding:24px 20px; background:#fff;}
+  .why-card .ico{
+    width:38px; height:38px; border-radius:9px; background:var(--amber-tint);
+    display:flex; align-items:center; justify-content:center; margin-bottom:16px;
+  }
+  .why-card .ico svg{width:18px; height:18px; color:var(--amber-deep);}
+  .why-card h3{font-size:15px; font-weight:600; margin-bottom:8px;}
+  .why-card p{font-size:13px; color:var(--sub); line-height:1.55;}
+  @media (max-width:840px){.why-grid{grid-template-columns:1fr 1fr;}}
+
+  /* Testimonials */
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .testi-card{border:1px solid var(--line); border-radius:14px; padding:26px 24px; background:#fff;}
+  .testi-card p{font-size:14px; color:var(--ink); line-height:1.65; margin-bottom:18px;}
+  .testi-person{display:flex; align-items:center; gap:10px;}
+  .testi-avatar{width:34px; height:34px; border-radius:50%; background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:600;}
+  .testi-name{font-size:13.5px; font-weight:600;}
+  .testi-role{font-size:12px; color:var(--muted);}
+  @media (max-width:840px){.testi-grid{grid-template-columns:1fr;}}
+
+  /* CTA band */
+  .cta-band{
+    background:var(--amber-tint); border-radius:18px; padding:52px 48px;
+    display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;
+  }
+  .cta-band h2{font-size:26px; font-weight:700; color:var(--navy); max-width:440px;}
+  .cta-band p{font-size:14px; color:var(--sub); margin-top:8px; max-width:420px;}
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid var(--line); padding:20px 0;}
+  .faq-q{display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-size:15px; font-weight:600;}
+  .faq-a{font-size:14px; color:var(--sub); max-height:0; overflow:hidden; transition:max-height .25s ease; line-height:1.65;}
+  .faq-item.open .faq-a{max-height:200px; margin-top:12px;}
+  .faq-q .chev{transition:transform .2s; color:var(--muted);}
+  .faq-item.open .faq-q .chev{transform:rotate(45deg);}
+
+  /* Tech stack */
+  .stack-strip{display:flex; flex-wrap:wrap; gap:10px;}
+  .stack-chip{
+    border:1px solid var(--line); border-radius:20px; padding:8px 16px; font-size:13px;
+    color:var(--sub); font-weight:500; background:#fff;
+  }
+
+  /* Industries */
+  .ind-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden;}
+  .ind-card{background:#fff; padding:24px 18px; text-align:center;}
+  .ind-card .ico{
+    width:36px; height:36px; margin:0 auto 12px; border-radius:9px; background:var(--amber-tint);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .ind-card .ico svg{width:17px; height:17px; color:var(--amber-deep);}
+  .ind-card span{font-size:13.5px; font-weight:600; color:var(--ink);}
+  @media (max-width:840px){.ind-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* Pricing */
+  .price-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .price-card{border:1px solid var(--line); border-radius:14px; padding:28px 24px; background:#fff;}
+  .price-card.featured{border:2px solid var(--amber); position:relative;}
+  .price-badge{
+    position:absolute; top:-12px; left:24px; background:var(--amber); color:#3A2A08;
+    font-size:11px; font-weight:700; padding:4px 12px; border-radius:20px;
+  }
+  .price-card h3{font-size:17px; font-weight:600; margin-bottom:10px;}
+  .price-card p{font-size:13.5px; color:var(--sub); margin-bottom:20px; line-height:1.6; min-height:64px;}
+  .price-list{list-style:none; display:flex; flex-direction:column; gap:10px;}
+  .price-list li{font-size:13px; color:var(--ink); display:flex; align-items:center; gap:8px;}
+  .price-list li svg{width:14px; height:14px; color:var(--amber-deep); flex-shrink:0;}
+  @media (max-width:840px){.price-grid{grid-template-columns:1fr;}}
+
+  /* Team */
+  .team-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  .team-card{border:1px solid var(--line); border-radius:14px; padding:22px 18px; background:#fff; text-align:center;}
+  .team-avatar{
+    width:56px; height:56px; border-radius:50%; margin:0 auto 14px; background:var(--navy); color:var(--amber);
+    display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:700;
+  }
+  .team-card h3{font-size:14.5px; font-weight:600; margin-bottom:5px;}
+  .team-card .role{font-size:12px; color:var(--muted);}
+  @media (max-width:840px){.team-grid{grid-template-columns:1fr 1fr;}}
+
+  /* Awards / press */
+  .award-strip{display:flex; justify-content:space-between; flex-wrap:wrap; gap:22px; align-items:center;}
+  .award-chip{display:flex; align-items:center; gap:10px; font-size:13.5px; color:var(--sub); font-weight:500;}
+  .award-chip .badge-circle{
+    width:38px; height:38px; border-radius:50%; background:var(--amber-tint); color:var(--amber-deep);
+    display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0;
+  }
+
+  /* Insights */
+  .insight-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .insight-card{border:1px solid var(--line); border-radius:14px; overflow:hidden; background:#fff;}
+  .insight-thumb{height:110px; background:linear-gradient(135deg,#F4E6C8,var(--amber-tint));}
+  .insight-body{padding:18px 18px 20px;}
+  .insight-cat{font-size:11.5px; color:var(--amber-deep); font-weight:600; margin-bottom:8px;}
+  .insight-body h3{font-size:14.5px; font-weight:600; line-height:1.4;}
+  @media (max-width:840px){.insight-grid{grid-template-columns:1fr;}}
+
+  footer{background:var(--navy); color:#B7BBD1; padding:60px 0 30px; margin-top:40px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:32px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,.1);}
+  .foot-brand{color:#fff; font-size:18px; font-weight:700;}
+  .foot-grid p{font-size:13.5px; margin-top:14px; line-height:1.6; max-width:260px;}
+  .foot-col h4{font-size:13px; color:#fff; font-weight:600; margin-bottom:14px;}
+  .foot-col a{display:block; font-size:13.5px; margin-bottom:10px; color:#AEB2C6;}
+  .foot-col a:hover{color:#fff;}
+  .foot-bottom{display:flex; justify-content:space-between; padding-top:22px; font-size:12.5px; color:#8990AC; flex-wrap:wrap; gap:10px;}
+  @media (max-width:840px){.foot-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.hero-grid{grid-template-columns:1fr;} .hero h1{font-size:34px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand"><span class="brand-mark">E</span>Eaquirs Tech</div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#about">Why us</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a class="btn btn-primary" href="#contact">Book a call</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">AI-native software engineering</div>
+      <h1>We build products <span class="accent">faster</span>, powered by AI-native engineering</h1>
+      <p>Eaquirs Tech designs, builds, and scales web platforms, mobile apps, and AI systems for founders and enterprise teams — with senior engineers and AI-assisted workflows working side by side.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">Book a free call</a>
+        <a class="btn btn-ghost" href="#work">See our work</a>
+      </div>
+      <div class="trust-row">
+        <span>★★★★★ <b>4.9</b> average client rating</span>
+        <span><b>80+</b> products shipped</span>
+        <span><b>12</b> countries served</span>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-stat">
+        <span class="label">Average delivery speed-up</span>
+        <span class="value"><span class="accent">2.4×</span> faster</span>
+      </div>
+      <div class="panel-stat">
+        <span class="label">Engineering cost reduction</span>
+        <span class="value">up to <span class="accent">45%</span></span>
+      </div>
+      <div class="panel-stat">
+        <span class="label">Client retention rate</span>
+        <span class="value">93%</span>
+      </div>
+      <div class="panel-stat">
+        <span class="label">Active engagements</span>
+        <span class="value">24 teams</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="logos-strip">
+  <div class="wrap logos-row">
+    <span>Trusted by teams at</span>
+    <span class="logo-chip">Northline</span>
+    <span class="logo-chip">Vantra</span>
+    <span class="logo-chip">Kesto</span>
+    <span class="logo-chip">Rovera</span>
+    <span class="logo-chip">Fieldpost</span>
+    <span class="logo-chip">Ampli</span>
+  </div>
+</div>
+
+<section style="padding:56px 0 0;">
+  <div class="wrap">
+    <div class="eyebrow">Our stack</div>
+    <div class="stack-strip">
+      <span class="stack-chip">React</span>
+      <span class="stack-chip">Next.js</span>
+      <span class="stack-chip">Node.js</span>
+      <span class="stack-chip">NestJS</span>
+      <span class="stack-chip">Python</span>
+      <span class="stack-chip">PostgreSQL</span>
+      <span class="stack-chip">AWS</span>
+      <span class="stack-chip">Azure</span>
+      <span class="stack-chip">Docker</span>
+      <span class="stack-chip">LangChain</span>
+      <span class="stack-chip">Flutter</span>
+      <span class="stack-chip">React Native</span>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">What we do</div>
+      <h2>One partner for the full product lifecycle</h2>
+      <p>From first prototype to scaled platform, our teams cover strategy, design, engineering, and AI — so you're not stitching together five different vendors.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-num">01</div>
+        <h3>Product engineering</h3>
+        <p>Full-stack web and mobile development, custom software, and DevOps — built on modern, maintainable architecture.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">02</div>
+        <h3>AI and automation</h3>
+        <p>Custom AI models, agents, and workflow automation that plug into your existing tools and data.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">03</div>
+        <h3>Product design</h3>
+        <p>UX research, UI design, and design systems that make complex products feel simple to use.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">04</div>
+        <h3>Quality and DevOps</h3>
+        <p>Automated testing, CI/CD pipelines, and cloud infrastructure that keep releases fast and stable.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">05</div>
+        <h3>Staff augmentation</h3>
+        <p>Embed senior engineers, designers, or full pods directly into your team, on your timeline.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">06</div>
+        <h3>Digital transformation</h3>
+        <p>Legacy modernization, replatforming, and workflow digitization for growing operations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="process-wrap">
+      <div class="sec-head">
+        <div class="eyebrow" style="color:var(--amber)">How we work</div>
+        <h2>A four-step path from idea to scaled product</h2>
+        <p>Every engagement follows the same disciplined process, whether it's a two-week sprint or a year-long partnership.</p>
+      </div>
+      <div class="proc-grid">
+        <div class="proc-step">
+          <div class="num">01</div>
+          <h3>Define</h3>
+          <p>We align on goals, scope, and success metrics before a single line of code is written.</p>
+        </div>
+        <div class="proc-step">
+          <div class="num">02</div>
+          <h3>Design</h3>
+          <p>Wireframes and prototypes get validated with real users early, before engineering starts.</p>
+        </div>
+        <div class="proc-step">
+          <div class="num">03</div>
+          <h3>Build</h3>
+          <p>Senior engineers ship in short, reviewable cycles with QA integrated throughout.</p>
+        </div>
+        <div class="proc-step">
+          <div class="num">04</div>
+          <h3>Scale</h3>
+          <p>Post-launch, we monitor, iterate, and optimize based on real usage data.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Industries</div>
+      <h2>Built for the demands of your industry</h2>
+      <p>Every sector has different constraints — compliance, scale, latency. We adapt delivery patterns to fit each one.</p>
+    </div>
+    <div class="ind-grid">
+      <div class="ind-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c0 3.9-3.1 7-7 7s-7-3.1-7-7c0-4 7-11 7-11s7 7 7 11z"/></svg></div><span>Healthcare</span></div>
+      <div class="ind-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/><path d="M2 3h3l2.4 12.5a2 2 0 002 1.5h8.2a2 2 0 002-1.6L21 8H6"/></svg></div><span>E-commerce</span></div>
+      <div class="ind-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div><span>Real estate</span></div>
+      <div class="ind-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></div><span>Logistics</span></div>
+      <div class="ind-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div><span>Fintech</span></div>
+      <div class="ind-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5V5a2 2 0 012-2h11.5A2.5 2.5 0 0120 5.5V21H6a2 2 0 01-2-2z"/></svg></div><span>Education</span></div>
+      <div class="ind-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4.5v6c0 5-3.6 8.6-9 9.5-5.4-.9-9-4.5-9-9.5v-6L12 2z"/></svg></div><span>Government</span></div>
+      <div class="ind-card"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9z"/></svg></div><span>SaaS</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Selected work</div>
+      <h2>Products we've shipped recently</h2>
+      <p>A few of the platforms our teams have taken from concept to production.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="work-thumb"><span class="tag">Logistics</span></div>
+        <div class="work-body">
+          <h3>Fleet operations dashboard</h3>
+          <p>Real-time routing and dispatch platform for a mid-size logistics operator.</p>
+          <div class="work-metrics"><span>38% faster dispatch</span><span>99.9% uptime</span></div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb"><span class="tag">Fintech</span></div>
+        <div class="work-body">
+          <h3>Embedded payments platform</h3>
+          <p>API-first payments layer with fraud detection built on custom ML models.</p>
+          <div class="work-metrics"><span>2.1M+ transactions</span><span>4 markets live</span></div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb"><span class="tag">Healthcare</span></div>
+        <div class="work-body">
+          <h3>Patient intake automation</h3>
+          <p>AI-assisted intake and scheduling system deployed across a regional clinic network.</p>
+          <div class="work-metrics"><span>52% less admin time</span><span>30+ clinics</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Why Eaquirs Tech</div>
+      <h2>What clients actually get working with us</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 6.5L21 11l-6.6 2.5L12 20l-2.4-6.5L3 11l6.6-2.5z"/></svg></div>
+        <h3>Senior-only teams</h3>
+        <p>No junior handoffs. You work directly with engineers and designers who own outcomes.</p>
+      </div>
+      <div class="why-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+        <h3>AI-assisted delivery</h3>
+        <p>AI tooling across design, coding, and testing means fewer cycles wasted on repetitive work.</p>
+      </div>
+      <div class="why-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></div>
+        <h3>Transparent process</h3>
+        <p>Weekly demos, clear milestones, and a shared roadmap — no surprises at delivery.</p>
+      </div>
+      <div class="why-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Flexible engagement</h3>
+        <p>Fixed-price, hourly, or dedicated-team models built around your budget and timeline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Pricing</div>
+      <h2>Simple, flexible engagement models</h2>
+      <p>Choose the model that fits your project's shape — no hidden fees, no surprise scope changes.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <h3>Fixed cost</h3>
+        <p>Best for a clearly defined project where you want one agreed price and timeline from day one.</p>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Fixed scope and price</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Milestone-based delivery</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Best for MVPs</li>
+        </ul>
+      </div>
+      <div class="price-card featured">
+        <span class="price-badge">Most popular</span>
+        <h3>Dedicated team</h3>
+        <p>Best for long-term growth where you need a consistent team handling design, engineering, and QA.</p>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Dedicated pod of engineers</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Monthly retainer</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Scale up or down anytime</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <h3>Hourly</h3>
+        <p>Best for evolving requirements where you need ongoing support and pay only for hours used.</p>
+        <ul class="price-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Pay-as-you-go hours</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Weekly time reports</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>No long-term lock-in</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Our team</div>
+      <h2>Meet a few of the people behind delivery</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-avatar">AS</div>
+        <h3>Ayesha Siddiqui</h3>
+        <div class="role">CEO, Product Strategy</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">MT</div>
+        <h3>Mustafa Tariq</h3>
+        <div class="role">Solutions Architect</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">HK</div>
+        <h3>Hina Khalid</h3>
+        <div class="role">Head of Design</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">ZR</div>
+        <h3>Zain Raza</h3>
+        <div class="role">AI & Automation Lead</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Client feedback</div>
+      <h2>What teams say after working with us</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p>"Eaquirs took our idea from a whiteboard sketch to a live product in under ten weeks. Communication was constant and the quality never dropped."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">RM</div>
+          <div><div class="testi-name">Rana Malik</div><div class="testi-role">Founder, Northline</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p>"They rebuilt our legacy platform without a single day of downtime for our customers. That alone earned our trust for the long term."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">SV</div>
+          <div><div class="testi-name">Sofia Vance</div><div class="testi-role">COO, Rovera</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p>"Their AI team plugged directly into our data stack and had a working recommendation model in production within a month."</p>
+        <div class="testi-person">
+          <div class="testi-avatar">DK</div>
+          <div><div class="testi-name">Daniyal Khan</div><div class="testi-role">CTO, Kesto</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:56px 0;">
+  <div class="wrap">
+    <div class="award-strip">
+      <div class="award-chip"><span class="badge-circle">4.9</span>Clutch rating</div>
+      <div class="award-chip"><span class="badge-circle">5.0</span>GoodFirms rating</div>
+      <div class="award-chip"><span class="badge-circle">TR</span>Top Rated on Upwork</div>
+      <div class="award-chip"><span class="badge-circle">'26</span>Rising AI Partner Award</div>
+      <div class="award-chip"><span class="badge-circle">28+</span>Industries served</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Insights</div>
+      <h2>Recent thinking from our team</h2>
+    </div>
+    <div class="insight-grid">
+      <div class="insight-card">
+        <div class="insight-thumb"></div>
+        <div class="insight-body">
+          <div class="insight-cat">Artificial intelligence</div>
+          <h3>Getting your data ready before you build with AI</h3>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-thumb"></div>
+        <div class="insight-body">
+          <div class="insight-cat">Engineering</div>
+          <h3>When to modernize a legacy platform instead of rebuilding</h3>
+        </div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-thumb"></div>
+        <div class="insight-body">
+          <div class="insight-cat">Product</div>
+          <h3>A founder's checklist before hiring a dev partner</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h2>Have a product in mind? Let's scope it together.</h2>
+        <p>Book a free 30-minute call — we'll talk through your idea and suggest a realistic path to build it.</p>
+      </div>
+      <a class="btn btn-primary" href="#contact">Book a free call</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="max-width:760px;">
+    <div class="sec-head">
+      <div class="eyebrow">FAQs</div>
+      <h2>Common questions</h2>
+    </div>
+    <div id="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q">What does Eaquirs Tech actually build? <span class="chev">+</span></div>
+        <div class="faq-a">Web and mobile applications, custom software, and AI-powered systems — from early MVPs to platforms handling millions of users.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you work with early-stage startups? <span class="chev">+</span></div>
+        <div class="faq-a">Yes — a large share of our work is helping founders go from an idea to a working product they can put in front of investors or users.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you improve an existing product instead of building new? <span class="chev">+</span></div>
+        <div class="faq-a">Absolutely. Modernizing legacy systems, improving performance, and adding AI features to existing products is a regular part of our work.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What happens after I book a call? <span class="chev">+</span></div>
+        <div class="faq-a">We'll ask about your goals, timeline, and constraints, then follow up with a recommended scope, team structure, and rough estimate.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta-band" style="background:var(--navy);">
+      <div>
+        <h2 style="color:#fff;">Let's talk about your project</h2>
+        <p style="color:#B7BBD1;">Tell us what you're building — we'll take it from there. No obligation, just a straight conversation.</p>
+      </div>
+      <a class="btn" style="background:var(--amber); color:#3A2A08;" href="#">Schedule a discovery call</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Eaquirs Tech</div>
+        <p>An AI-native software engineering partner helping founders and enterprise teams design, build, and scale digital products.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <a href="#">Product engineering</a>
+        <a href="#">AI and automation</a>
+        <a href="#">Product design</a>
+        <a href="#">Staff augmentation</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="#">About us</a>
+        <a href="#">Careers</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h4>Get in touch</h4>
+        <a href="#">hello@eaquirstech.com</a>
+        <a href="#">Book a call</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Eaquirs Tech. All rights reserved.</span>
+      <span>Privacy · Terms</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item = q.parentElement;
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>

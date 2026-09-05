@@ -1,0 +1,62 @@
+import { cn } from '@/lib/utils';
+
+/**
+ * Brand mark — a vector interpretation of the Eaquirs Tech triangular knot,
+ * so the site ships complete with no missing-asset flash.
+ *
+ * To swap in the official artwork: drop `logo-mark.svg` into /public/brand and
+ * replace the <svg> body below with its contents (keep the viewBox + className).
+ */
+export function LogoMark({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 48 44"
+      fill="none"
+      aria-hidden="true"
+      focusable="false"
+      className={cn('shrink-0', className)}
+    >
+      {/* Outer triangular ribbon */}
+      <path
+        d="M24 3.5 44.5 39H3.5L24 3.5Z"
+        stroke="#F2A93B"
+        strokeWidth="5.5"
+        strokeLinejoin="round"
+      />
+      {/* Inner knot — three rounded strokes reading as the interlocked mark */}
+      <path
+        d="M18 30.5v-8.2a4.2 4.2 0 0 1 8.4 0v8.2"
+        stroke="#FFFFFF"
+        strokeWidth="3.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M30.6 30.5V22"
+        stroke="#FFFFFF"
+        strokeWidth="3.2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export default function Logo({
+  className,
+  showWordmark = true,
+}: {
+  className?: string;
+  showWordmark?: boolean;
+}) {
+  return (
+    <span className={cn('inline-flex items-center gap-2.5', className)}>
+      <LogoMark className="h-9 w-auto md:h-10" />
+      {showWordmark && (
+        <span className="text-[1.05rem] font-bold leading-none tracking-tight md:text-[1.15rem]">
+          <span className="text-white">EAQUIRS</span>{' '}
+          <span className="text-amber">TECH</span>
+        </span>
+      )}
+    </span>
+  );
+}
