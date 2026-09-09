@@ -216,20 +216,6 @@
 
 .hero-device { animation: device-float 8s ease-in-out infinite; }
 
-/* Content CTAs are taller for emphasis; the header CTA keeps its compact navigation scale. */
-#main :is(a, button).bg-amber {
-  min-height: 5rem;
-}
-
-@media (min-width: 768px) {
-  #main :is(a, button).bg-amber {
-    width: 250px;
-    min-width: 250px;
-    height: 120px;
-    min-height: 120px;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

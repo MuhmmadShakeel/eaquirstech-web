@@ -113,6 +113,7 @@ export default function Header() {
             className="mega-panel"
             onMouseEnter={cancelClose}
             onMouseLeave={startClose}
+            onClickCapture={() => setActiveMenu(null)}
           >
             {navItems.map((item) => {
               if (item.label !== activeMenu) return null;

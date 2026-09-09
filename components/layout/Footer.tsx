@@ -36,7 +36,7 @@ const cols = [
 
 export default function Footer() {
   return (
-    <footer className="bg-ink text-white">
+    <footer className="bg-[#000000] text-white">
       {/* Main footer body */}
       <div className="container-site py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">

@@ -80,12 +80,12 @@ export default async function IndividualServicePage({ params }: { params: Promis
   return <>
     <section className="relative isolate flex min-h-[100svh] items-start overflow-hidden bg-[#000] pt-[var(--header-h)] text-white">
       <div aria-hidden className="absolute inset-0 bg-grid-dark opacity-60" />
-      <div className="container-site relative grid w-full items-center gap-8 py-6 sm:py-8 lg:grid-cols-[1.05fr_.95fr] lg:gap-12">
+      <div className="container-site relative grid w-full items-center gap-8 py-3 sm:py-5 lg:grid-cols-[1.05fr_.95fr] lg:gap-12">
         <div className="max-w-2xl">
           <p className="text-micro font-bold uppercase tracking-label text-amber">{page.category}</p>
           <h1 className="mt-5 text-h1 font-bold leading-[1.04] text-white md:text-display">{page.title}</h1>
           <p className="mt-6 text-body-lg text-on-dark-muted">{page.summary}</p>
-          <Button href="/contact" size="lg" arrow className="mt-9 h-15 w-full max-w-[25rem] bg-amber px-10 text-base text-white hover:bg-amber-bright">Discuss your project</Button>
+          <Button href="/contact" size="lg" arrow className="mt-7 min-w-[13rem] bg-amber px-8 text-base text-white hover:bg-amber-bright">Discuss your project</Button>
         </div>
         <div className="relative mx-auto w-full max-w-xl border border-white/15 bg-white/[0.03] p-3 sm:p-4">
           <div aria-hidden className="absolute inset-3 border border-amber/25" />
@@ -93,14 +93,14 @@ export default async function IndividualServicePage({ params }: { params: Promis
         </div>
       </div>
     </section>
-    <section className="flex min-h-[100svh] items-center bg-white py-16 sm:py-20">
+    <section className="bg-white py-10 sm:py-14">
       <div className="container-site w-full">
         <div className="max-w-2xl"><p className="text-micro font-bold uppercase tracking-label text-amber">What we deliver</p><h2 className="mt-3 text-h2 font-bold text-ink">A focused service, built around your operation.</h2></div>
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{page.deliverables.map((item, index) => <article key={item} className="min-h-40 rounded-xl border border-line bg-white p-5"><span className="text-micro font-bold text-amber">0{index + 1}</span><h3 className="mt-7 text-lg font-semibold text-ink">{item}</h3></article>)}</div>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2">{page.deliverables.map((item, index) => <article key={item} className="min-h-44 rounded-2xl border border-line bg-white p-6 shadow-card transition-transform duration-base hover:-translate-y-1 hover:border-amber/50"><span className="text-micro font-bold text-amber">0{index + 1}</span><h3 className="mt-7 text-[1.15rem] font-semibold text-ink">{item}</h3><p className="mt-2 text-body-sm leading-relaxed text-body">A focused workstream with clear ownership, measurable progress, and a practical handover.</p></article>)}</div>
       </div>
     </section>
 
-    <section className="flex min-h-[100svh] items-center bg-[#f7f9fc] py-16 sm:py-20">
+    <section className="bg-[#f7f9fc] py-10 sm:py-14">
       <div className="container-site w-full">
         <div className="mx-auto max-w-3xl text-center"><p className="text-micro font-bold uppercase tracking-label text-amber">Engagement outcomes</p><h2 className="mt-3 text-h2 font-bold text-ink">Built to create a useful result, not activity.</h2><p className="mt-5 text-body leading-relaxed text-body">{page.title} work is shaped around the operational result your team needs to see—not a generic package of hours.</p></div>
         <div className="mx-auto mt-10 grid max-w-7xl items-center gap-5 lg:grid-cols-[1fr_0.82fr_1fr] lg:gap-8">
@@ -111,7 +111,7 @@ export default async function IndividualServicePage({ params }: { params: Promis
       </div>
     </section>
 
-    <section className="flex min-h-[100svh] items-center bg-[#000] py-16 text-white sm:py-20">
+    <section className="bg-[#000] py-10 text-white sm:py-14">
       <div className="container-site w-full"><div className="mx-auto max-w-3xl text-center"><p className="text-micro font-bold uppercase tracking-label text-amber">How we work</p><h2 className="mt-3 text-h2 font-bold text-white">A clear path from first conversation to useful software.</h2><p className="mt-5 text-body text-white/65">The exact scope changes with the work. The delivery rhythm does not: decisions are visible, progress is tangible, and risks are surfaced early.</p></div>
         <div className="mt-10 grid gap-4 md:grid-cols-3">{roadmap.map((step, index) => <article key={step.title} className="relative rounded-xl border border-white/15 bg-white/[0.04] p-6"><span className="text-micro font-bold text-amber">0{index + 1}</span><h3 className="mt-8 text-[1.2rem] font-semibold text-white">{step.title}</h3><p className="mt-3 text-body-sm leading-relaxed text-white/65">{step.description}</p></article>)}</div>
       </div>

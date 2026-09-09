@@ -27,6 +27,19 @@ function FeatureList({ items, className }: { items: string[]; className?: string
   );
 }
 
+function IndustryVisual({ src, side = 'right', dark = false, full = false }: { src: string; side?: 'left' | 'right'; dark?: boolean; full?: boolean }) {
+  const placement = full ? 'inset-0' : side === 'left' ? 'inset-y-0 left-0 w-[52%]' : 'inset-y-0 right-0 w-[52%]';
+  const overlay = dark
+    ? side === 'left' ? 'bg-gradient-to-r from-black/20 via-black/65 to-black' : 'bg-gradient-to-r from-black via-black/65 to-black/20'
+    : side === 'left' ? 'bg-gradient-to-r from-white/15 via-white/75 to-white' : 'bg-gradient-to-r from-white via-white/75 to-white/15';
+  return (
+    <div aria-hidden className={`pointer-events-none absolute ${placement} z-0 hidden overflow-hidden lg:block`}>
+      <img src={src} alt="" className={`h-full w-full object-cover ${dark ? 'opacity-25' : 'opacity-[0.16]'}`} />
+      <div className={`absolute inset-0 ${overlay}`} />
+    </div>
+  );
+}
+
 const industryNav = [
   ['Real Estate', '#real-estate'],
   ['Healthcare', '#healthcare'],
@@ -98,8 +111,9 @@ export default function IndustriesPage() {
           01 Â· REAL ESTATE
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <AnchorSection id="real-estate">
-        <div className="section-y bg-white min-h-[85vh] flex flex-col justify-center">
-          <div className="container-site">
+        <div className="section-y relative isolate flex min-h-[85vh] flex-col justify-center overflow-hidden bg-white">
+          <IndustryVisual src="/mockups/desktop-dashboard.png" side="right" />
+          <div className="container-site relative z-10">
             <div className="grid items-start gap-14 lg:grid-cols-[1fr_1.4fr]">
               <div className="lg:sticky lg:top-32">
                 <p className="text-micro font-bold uppercase tracking-label text-amber mb-3">01 Â· Real Estate</p>
@@ -117,13 +131,6 @@ export default function IndustriesPage() {
                     'Legal document generation (NOC, agreements)',
                     'Financial reporting and reconciliation',
                   ]} />
-                </div>
-                <div className="mt-8 rounded-xl border border-amber/30 bg-amber-wash p-5">
-                  <p className="text-caption font-bold uppercase tracking-label text-amber-deep mb-2">Live platform</p>
-                  <p className="text-body-sm text-body">
-                    <strong className="text-ink">Turner10</strong> â€” real estate ERP built on Next.js + NestJS + PostgreSQL,
-                    managing property sales, agent payroll, and project pipelines for a major developer.
-                  </p>
                 </div>
               </div>
 
@@ -149,8 +156,9 @@ export default function IndustriesPage() {
           02 Â· HEALTHCARE
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <AnchorSection id="healthcare">
-        <div className="section-y section-light min-h-[85vh] flex flex-col justify-center">
-          <div className="container-site">
+        <div className="section-y section-light relative isolate flex min-h-[85vh] flex-col justify-center overflow-hidden">
+          <IndustryVisual src="/mockups/mobile-login.png" side="left" />
+          <div className="container-site relative z-10">
             <div className="grid items-start gap-14 lg:grid-cols-[1.4fr_1fr]">
               <div className="grid gap-4 sm:grid-cols-2">
                 {[
@@ -185,14 +193,6 @@ export default function IndustriesPage() {
                   'Parallel running until staff are confident',
                   'Complete staff training included',
                 ]} />
-                <div className="mt-8 rounded-xl border border-amber/30 bg-amber-wash p-5">
-                  <p className="text-caption font-bold uppercase tracking-label text-amber-deep mb-2">Proven in production</p>
-                  <p className="text-body-sm">
-                    <strong className="text-ink">EHMS</strong> â€” replaced a hospital management system abandoned by its vendor.
-                    New system live in 6 weeks. Zero disruption to patient care during the transition.
-                    95% improvement in operational performance post-deployment.
-                  </p>
-                </div>
               </div>
             </div>
           </div>
@@ -203,15 +203,16 @@ export default function IndustriesPage() {
           03 Â· MANUFACTURING & JEWELLERY
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <AnchorSection id="manufacturing">
-        <div className="section-y bg-white min-h-[85vh] flex flex-col justify-center">
-          <div className="container-site">
+        <div className="section-y relative isolate flex min-h-[85vh] flex-col justify-center overflow-hidden bg-white">
+          <IndustryVisual src="/mockups/systems-architecture.png" side="right" />
+          <div className="container-site relative z-10">
             <SectionHeading
               eyebrow="03 Â· Manufacturing & Jewellery"
               title="Precision inventory for precision trades"
               intro="Manufacturing and jewellery ERPs require exact tracking of weights, purities, batch compositions, and consignment chains. Generic inventory tools are not built for this."
             />
-            <div className="mt-14 grid gap-6 lg:grid-cols-2">
-              <div className="flex flex-col gap-5">
+            <div className="mt-10">
+              <div className="grid gap-5 sm:grid-cols-2">
                 {[
                   { title: 'Weight-aware stock management', desc: 'Inventory tracked by gram weight, not just unit count. Purity percentages, alloy compositions, and hallmarking data stored per item.' },
                   { title: 'Consignment & trade', desc: 'Outward consignment tracking, return reconciliation, and consignee ledgers â€” audited at both ends of the chain.' },
@@ -224,33 +225,6 @@ export default function IndustriesPage() {
                   </div>
                 ))}
               </div>
-              <div className="rounded-2xl border border-amber/30 bg-amber-wash p-8 md:p-10 flex flex-col justify-between">
-                <div>
-                  <p className="text-caption font-bold uppercase tracking-label text-amber-deep mb-3">Live ERP</p>
-                  <h3 className="text-[1.3rem] font-semibold text-ink">Ophir â€” Jewellery ERP</h3>
-                  <p className="mt-3 text-body leading-relaxed">
-                    Multi-branch jewellery ERP built on Next.js, NestJS, PostgreSQL, and Redis.
-                    Handles stock by weight and purity, consignment to trade partners, workshop job card management,
-                    and real-time financial reporting across branches.
-                  </p>
-                  <div className="mt-6 grid grid-cols-2 gap-4">
-                    {[
-                      { value: 'Multi-branch', label: 'Stock visibility' },
-                      { value: 'Real-time', label: 'Purity ledger' },
-                      { value: 'Automated', label: 'Consignment reconciliation' },
-                      { value: 'Redis', label: 'Performance caching' },
-                    ].map((m) => (
-                      <div key={m.label}>
-                        <p className="text-[1.1rem] font-semibold text-amber-deep">{m.value}</p>
-                        <p className="text-micro text-body">{m.label}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <Button href="/work" variant="outline" size="md" className="mt-8 self-start" arrow>
-                  View Ophir
-                </Button>
-              </div>
             </div>
           </div>
         </div>
@@ -260,9 +234,10 @@ export default function IndustriesPage() {
           04 Â· HR & HIRING
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <AnchorSection id="hr">
-        <div className="section-y section-dark relative overflow-hidden">
+        <div className="section-y section-dark relative isolate overflow-hidden">
           <div aria-hidden className="glow-amber-dark pointer-events-none absolute inset-0" />
-          <div className="container-site relative">
+          <IndustryVisual src="/mockups/ai-orchestration.png" side="left" dark />
+          <div className="container-site relative z-10">
             <div className="grid items-start gap-14 lg:grid-cols-[1fr_1.4fr]">
               <div className="lg:sticky lg:top-32">
                 <p className="text-micro font-bold uppercase tracking-label text-amber mb-3">04 Â· HR & Hiring</p>
@@ -287,13 +262,6 @@ export default function IndustriesPage() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-8 rounded-xl border border-dark-border bg-dark-card p-5">
-                  <p className="text-caption font-bold uppercase tracking-label text-amber mb-2">Live platform</p>
-                  <p className="text-body-sm text-on-dark-muted">
-                    <strong className="text-white">OpenInterview.me</strong> â€” AI-powered structured hiring platform,
-                    built on LangChain + OpenAI + NeonDB + Stripe. Serving real hiring workflows across multiple organizations.
-                  </p>
-                </div>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
@@ -318,8 +286,9 @@ export default function IndustriesPage() {
           05 Â· FINTECH
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <AnchorSection id="fintech">
-        <div className="section-y bg-white min-h-[85vh] flex flex-col justify-center">
-          <div className="container-site">
+        <div className="section-y relative isolate flex min-h-[85vh] flex-col justify-center overflow-hidden bg-white">
+          <IndustryVisual src="/mockups/watch-platform.png" side="left" />
+          <div className="container-site relative z-10">
             <SectionHeading
               eyebrow="05 Â· Fintech"
               title="Ledger-accurate. Audit-ready. Regulation-aware."
@@ -353,8 +322,9 @@ export default function IndustriesPage() {
           06 Â· LOGISTICS
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <AnchorSection id="logistics">
-        <div className="section-y section-light min-h-[85vh] flex flex-col justify-center">
-          <div className="container-site">
+        <div className="section-y section-light relative isolate flex min-h-[85vh] flex-col justify-center overflow-hidden">
+          <IndustryVisual src="/mockups/delivery-system.png" side="right" />
+          <div className="container-site relative z-10">
             <div className="grid items-start gap-14 lg:grid-cols-[1fr_1.4fr]">
               <div className="lg:sticky lg:top-32">
                 <p className="text-micro font-bold uppercase tracking-label text-amber mb-3">06 Â· Logistics</p>
@@ -392,44 +362,15 @@ export default function IndustriesPage() {
       </AnchorSection>
 
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-          07 Â· SAAS
-      â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
-      <AnchorSection id="saas">
-        <div className="section-y bg-white min-h-[85vh] flex flex-col justify-center">
-          <div className="container-site">
-            <SectionHeading
-              eyebrow="07 Â· SaaS"
-              title="Multi-tenant platforms that scale from 10 to 10,000 customers"
-              intro="SaaS architecture is different from standard web development â€” tenant isolation, subscription metering, onboarding flows, and usage analytics need to be right from the beginning, not bolted on later."
-            />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {[
-                { title: 'Multi-tenant architecture', desc: 'Row-level security, schema-per-tenant, or database-per-tenant â€” we recommend the right isolation model for your compliance requirements and expected customer count.' },
-                { title: 'Subscription billing', desc: 'Stripe integration for free trials, monthly/annual plans, usage-based billing, upgrade/downgrade flows, and dunning â€” including tax calculation and invoice generation.' },
-                { title: 'Onboarding & activation', desc: 'Signup flow, workspace setup, sample data, in-app guidance, and email drip sequences â€” designed to get customers to their first value moment as fast as possible.' },
-                { title: 'Usage analytics', desc: 'Feature adoption tracking, engagement scoring, churn prediction signals, and cohort analysis â€” so you know who is at risk before they cancel.' },
-                { title: 'Admin & ops tooling', desc: 'Internal tooling for your support and operations team â€” customer impersonation, feature flags, usage override, and manual billing adjustments.' },
-                { title: 'API & webhooks', desc: 'Customer-facing APIs with authentication, rate limiting, API key management, and webhook delivery so your platform integrates with your customers\' existing tools.' },
-              ].map((card) => (
-                <div key={card.title} className="rounded-xl border border-line bg-white p-6 shadow-card transition-all duration-base hover:-translate-y-0.5 hover:shadow-card-hover">
-                  <h4 className="text-[1.05rem] font-semibold text-ink">{card.title}</h4>
-                  <p className="mt-2 text-body-sm leading-relaxed">{card.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </AnchorSection>
-
-      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-          08 Â· E-COMMERCE
+          07 Â· E-COMMERCE
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <AnchorSection id="ecommerce">
-        <div className="section-y section-dark relative overflow-hidden">
+        <div className="section-y section-dark relative isolate overflow-hidden">
           <div aria-hidden className="glow-amber-dark pointer-events-none absolute inset-0" />
-          <div className="container-site relative">
+          <IndustryVisual src="/mockups/mobile-receipt.png" side="right" dark />
+          <div className="container-site relative z-10">
             <SectionHeading
-              eyebrow="08 Â· E-commerce & Retail"
+              eyebrow="07 Â· E-commerce & Retail"
               title="Commerce systems built for your inventory reality"
               intro="Whether you sell physical goods from a warehouse or digital products from a CDN, we build the commerce infrastructure that handles your specific inventory model, fulfillment workflow, and customer experience."
               dark
@@ -451,23 +392,35 @@ export default function IndustriesPage() {
         </div>
       </AnchorSection>
 
-      {/* â”€â”€ CTA â”€â”€ */}
-      <section className="section-y bg-white min-h-[85vh] flex flex-col justify-center">
-        <div className="container-site text-center">
-          <h2 className="text-h2 font-bold text-ink">Building in a sector we haven't listed?</h2>
-          <p className="mt-5 text-body max-w-xl mx-auto">
-            Our engineering patterns transfer across domains. Tell us what you are working on â€” we will tell you honestly whether we are the right fit.
-          </p>
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Button href="/contact" size="lg" arrow>
-              Start a conversation
-            </Button>
-            <Button href="/services" variant="outline" size="lg">
-              See all services
-            </Button>
+      <AnchorSection id="saas">
+        <div className="section-y relative isolate flex min-h-[85vh] flex-col justify-center overflow-hidden bg-white">
+          <IndustryVisual src="/service-visuals/saas-platform.png" full />
+          <div className="container-site relative z-10">
+            <SectionHeading
+              eyebrow="08 Â· SaaS"
+              title={<span className="lg:whitespace-nowrap">Multi-tenant SaaS, built to scale.</span>}
+              intro="SaaS architecture is different from standard web development â€” tenant isolation, subscription metering, onboarding flows, and usage analytics need to be right from the beginning, not bolted on later."
+              className="lg:[&>h2]:max-w-none"
+            />
+            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                { title: 'Multi-tenant architecture', desc: 'Row-level security, schema-per-tenant, or database-per-tenant â€” we recommend the right isolation model for your compliance requirements and expected customer count.' },
+                { title: 'Subscription billing', desc: 'Stripe integration for free trials, monthly/annual plans, usage-based billing, upgrade/downgrade flows, and dunning â€” including tax calculation and invoice generation.' },
+                { title: 'Onboarding & activation', desc: 'Signup flow, workspace setup, sample data, in-app guidance, and email drip sequences â€” designed to get customers to their first value moment as fast as possible.' },
+                { title: 'Usage analytics', desc: 'Feature adoption tracking, engagement scoring, churn prediction signals, and cohort analysis â€” so you know who is at risk before they cancel.' },
+                { title: 'Admin & ops tooling', desc: 'Internal tooling for your support and operations team â€” customer impersonation, feature flags, usage override, and manual billing adjustments.' },
+                { title: 'API & webhooks', desc: 'Customer-facing APIs with authentication, rate limiting, API key management, and webhook delivery so your platform integrates with your customers\' existing tools.' },
+              ].map((card) => (
+                <div key={card.title} className="rounded-xl border border-line bg-white p-6 shadow-card transition-all duration-base hover:-translate-y-0.5 hover:shadow-card-hover">
+                  <h4 className="text-[1.05rem] font-semibold text-ink">{card.title}</h4>
+                  <p className="mt-2 text-body-sm leading-relaxed">{card.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </section>
+      </AnchorSection>
+
     </>
   );
 }
