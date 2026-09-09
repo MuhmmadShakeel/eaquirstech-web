@@ -43,20 +43,28 @@ export function LogoMark({ className }: { className?: string }) {
 
 export default function Logo({
   className,
+  imageClassName,
   showWordmark = true,
 }: {
   className?: string;
+  imageClassName?: string;
   showWordmark?: boolean;
 }) {
+  if (showWordmark) {
+    return (
+      <span className={cn('inline-flex items-center', className)}>
+        <img
+          src="/brand/eaquirs-tech-logo.webp"
+          alt="Eaquirs Tech"
+          className={cn('h-11 w-auto object-contain md:h-12', imageClassName)}
+        />
+      </span>
+    );
+  }
+
   return (
     <span className={cn('inline-flex items-center gap-2.5', className)}>
       <LogoMark className="h-9 w-auto md:h-10" />
-      {showWordmark && (
-        <span className="text-[1.05rem] font-bold leading-none tracking-tight md:text-[1.15rem]">
-          <span className="text-white">EAQUIRS</span>{' '}
-          <span className="text-amber">TECH</span>
-        </span>
-      )}
     </span>
   );
 }

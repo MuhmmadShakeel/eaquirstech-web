@@ -12,12 +12,10 @@ export default function FAQ() {
   return (
     <section className="section-y bg-white">
       <div className="container-site">
-        <SectionHeading
-          eyebrow="Questions"
-          title="Things people usually ask"
-        />
-
-        <div className="mt-14 mx-auto max-w-3xl divide-y divide-line">
+        <div className="grid gap-6 md:grid-cols-2 md:items-stretch lg:gap-10">
+          <div className="md:min-h-[34rem]">
+        <SectionHeading eyebrow="Questions" title="Things people usually ask" align="left" />
+        <div className="mt-7 divide-y divide-line">
           {faqs.map((faq, i) => (
             <div key={faq.question} className="py-5">
               <button
@@ -50,10 +48,13 @@ export default function FAQ() {
                   open === i ? 'max-h-96 opacity-100 pt-3' : 'max-h-0 opacity-0',
                 )}
               >
-                <p className="text-body-sm text-body leading-relaxed">{faq.answer}</p>
+                <p className="text-body-sm leading-relaxed text-amber-deep">{faq.answer}</p>
               </div>
             </div>
           ))}
+        </div>
+          </div>
+          <div className="hidden min-h-[34rem] items-center justify-center border-l border-line md:flex"><img src="/mockups/question-mark-black.png" alt="Question mark" className="w-full max-w-[19rem] object-contain" /></div>
         </div>
       </div>
     </section>

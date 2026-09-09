@@ -4,17 +4,15 @@ import { revealProps } from '@/lib/reveal';
 
 export default function Differentiators() {
   return (
-    <section className="relative isolate overflow-hidden section-dark">
-      <div aria-hidden className="glow-amber-dark pointer-events-none absolute inset-0" />
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-dark" />
+    <section className="relative isolate overflow-hidden section-dark py-14 lg:py-20">
 
-      <div className="container-site relative py-20 lg:py-28">
+      <div className="container-site relative">
         {/* Massive heading */}
-        <div className="grid items-end gap-10 lg:grid-cols-[1fr_360px]">
+        <div className="grid items-end gap-8 lg:grid-cols-[1fr_360px]">
           <div>
             <h2
               className="font-black uppercase leading-[0.88] tracking-tight text-white"
-              style={{ fontSize: 'clamp(2.8rem, 8vw, 8rem)' }}
+              style={{ fontSize: 'clamp(2.5rem, 5.5vw, 5.5rem)' }}
             >
               WHY
               <br />
@@ -35,7 +33,7 @@ export default function Differentiators() {
         </div>
 
         {/* Differentiator cards */}
-        <div className="mt-14 grid gap-5 border-t border-white/10 pt-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-4 border-t border-white/10 pt-7 sm:grid-cols-2 lg:grid-cols-4">
           {differentiators.map((d, i) => (
             <article
               key={d.title}

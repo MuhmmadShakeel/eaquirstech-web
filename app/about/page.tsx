@@ -37,6 +37,8 @@ export default function AboutPage() {
       <section className="section-dark relative overflow-hidden min-h-[90vh] flex items-center pt-36 pb-20">
         <div aria-hidden className="glow-amber-dark pointer-events-none absolute inset-0" />
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-dark opacity-50" />
+        <img src="/mockups/desktop-dashboard.png" alt="" aria-hidden="true" className="pointer-events-none absolute -bottom-12 -right-16 hidden w-[38rem] opacity-25 xl:block" />
+        <img src="/mockups/desktop-dashboard.png" alt="" aria-hidden="true" className="pointer-events-none absolute -bottom-12 -right-16 hidden w-[38rem] opacity-25 xl:block" />
         <div className="container-site relative w-full">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-micro font-bold uppercase tracking-label text-amber mb-4">About us</p>

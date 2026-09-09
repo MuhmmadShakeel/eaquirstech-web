@@ -20,9 +20,10 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero strip */}
-      <section className="section-dark relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+      <section className="section-dark relative overflow-hidden min-h-[65svh] flex items-center pt-32 pb-20 md:pt-40 md:pb-28">
         <div aria-hidden className="glow-amber-dark pointer-events-none absolute inset-0" />
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-dark opacity-50" />
+        <img src="/mockups/watch-platform.png" alt="" aria-hidden="true" className="pointer-events-none absolute -bottom-20 -right-20 hidden w-[30rem] opacity-35 lg:block" />
         <div className="container-site relative">
           <p className="text-micro font-bold uppercase tracking-label text-amber mb-4">Get in touch</p>
           <h1 className="text-h1 font-bold leading-tight text-white max-w-2xl">

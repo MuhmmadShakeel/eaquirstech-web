@@ -25,20 +25,20 @@ export default function Services() {
   return (
     <section id="services" className="bg-white">
       {/* ── "WHAT YOU GET WHEN" oversized heading ── */}
-      <div className="container-site pb-0 pt-20">
-        <div className="grid items-end gap-10 lg:grid-cols-[1fr_360px]">
+      <div className="relative isolate overflow-hidden bg-[#000000] py-12 text-white lg:py-16">
+      <img src="/mockups/hero-platform.png" alt="" aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 -z-10 w-[46rem] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.14] sm:w-[58rem]" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[#000000]/60" />
+      <div className="container-site relative">
+        <div className="mx-auto max-w-3xl text-center">
           {/* Left: giant text */}
           <div>
-            <h2
-              className="font-black uppercase leading-[0.88] tracking-tight text-ink"
-              style={{ fontSize: 'clamp(2.8rem, 8.5vw, 8.5rem)' }}
-            >
+            <h2 className="font-black uppercase leading-[0.92] tracking-tight text-white" style={{ fontSize: 'clamp(2.35rem, 4.8vw, 4.75rem)' }}>
               WHAT YOU
               <br />
               <span className="text-amber">GET WHEN</span>
             </h2>
             <p
-              className="mt-4 font-light uppercase tracking-widest text-muted"
+              className="mt-4 font-light uppercase tracking-widest text-white/60"
               style={{ fontSize: 'clamp(1.1rem, 2.8vw, 2.6rem)' }}
             >
               Senior engineers build it
@@ -46,23 +46,23 @@ export default function Services() {
           </div>
 
           {/* Right: description */}
-          <div className="pb-2">
-            <p className="text-body leading-relaxed text-gray-600">
+          <div className="mx-auto mt-5 max-w-xl">
+            <p className="text-body leading-relaxed text-white/70">
               We combine senior engineering expertise with AI tooling to deliver outcomes that
               traditional agencies can&apos;t match on timeline, cost, or scale.
             </p>
-            <Button href="/services" variant="outline" size="md" arrow className="mt-6">
+            <Button href="/services" variant="outline" size="md" arrow className="mt-6 border-amber/70 bg-transparent !text-amber hover:border-white/50 hover:!text-white">
               All services
             </Button>
           </div>
         </div>
 
         {/* ── 3 stat boxes ── */}
-        <div className="mt-12 grid gap-4 border-t border-line pt-10 sm:grid-cols-3">
+        <div className="mt-8 grid gap-4 border-t border-white/15 pt-7 sm:grid-cols-3">
           {quickStats.map((s) => (
             <div
               key={s.title}
-              className="rounded-xl border border-line bg-paper p-7 transition-all duration-base hover:border-amber/30 hover:shadow-card"
+              className="rounded-xl border border-white/15 bg-[#000000] p-5 transition-colors duration-base hover:border-amber/60"
             >
               <p
                 className="font-black leading-none text-amber"
@@ -70,17 +70,18 @@ export default function Services() {
               >
                 {s.value}
               </p>
-              <p className="mt-3 text-body-sm font-bold uppercase tracking-label text-ink">{s.title}</p>
-              <p className="mt-2 text-body-sm leading-relaxed text-body">{s.sub}</p>
+              <p className="mt-3 text-body-sm font-bold uppercase tracking-label text-white">{s.title}</p>
+              <p className="mt-2 text-body-sm leading-relaxed text-white/60">{s.sub}</p>
             </div>
           ))}
         </div>
       </div>
+      </div>
 
       {/* ── Service cards ── */}
-      <div className="mt-14 border-t border-line">
-        <div className="container-site py-16">
-          <p className="mb-10 text-micro font-bold uppercase tracking-label text-muted">
+      <div className="mt-8 border-t border-line">
+        <div className="container-site py-10 lg:py-12">
+          <p className="mb-6 text-micro font-bold uppercase tracking-label text-muted">
             04 · Scale &amp; Advisory
           </p>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -88,20 +89,20 @@ export default function Services() {
               <article
                 key={service.num}
                 {...revealProps(i)}
-                className="group relative flex flex-col rounded-xl border border-line bg-white p-7 shadow-card transition-all duration-base hover:-translate-y-1 hover:border-amber/40 hover:shadow-card-hover md:p-8"
+                className="group relative flex min-h-[23rem] flex-col rounded-xl border border-line bg-white p-5 text-center transition-all duration-base hover:-translate-y-1 hover:border-amber/50 md:p-6"
               >
                 {/* Top row */}
-                <div className="flex items-start justify-between gap-4">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-tint text-amber-deep transition-colors duration-base group-hover:bg-amber group-hover:text-white">
-                    <Icon name={service.icon as IconName} className="h-6 w-6" />
+                <div className="flex justify-center">
+                  <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber text-white transition-transform duration-base group-hover:scale-110">
+                    <Icon name={service.icon as IconName} className="h-8 w-8" strokeWidth={2.4} />
                   </span>
-                  <span className="text-micro font-light tabular-nums text-muted">{service.num}</span>
+                  <span className="absolute right-5 top-5 text-micro font-bold tabular-nums text-amber md:right-6 md:top-6">{service.num}</span>
                 </div>
 
                 <h3 className="mt-5 text-[1.2rem] font-semibold leading-snug text-ink">{service.title}</h3>
-                <p className="mt-2.5 text-body-sm text-body">{service.description}</p>
+                <p className="mt-2.5 text-body-sm leading-relaxed text-body">{service.description}</p>
 
-                <ul className="mt-6 flex flex-col gap-2 border-t border-line pt-5">
+                <ul className="mt-6 flex flex-col gap-2 border-t border-line pt-5 text-left">
                   {service.points.map((point) => (
                     <li key={point} className="flex items-start gap-2.5 text-body-sm text-body">
                       <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-amber" strokeWidth={2.2} />
@@ -113,7 +114,7 @@ export default function Services() {
             ))}
           </div>
 
-          <div data-reveal="hidden" className="mt-12 flex justify-center">
+          <div data-reveal="hidden" className="mt-8 flex justify-center">
             <Button href="/services" variant="outline" size="lg" arrow>
               Explore all services
             </Button>

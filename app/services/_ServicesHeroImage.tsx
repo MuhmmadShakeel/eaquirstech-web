@@ -6,7 +6,7 @@ export default function ServicesHeroImage() {
   return (
     <div className="relative select-none">
       <ImageWithFallback
-        src="/mockups/macbook-silver-front.png"
+        src="/mockups/hero-platform.png"
         alt="Eaquirs Tech — software platform on MacBook"
         className="w-full object-contain drop-shadow-2xl"
         loading="eager"

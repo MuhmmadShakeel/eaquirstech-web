@@ -13,7 +13,7 @@ export default function Process() {
           intro="Every engagement follows the same disciplined pattern — whether it's a six-week replacement or a year-long product build."
         />
 
-        <div className="relative mt-16">
+        <div className="relative mt-8">
           {/* Connector line (desktop) */}
           <div
             aria-hidden
@@ -25,9 +25,9 @@ export default function Process() {
               <article
                 key={step.num}
                 {...revealProps(i, 100)}
-                className="relative flex flex-col gap-5 rounded-xl border border-line bg-white p-7 shadow-card md:p-8"
+                className="relative flex flex-col gap-5 rounded-xl border border-line bg-white p-6 md:p-7"
               >
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber text-white text-body-lg font-semibold shadow-amber">
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber text-white text-body-lg font-semibold">
                   {step.num}
                 </span>
                 <div>

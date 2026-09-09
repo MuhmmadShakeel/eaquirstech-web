@@ -42,7 +42,7 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
           {/* Brand column */}
           <div>
-            <Logo className="text-white" />
+            <Logo imageClassName="h-16 md:h-20" />
             <p className="mt-5 max-w-xs text-body-sm text-white/60 leading-relaxed">
               AI-native software engineering from Lahore, Pakistan.
               We build production systems that handle real scale, real data, and real edge cases.

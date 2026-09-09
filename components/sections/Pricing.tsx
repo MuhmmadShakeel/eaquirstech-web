@@ -15,7 +15,7 @@ export default function Pricing() {
           intro="Choose the model that matches your project shape. We will recommend the one that fits, not the one that bills the most."
         />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        <div className="mt-8 grid gap-6 lg:grid-cols-3">
           {engagementModels.map((model, i) => (
             <article
               key={model.name}
@@ -23,8 +23,8 @@ export default function Pricing() {
               className={cn(
                 'flex flex-col rounded-2xl border p-8 md:p-10 transition-all duration-base',
                 model.featured
-                  ? 'border-amber bg-white shadow-amber-lg'
-                  : 'border-line bg-white shadow-card hover:shadow-card-hover hover:border-amber/40',
+                  ? 'border-amber bg-white'
+                  : 'border-line bg-white hover:border-amber/40',
               )}
             >
               {model.featured && (

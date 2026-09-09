@@ -16,6 +16,7 @@ export default function WorkPage() {
       <section className="section-dark relative overflow-hidden min-h-[60vh] flex items-center pt-36 pb-24">
         <div aria-hidden className="glow-amber-dark pointer-events-none absolute inset-0" />
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-dark opacity-50" />
+        <img src="/mockups/hero-platform.png" alt="" aria-hidden="true" className="pointer-events-none absolute -right-20 bottom-0 hidden w-[34rem] opacity-35 lg:block" />
         <div className="container-site relative w-full">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-micro font-bold uppercase tracking-label text-amber mb-5">Selected work</p>

@@ -4,8 +4,6 @@ import { revealProps } from '@/lib/reveal';
 export default function CTABand() {
   return (
     <section className="section-y section-dark relative overflow-hidden">
-      <div aria-hidden className="glow-amber-dark pointer-events-none absolute inset-0" />
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-dark opacity-60" />
 
       <div className="container-site relative">
         <div className="mx-auto max-w-2xl text-center">
@@ -20,7 +18,7 @@ export default function CTABand() {
             We are comfortable in all three scenarios.
           </p>
           <div {...revealProps(3)} className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Button href="/contact" size="lg" className="bg-amber text-white hover:bg-amber-bright shadow-amber-lg" arrow>
+            <Button href="/contact" size="lg" className="bg-amber text-white hover:bg-amber-bright" arrow>
               Start a conversation
             </Button>
             <Button href="/work" variant="ghost" size="lg" className="text-white/80 hover:text-white">

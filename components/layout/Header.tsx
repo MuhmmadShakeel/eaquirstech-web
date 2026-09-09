@@ -66,9 +66,7 @@ export default function Header() {
       <header
         className={cn(
           'fixed inset-x-0 top-0 z-[100] transition-all duration-slow',
-          scrolled
-            ? 'bg-white shadow-[0_1px_0_#E8E5E0] py-0'
-            : 'bg-white/95 backdrop-blur-md py-0',
+          'bg-[#000000] border-b border-white/10 py-0',
         )}
         style={{ height: 'var(--header-h)' }}
       >
@@ -102,7 +100,7 @@ export default function Header() {
               onClick={() => setMobileOpen((v) => !v)}
               aria-expanded={mobileOpen}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-line text-gray-600 transition-colors hover:border-amber hover:text-amber xl:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 text-white transition-colors hover:border-amber hover:text-amber xl:hidden"
             >
               <Icon name={mobileOpen ? 'close' : 'menu'} className="h-5 w-5" />
             </button>
@@ -118,6 +116,7 @@ export default function Header() {
           >
             {navItems.map((item) => {
               if (item.label !== activeMenu) return null;
+              if (item.label === 'Consultancy') return <ConsultancyPanel key={item.label} item={item} />;
               if (item.mega) return <MegaPanel key={item.label} item={item} />;
               if (item.simple) return <SimplePanel key={item.label} item={item} />;
               return null;
@@ -221,14 +220,14 @@ function NavEntry({
         href={item.href}
         className={cn(
           'flex items-center gap-1 rounded-lg px-3.5 py-2.5 text-body-sm font-medium transition-colors duration-fast',
-          active ? 'text-amber' : 'text-gray-700 hover:text-amber hover:bg-gray-50',
+          active ? 'text-amber' : 'text-white/80 hover:bg-white/10 hover:text-amber',
         )}
       >
         {item.label}
         {hasMenu && (
           <Icon
             name="arrow"
-            className={cn('h-3.5 w-3.5 rotate-90 text-gray-400 transition-transform duration-fast', menuOpen && '-rotate-90')}
+            className={cn('h-3.5 w-3.5 rotate-90 text-white/45 transition-transform duration-fast', menuOpen && '-rotate-90')}
           />
         )}
       </Link>
@@ -237,18 +236,29 @@ function NavEntry({
 }
 
 function MegaPanel({ item }: { item: NavItem }) {
+  const categoryPaths = ['/services/product-engineering', '/services/business-systems', '/services/ai-automation', '/services/rescue-modernization', '/services/specialist-services'];
   return (
-    <div className="container-site py-7">
-      <div className="grid grid-cols-5 gap-8">
-        {item.mega!.map((col) => (
-          <div key={col.heading}>
-            <p className="mb-3.5 text-micro font-bold uppercase tracking-label text-amber">{col.heading}</p>
+    <div className="border-t border-line bg-white">
+      <div className="container-site py-6">
+      <div className="mb-5 flex items-center justify-between border-b border-line pb-4">
+        <div>
+          <p className="text-micro font-bold uppercase tracking-label text-amber">Eaquirs delivery practice</p>
+          <p className="mt-1 text-body-sm text-body">Senior teams for software that is built to run in production.</p>
+        </div>
+        <Link href={item.href} className="hidden rounded-full border border-amber/30 bg-amber-wash px-4 py-2 text-body-sm font-semibold text-amber-deep transition-colors hover:bg-amber hover:text-white lg:inline-flex">
+          Explore all services
+        </Link>
+      </div>
+      <div className="grid grid-cols-5 gap-5">
+        {item.mega!.map((col, index) => (
+          <div key={col.heading} className="border-l border-line pl-4 first:border-l-0 first:pl-0">
+            <Link href={categoryPaths[index]} className="mb-3 block text-micro font-bold uppercase tracking-label text-amber hover:text-amber-deep">{col.heading}</Link>
             <ul className="flex flex-col gap-1">
               {col.links.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="group flex flex-col rounded-lg px-2 py-2 transition-colors duration-fast hover:bg-gray-50"
+                    className="group flex flex-col rounded-lg px-2 py-2 transition-all duration-fast hover:bg-amber-wash"
                   >
                     <span className="text-body-sm font-medium text-ink group-hover:text-amber">{link.label}</span>
                     {link.desc && <span className="text-micro text-muted">{link.desc}</span>}
@@ -263,6 +273,48 @@ function MegaPanel({ item }: { item: NavItem }) {
         <Link href={item.href} className="inline-flex items-center gap-2 text-body-sm font-medium text-amber hover:text-amber-deep transition-colors duration-fast">
           View all services <Icon name="arrow" className="h-4 w-4" />
         </Link>
+      </div>
+      </div>
+    </div>
+  );
+}
+
+function ConsultancyPanel({ item }: { item: NavItem }) {
+  const links = item.simple ?? [];
+  const groups = [
+    { title: 'Direction', items: links.slice(0, 3) },
+    { title: 'Assessment', items: links.slice(3, 6) },
+    { title: 'Leadership', items: links.slice(6) },
+  ];
+
+  return (
+    <div className="border-t border-navy/15 bg-[#F7F8FC]">
+      <div className="container-site grid grid-cols-[17rem_1fr] gap-8 py-7">
+        <div className="rounded-2xl bg-navy p-6 text-white">
+          <p className="text-micro font-bold uppercase tracking-label text-amber">Eaquirs advisory</p>
+          <h2 className="mt-3 text-h4 font-semibold leading-tight text-white">Clear technical decisions for consequential work.</h2>
+          <p className="mt-3 text-body-sm leading-relaxed text-white/60">Independent advice, practical next steps, and no unnecessary retainer.</p>
+          <Link href={item.href} className="mt-6 inline-flex items-center gap-2 text-body-sm font-semibold text-amber hover:text-amber-bright">
+            Explore consultancy <Icon name="arrow" className="h-4 w-4" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-3 gap-6 py-2">
+          {groups.map((group) => (
+            <div key={group.title} className="border-l border-navy/15 pl-5 first:border-l-0 first:pl-0">
+              <p className="mb-3 text-micro font-bold uppercase tracking-label text-navy">{group.title}</p>
+              <ul className="space-y-1.5">
+                {group.items.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="group block rounded-lg px-2 py-2.5 transition-colors hover:bg-white">
+                      <span className="block text-body-sm font-semibold text-ink group-hover:text-amber-deep">{link.label}</span>
+                      {link.desc && <span className="mt-0.5 block text-micro leading-relaxed text-muted">{link.desc}</span>}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

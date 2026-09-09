@@ -8,7 +8,6 @@ import Process from '@/components/sections/Process';
 import Differentiators from '@/components/sections/Differentiators';
 import Pricing from '@/components/sections/Pricing';
 import FAQ from '@/components/sections/FAQ';
-import CTABand from '@/components/sections/CTABand';
 
 export const metadata: Metadata = {
   title: 'Eaquirs Tech — AI-Native Software Engineering Partner',
@@ -29,7 +28,6 @@ export default function HomePage() {
       <Differentiators />
       <Pricing />
       <FAQ />
-      <CTABand />
     </>
   );
 }

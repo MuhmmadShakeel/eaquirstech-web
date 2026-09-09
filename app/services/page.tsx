@@ -15,10 +15,15 @@ export const metadata: Metadata = {
 /* â”€â”€â”€ re-usable service card â”€â”€â”€ */
 function ServiceCard({ title, desc, tags }: { title: string; desc: string; tags: string[] }) {
   return (
-    <div className="group rounded-xl border border-line bg-white p-6 shadow-card transition-all duration-base hover:-translate-y-0.5 hover:shadow-card-hover hover:border-amber/30">
-      <h4 className="text-[1.05rem] font-semibold text-ink">{title}</h4>
+    <div className="group relative h-full overflow-hidden rounded-xl border border-line bg-white p-5 transition-all duration-base hover:-translate-y-1 hover:border-amber/50">
+      <div aria-hidden className="absolute inset-x-0 top-0 h-1 bg-amber opacity-0 transition-opacity duration-base group-hover:opacity-100" />
+      <div className="mb-5 flex items-center justify-between">
+        <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-wash text-micro font-bold text-amber-deep">ET</span>
+        <span className="h-px w-8 bg-line transition-all duration-base group-hover:w-14 group-hover:bg-amber/50" />
+      </div>
+      <h4 className="text-[1.08rem] font-semibold text-ink">{title}</h4>
       <p className="mt-2 text-body-sm text-body leading-relaxed">{desc}</p>
-      <div className="mt-4 flex flex-wrap gap-1.5">
+      <div className="mt-5 flex flex-wrap gap-1.5 border-t border-line pt-4">
         {tags.map((t) => (
           <span key={t} className="rounded-md border border-amber/20 bg-amber-wash px-2.5 py-0.5 text-micro text-amber-deep font-medium">
             {t}
@@ -26,6 +31,26 @@ function ServiceCard({ title, desc, tags }: { title: string; desc: string; tags:
         ))}
       </div>
     </div>
+  );
+}
+
+function SpecialistCallout({ title, description, icon }: { title: string; description: string; icon: IconName }) {
+  return (
+    <article className="rounded-xl border border-line bg-white p-5 transition-colors duration-base hover:border-amber/50">
+      <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-wash text-amber-deep"><Icon name={icon} className="h-5 w-5" /></span>
+      <h3 className="mt-4 text-body font-semibold text-ink">{title}</h3>
+      <p className="mt-2 text-body-sm leading-relaxed text-body">{description}</p>
+    </article>
+  );
+}
+
+function ServiceFeature({ number, title, description }: { number: string; title: string; description: string }) {
+  return (
+    <article className="rounded-xl border border-line bg-white p-5 transition-colors duration-base hover:border-amber/50">
+      <span className="text-micro font-bold text-amber">{number}</span>
+      <h3 className="mt-3 text-body font-semibold leading-snug text-ink">{title}</h3>
+      <p className="mt-2 text-body-sm leading-relaxed text-body">{description}</p>
+    </article>
   );
 }
 
@@ -38,35 +63,41 @@ function SectionAnchor({ id, children }: { id: string; children: React.ReactNode
   );
 }
 
+const serviceLevels = [
+  { href: '/services/product-engineering', title: 'Product Engineering', text: 'End-to-end product builds, from architecture through deployment.', image: '/mockups/laptop-dashboard.png' },
+  { href: '/services/business-systems', title: 'Business Systems', text: 'Purpose-built ERP and internal platforms for complex operations.', image: '/mockups/desktop-dashboard.png' },
+  { href: '/services/ai-automation', title: 'AI & Automation', text: 'Production AI systems that reduce cost and improve outcomes.', image: '/mockups/ai-orchestration.png' },
+  { href: '/services/rescue-modernization', title: 'Rescue & Modernization', text: 'A structured path from inherited risk to stable software.', image: '/mockups/systems-architecture.png' },
+  { href: '/services/specialist-services', title: 'Specialist Services', text: 'Focused capability to strengthen your existing roadmap.', image: '/mockups/watch-platform.png' },
+];
+
 export default function ServicesPage() {
   return (
     <>
       {/* â”€â”€ Hero â”€â”€ */}
-      <section className="section-dark relative overflow-hidden min-h-[90vh] flex items-center pt-36 pb-20">
-        <div aria-hidden className="glow-amber-dark pointer-events-none absolute inset-0" />
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-dark opacity-50" />
+      <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-white pt-24 pb-10 md:pt-28 md:pb-12">
         <div className="container-site relative w-full">
-          <div className="grid items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
+          <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr] lg:gap-12">
             {/* Left: copy */}
             <div>
               <p className="text-micro font-bold uppercase tracking-label text-amber mb-5">What we build</p>
-              <h1 className="text-h1 font-bold leading-[1.05] text-white">
+              <h1 className="text-h1 font-bold leading-[1.05] text-ink">
                 Software services that ship â€”<br className="hidden md:block" /> not slide decks that stall
               </h1>
-              <p className="mt-6 text-body-lg text-on-dark-muted">
+              <p className="mt-6 text-body-lg text-body">
                 From greenfield SaaS products to emergency vendor rescues â€” we cover every phase of the software lifecycle.
                 Senior engineers only. Working software weekly.
               </p>
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Button href="/contact" size="lg" className="bg-amber text-white hover:bg-amber-bright" arrow>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Button href="/contact" size="lg" className="h-15 w-full sm:w-[25rem] bg-amber px-10 text-base text-white hover:bg-amber-bright" arrow>
                   Get a free scope review
                 </Button>
-                <Button href="/work" variant="ghost" size="lg" className="text-white/70 hover:text-white">
+                <Button href="/work" variant="outline" size="lg" className="h-15 w-full sm:w-[25rem] border-line bg-white px-10 text-base text-ink hover:border-amber hover:text-amber">
                   See live platforms
                 </Button>
               </div>
               {/* Quick stats */}
-              <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
+              <dl className="hidden">
                 {[
                   { value: '4', label: 'Live platforms' },
                   { value: '6 wks', label: 'Fastest delivery' },
@@ -88,12 +119,11 @@ export default function ServicesPage() {
       </section>
 
       {/* â”€â”€ Quick-nav strip â”€â”€ */}
-      <nav className="sticky top-[var(--header-h)] z-30 border-b border-line bg-white/95 backdrop-blur-sm">
+      <nav className="sticky top-[var(--header-h)] z-30 border-b border-line bg-white">
         <div className="container-site">
           <ul className="flex gap-0 overflow-x-auto scrollbar-none">
             {[
               ['Product Engineering', '#product-engineering'],
-              ['ERP & Systems', '#erp'],
               ['AI & Automation', '#ai'],
               ['Rescue & Modernization', '#rescue'],
               ['More', '#more'],
@@ -111,20 +141,45 @@ export default function ServicesPage() {
         </div>
       </nav>
 
+      <section className="bg-[#f7f9fc] py-12 lg:py-16">
+        <div className="container-site">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-micro font-bold uppercase tracking-label text-amber">Service programs</p>
+            <h2 className="mt-3 text-h2 font-bold text-ink">Choose the capability that moves your work forward</h2>
+            <p className="mt-4 text-body-sm leading-relaxed text-body">Each program brings senior engineering, practical delivery, and clear accountability to a different business need.</p>
+          </div>
+          <div className="mt-8 grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {serviceLevels.map((service, index) => (
+              <Link key={service.href} href={service.href} className="group flex h-full flex-col overflow-hidden rounded-xl border border-line bg-white transition-all duration-base hover:-translate-y-1 hover:border-amber/50">
+                <div className="flex h-32 items-center justify-center border-b border-line bg-[#f6f6f6] p-3">
+                  <img src={service.image} alt="" className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105" />
+                </div>
+                <div className="flex flex-1 flex-col p-5">
+                  <span className="text-micro font-bold text-amber">0{index + 1}</span>
+                  <h3 className="mt-2 text-body font-semibold text-ink">{service.title}</h3>
+                  <p className="mt-2 text-body-sm leading-relaxed text-body">{service.text}</p>
+                  <span className="mt-auto inline-flex items-center gap-2 pt-5 text-body-sm font-semibold text-amber-deep">Explore service <Icon name="arrow" className="h-4 w-4" /></span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
           01 Â· PRODUCT ENGINEERING
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <SectionAnchor id="product-engineering">
-        <div className="section-y bg-white min-h-[85vh] flex flex-col justify-center">
+        <div className="section-y bg-[#000000] text-white">
           <div className="container-site">
-            <div className="grid items-start gap-14 lg:grid-cols-[1fr_1.5fr]">
+            <div className="grid items-start gap-8 lg:grid-cols-[1fr_1.5fr]">
               {/* Left */}
               <div className="lg:sticky lg:top-32">
                 <p className="text-micro font-bold uppercase tracking-label text-amber mb-3">01 Â· Product Engineering</p>
-                <h2 className="text-h2 font-bold text-ink leading-tight">
+                <h2 className="text-h2 font-bold text-white leading-tight">
                   End-to-end product builds
                 </h2>
-                <p className="mt-5 text-body text-body leading-relaxed">
+                <p className="mt-5 text-body leading-relaxed text-white/65">
                   We take products from idea through architecture, implementation, and deployment. Every system is
                   production-ready from the first sprint â€” built to handle scale, edge cases, and the inevitable
                   requirement changes that come three months in.
@@ -136,13 +191,13 @@ export default function ServicesPage() {
                     'Automated CI/CD from day one',
                     'Real-time demos every sprint',
                   ].map((pt) => (
-                    <li key={pt} className="flex items-start gap-3 text-body-sm text-body">
+                    <li key={pt} className="flex items-start gap-3 text-body-sm text-white/65">
                       <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-amber" strokeWidth={2.2} />
                       {pt}
                     </li>
                   ))}
                 </ul>
-                <Button href="/contact" variant="outline" size="md" className="mt-8" arrow>
+                <Button href="/contact" variant="outline" size="lg" className="mt-8 border-white/25 bg-transparent text-white hover:border-amber hover:text-amber" arrow>
                   Start a project
                 </Button>
               </div>
@@ -165,16 +220,9 @@ export default function ServicesPage() {
                 </SectionAnchor>
                 <SectionAnchor id="api">
                   <ServiceCard
-                    title="API & backend architecture"
-                    desc="Scalable APIs designed for the traffic you expect and the traffic you don't. REST, GraphQL, WebSocket â€” modelled to your domain, not a generic CRUD template."
-                    tags={['REST', 'GraphQL', 'Microservices', 'Zod', 'OpenAPI']}
-                  />
-                </SectionAnchor>
-                <SectionAnchor id="devops">
-                  <ServiceCard
-                    title="DevOps & CI/CD pipelines"
-                    desc="Automated build, test, and deploy pipelines so your team ships faster and sleeps better. Docker containers, staging environments, one-click production."
-                    tags={['Docker', 'GitHub Actions', 'AWS', 'Nginx', 'PM2']}
+                    title="Backend, APIs & delivery"
+                    desc="Scalable APIs and reliable delivery pipelines designed for the traffic you expect and the traffic you do not. Modelled to your domain, monitored in production."
+                    tags={['REST', 'GraphQL', 'Docker', 'CI/CD', 'OpenAPI']}
                   />
                 </SectionAnchor>
                 <SectionAnchor id="mvp">
@@ -194,11 +242,12 @@ export default function ServicesPage() {
           02 Â· ERP & BUSINESS SYSTEMS
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <SectionAnchor id="erp">
-        <div className="section-y section-light min-h-[85vh] flex flex-col justify-center">
+        <div className="hidden">
+          <img src="/mockups/desktop-dashboard.png" alt="" aria-hidden="true" className="pointer-events-none absolute right-[-26rem] top-1/2 -z-10 hidden w-[58rem] -translate-y-1/2 opacity-[0.08] lg:block" />
           <div className="container-site">
-            <div className="grid items-start gap-14 lg:grid-cols-[1.5fr_1fr]">
+            <div className="relative">
               {/* Left: sub-service cards */}
-              <div className="grid gap-4 sm:grid-cols-2 lg:order-1">
+              <div className="hidden">
                 <SectionAnchor id="erp-realestate">
                   <ServiceCard
                     title="Real estate ERP"
@@ -237,16 +286,29 @@ export default function ServicesPage() {
               </div>
 
               {/* Right */}
-              <div className="lg:order-2 lg:sticky lg:top-32">
-                <p className="text-micro font-bold uppercase tracking-label text-amber mb-3">02 Â· ERP & Business Systems</p>
-                <h2 className="text-h2 font-bold text-ink leading-tight">
+              <div className="mx-auto max-w-5xl">
+                <p className="text-center text-micro font-bold uppercase tracking-label text-amber mb-3">02 Â· ERP & Business Systems</p>
+                <h2 className="text-center text-h2 font-bold text-ink leading-tight lg:whitespace-nowrap">
                   Operations software that runs your business
                 </h2>
-                <p className="mt-5 text-body text-body leading-relaxed">
+                <p className="mx-auto mt-5 max-w-3xl text-center text-body leading-relaxed text-body">
                   Generic SaaS tools charge you monthly to work around your process. We build the system that maps to how
                   your business actually works â€” with the audit trails, reporting, and role-based access your team needs on day one.
                 </p>
-                <div className="mt-8 rounded-xl border border-line bg-white p-6 shadow-card">
+                <div className="mt-9 grid items-center gap-4 lg:grid-cols-[0.8fr_1.1fr_0.8fr]">
+                  <div className="space-y-4">
+                    <ServiceFeature number="01" title="Real estate ERP" description="Property inventory, agent commissions, project milestones, buyer portals, and legal document generation." />
+                    <ServiceFeature number="02" title="Healthcare management system" description="Inpatient and outpatient workflows, pharmacy, lab, billing, and reporting without care disruption." />
+                  </div>
+                  <div className="relative overflow-hidden rounded-2xl border border-line bg-white p-4">
+                    <img src="/mockups/desktop-dashboard.png" alt="Eaquirs Tech ERP platform dashboard" className="w-full object-contain" />
+                  </div>
+                  <div className="space-y-4">
+                    <ServiceFeature number="03" title="Inventory & manufacturing ERP" description="Weight-aware stock management, purity tracking, consignment ledgers, and workshop job cards." />
+                    <ServiceFeature number="04" title="Custom ERP build" description="A bespoke data model, access rules, audit trails, and reporting built around your operation." />
+                  </div>
+                </div>
+                <div className="hidden">
                   <p className="text-caption font-bold uppercase tracking-label text-amber-deep mb-3">Live proof</p>
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
@@ -263,7 +325,7 @@ export default function ServicesPage() {
                     </div>
                   </div>
                 </div>
-                <Button href="/contact" variant="outline" size="md" className="mt-8" arrow>
+                <Button href="/contact" variant="outline" size="lg" className="hidden" arrow>
                   Scope an ERP project
                 </Button>
               </div>
@@ -276,15 +338,16 @@ export default function ServicesPage() {
           03 Â· AI & AUTOMATION
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <SectionAnchor id="ai">
-        <div className="section-y bg-white min-h-[85vh] flex flex-col justify-center">
-          <div className="container-site">
+        <div className="section-y relative isolate overflow-hidden bg-white">
+          <img src="/mockups/systems-architecture.png" alt="" aria-hidden="true" className="pointer-events-none absolute -left-52 top-1/2 -z-10 hidden w-[50rem] -translate-y-1/2 opacity-[0.12] lg:block" />
+          <div className="container-site relative">
             <SectionHeading
               eyebrow="03 Â· AI & Automation"
               title="Intelligent systems that work in production"
               intro="We integrate AI where it genuinely reduces cost or improves outcomes â€” not where it makes a good demo. Every AI feature is tested against real workloads before it reaches your users."
             />
 
-            <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 {
                   id: 'ai-llm',
@@ -363,8 +426,9 @@ export default function ServicesPage() {
           04 Â· RESCUE & MODERNIZATION
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <SectionAnchor id="rescue">
-        <div className="section-y section-dark relative overflow-hidden">
+        <div className="section-y section-dark relative isolate overflow-hidden">
           <div aria-hidden className="glow-amber-dark pointer-events-none absolute inset-0" />
+          <img src="/mockups/ai-orchestration.png" alt="" aria-hidden="true" className="pointer-events-none absolute -right-64 top-1/2 -z-10 hidden w-[62rem] -translate-y-1/2 opacity-25 lg:block" />
           <div className="container-site relative">
             <SectionHeading
               eyebrow="04 Â· Rescue & Modernization"
@@ -373,7 +437,7 @@ export default function ServicesPage() {
               dark
             />
 
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 {
                   id: 'rescue-code',
@@ -431,7 +495,7 @@ export default function ServicesPage() {
           05 Â· MORE SERVICES
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <SectionAnchor id="more">
-        <div className="section-y bg-white min-h-[85vh] flex flex-col justify-center">
+        <div className="section-y bg-white">
           <div className="container-site">
             <SectionHeading
               eyebrow="05 Â· More services"
@@ -439,7 +503,26 @@ export default function ServicesPage() {
               intro="Services that round out a complete engagement â€” from payment integrations to quality assurance to embedded engineering talent."
             />
 
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-10 grid items-center gap-5 lg:grid-cols-[0.85fr_1.2fr_0.85fr]">
+              <div className="space-y-5">
+                <SpecialistCallout icon="card" title="Payments & integrations" description="Stripe subscriptions, metered billing, webhooks, refunds, and third-party integrations handled cleanly." />
+                <SpecialistCallout icon="pen" title="Product design & UX" description="Dashboard design, admin interfaces, and design systems built for clarity and ease of use." />
+              </div>
+              <div className="relative flex min-h-[25rem] items-center justify-center overflow-hidden rounded-2xl border border-line bg-[#f7f9fc] p-8">
+                <img src="/mockups/systems-architecture.png" alt="Eaquirs Tech specialist services" className="absolute inset-0 h-full w-full object-contain p-6 opacity-35" />
+                <div className="relative max-w-sm text-center">
+                  <h3 className="text-[1.5rem] font-bold leading-tight text-ink">Specialist capability, exactly where it matters.</h3>
+                  <p className="mt-4 text-body-sm leading-relaxed text-body">Services that round out a complete engagement — from payment integrations to quality assurance to embedded engineering talent.</p>
+                  <Button href="/contact" size="md" arrow className="mt-6 bg-amber text-white hover:bg-amber-bright">Discuss your needs</Button>
+                </div>
+              </div>
+              <div className="space-y-5">
+                <SpecialistCallout icon="shield" title="Quality assurance" description="Manual QA, automated unit and integration testing, and load testing for performance-sensitive work." />
+                <SpecialistCallout icon="users" title="Staff augmentation" description="Embed senior Eaquirs engineers into your team without ramp-up delays or junior handoffs." />
+              </div>
+            </div>
+
+            <div className="hidden">
               {[
                 {
                   id: 'payments',
@@ -493,7 +576,7 @@ export default function ServicesPage() {
       </SectionAnchor>
 
       {/* â”€â”€ Final CTA â”€â”€ */}
-      <section className="section-y section-dark relative overflow-hidden">
+      <section className="hidden">
         <div aria-hidden className="glow-amber-dark pointer-events-none absolute inset-0" />
         <div className="container-site relative">
           <div className="mx-auto max-w-2xl text-center">

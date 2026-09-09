@@ -5,15 +5,15 @@
 @layer base {
   :root {
     --header-h: 5rem;
-    --section-y: 6rem;
+    --section-y: 4rem;
     color-scheme: light;
   }
 
   @media (max-width: 991px) {
-    :root { --header-h: 4.5rem; --section-y: 4.5rem; }
+    :root { --header-h: 4.5rem; --section-y: 3.25rem; }
   }
   @media (max-width: 767px) {
-    :root { --header-h: 4rem; --section-y: 3.5rem; }
+    :root { --header-h: 4rem; --section-y: 2.75rem; }
   }
 
   html {
@@ -62,6 +62,43 @@
   ::-webkit-scrollbar-thumb:hover { background: #F2A93B; }
 }
 
+@keyframes hero-enter {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes orbit-drift {
+  0%, 100% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
+  50% { transform: translate(-50%, -50%) rotate(10deg) scale(1.05); }
+}
+
+@keyframes chip-rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.hero-enter { animation: hero-enter 700ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.hero-enter-delay-1 { animation-delay: 100ms; }
+.hero-enter-delay-2 { animation-delay: 200ms; }
+.hero-enter-delay-3 { animation-delay: 300ms; }
+.hero-orbit { animation: orbit-drift 14s ease-in-out infinite; }
+.hero-orbit-delayed { animation-delay: -7s; animation-duration: 18s; }
+.tech-chip { animation: chip-rise 480ms cubic-bezier(0.16, 1, 0.3, 1) both; transition: border-color 160ms ease, color 160ms ease, transform 160ms ease; }
+.tech-chip:hover { border-color: #F2A93B; color: #B76E0B; transform: translateY(-2px); }
+.marquee-track { animation: marquee-left 30s linear infinite; will-change: transform; }
+.marquee-track-reverse { animation-name: marquee-right; animation-duration: 34s; }
+.marquee-track:hover { animation-play-state: paused; }
+
 @layer components {
   .container-site {
     @apply mx-auto w-full max-w-container px-5 sm:px-8 lg:px-10 xl:px-12;
@@ -74,7 +111,7 @@
 
   /* Dark section utility (hero, CTA bands, stats, footer) */
   .section-dark {
-    background: #0F0F0D;
+    background: #000000;
     color: rgba(241,240,238,0.85);
   }
   .section-dark h1,
@@ -106,13 +143,7 @@
   }
 
   /* Ambient amber glow for dark sections */
-  .glow-amber-dark {
-    background-image: radial-gradient(
-      ellipse 70% 60% at 50% 0%,
-      rgba(242,169,59,0.14) 0%,
-      transparent 70%
-    );
-  }
+  .glow-amber-dark { background: transparent; }
 
   /* Gradient text */
   .text-gradient {
@@ -176,6 +207,27 @@
   opacity: 1;
   transform: none;
   will-change: auto;
+}
+
+@keyframes device-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-2deg); }
+  50% { transform: translate3d(0, -14px, 0) rotate(1deg); }
+}
+
+.hero-device { animation: device-float 8s ease-in-out infinite; }
+
+/* Content CTAs are taller for emphasis; the header CTA keeps its compact navigation scale. */
+#main :is(a, button).bg-amber {
+  min-height: 5rem;
+}
+
+@media (min-width: 768px) {
+  #main :is(a, button).bg-amber {
+    width: 250px;
+    min-width: 250px;
+    height: 120px;
+    min-height: 120px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

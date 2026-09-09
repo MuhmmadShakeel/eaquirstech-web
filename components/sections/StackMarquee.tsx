@@ -3,58 +3,51 @@ import { stack } from '@/lib/content/misc';
 
 export default function StackMarquee() {
   return (
-    <section className="relative isolate overflow-hidden section-dark">
-      {/* Ambient glow */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-grid-dark opacity-60" />
-      <div aria-hidden className="glow-amber-dark pointer-events-none absolute -bottom-40 left-1/2 -z-10 h-[40rem] w-[70rem] -translate-x-1/2 opacity-40" />
-
-      <div className="container-site py-20 lg:py-28">
-        {/* Massive "WE BUILD" heading */}
-        <h2
-          className="font-black uppercase leading-[0.88] tracking-tight text-white"
-          style={{ fontSize: 'clamp(3rem, 10vw, 10rem)' }}
-        >
-          WE BUILD
-          <br />
-          <span className="text-amber">PRODUCTION</span>
-          <br />
-          <span className="text-white/25">SOFTWARE</span>
-        </h2>
-
-        <div className="mt-8 grid items-end gap-8 lg:grid-cols-[1fr_auto]">
-          <p
-            className="max-w-lg font-light uppercase tracking-widest text-on-dark-muted"
-            style={{ fontSize: 'clamp(0.9rem, 2vw, 1.4rem)' }}
-          >
-            Delivery time cut by 30–80% · Senior engineers on every project · AI-assisted, engineer-reviewed
-          </p>
-          <Button
-            href="/contact"
-            size="lg"
-            arrow
-            className="bg-amber text-white hover:bg-amber-bright self-end shrink-0"
-          >
-            Book a free call
-          </Button>
+    <section className="section-light flex min-h-[calc(100svh-var(--header-h))] items-center py-10 lg:py-12">
+      <div className="container-site">
+        <div className="grid items-center gap-8 lg:grid-cols-2">
+          <div className="relative order-2 lg:order-1">
+            <div className="rounded-2xl bg-white p-5"><img src="/mockups/hero-platform.png" alt="Eaquirs Tech platform" className="w-full object-contain" /></div>
+          </div>
+          <div className="order-1 lg:order-2">
+        <p className="text-micro font-bold uppercase tracking-label text-amber-deep">Built for the real world</p>
+        <div className="mt-4">
+          <h2 className="font-black uppercase leading-[0.92] tracking-tight text-ink" style={{ fontSize: 'clamp(2.4rem, 5.5vw, 5.25rem)' }}>
+            WE BUILD<br /><span className="text-amber">PRODUCTION</span><br /><span className="text-muted">SOFTWARE</span>
+          </h2>
+          <div className="mt-5 max-w-xl">
+            <p className="text-body-lg leading-relaxed text-body">Senior engineers combine product thinking and AI-assisted delivery to ship software people can rely on.</p>
+            <Button href="/contact" size="lg" arrow className="mt-7 bg-amber text-white hover:bg-amber-bright">Start a project</Button>
+          </div>
         </div>
-
-        {/* Tech stack logo grid */}
-        <div className="mt-14 border-t border-white/10 pt-10">
-          <p className="mb-7 text-micro font-bold uppercase tracking-label text-on-dark-muted">
-            Technologies we ship with
-          </p>
-          <ul className="flex flex-wrap gap-3">
-            {stack.map((tech) => (
-              <li
-                key={tech}
-                className="rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-body-sm font-medium text-white/70 backdrop-blur-sm transition-colors duration-fast hover:border-amber/40 hover:text-amber"
-              >
-                {tech}
-              </li>
-            ))}
-          </ul>
+        </div>
+        </div>
+        <div className="mt-8 overflow-hidden border-t border-line pt-5">
+          <div className="flex items-center justify-between gap-4">
+            <p className="text-micro font-bold uppercase tracking-label text-muted">Technologies we ship with</p>
+            <span className="text-micro uppercase tracking-label text-amber-deep">Production-ready stack</span>
+          </div>
+          <div className="marquee-mask mt-4 space-y-2">
+            <TechMarquee />
+            <TechMarquee reverse />
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function TechMarquee({ reverse = false }: { reverse?: boolean }) {
+  const items = [...stack, ...stack];
+  return (
+    <div className="overflow-hidden">
+      <ul className={`marquee-track flex w-max gap-2 ${reverse ? 'marquee-track-reverse' : ''}`}>
+        {items.map((tech, index) => (
+          <li key={`${tech}-${index}`} className="flex min-h-10 items-center justify-center rounded-lg border border-line bg-white px-4 py-2 text-caption font-semibold text-ink">
+            {tech}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
