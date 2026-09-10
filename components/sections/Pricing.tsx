@@ -22,23 +22,21 @@ export default function Pricing() {
               {...revealProps(i, 100)}
               className={cn(
                 'flex flex-col rounded-2xl border p-8 md:p-10 transition-all duration-base',
-                model.featured
-                  ? 'border-amber bg-white'
-                  : 'border-line bg-white hover:border-amber/40',
+                'border-navy bg-navy text-white shadow-lg hover:-translate-y-1 hover:border-amber hover:shadow-card-hover',
               )}
             >
               {model.featured && (
-                <span className="mb-5 inline-flex self-start rounded-full bg-amber px-4 py-1 text-micro font-bold uppercase tracking-label text-white">
+                <span className="mb-5 inline-flex self-start rounded-full bg-amber px-4 py-1 text-micro font-bold uppercase tracking-label text-navy">
                   Most popular
                 </span>
               )}
-              <h3 className="text-h4 font-semibold text-ink">{model.name}</h3>
-              <p className="mt-2 text-body-sm text-body">{model.tagline}</p>
+              <h3 className="text-h4 font-semibold text-amber-bright">{model.name}</h3>
+              <p className="mt-2 text-body-sm font-medium text-white/85">{model.tagline}</p>
 
               <ul className="my-8 flex flex-1 flex-col gap-3.5">
                 {model.points.map((point) => (
-                  <li key={point} className="flex items-start gap-3 text-body-sm text-body">
-                    <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-amber" strokeWidth={2.2} />
+                  <li key={point} className="flex items-start gap-3 text-body-sm text-white/90">
+                    <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-amber-bright" strokeWidth={2.2} />
                     {point}
                   </li>
                 ))}
@@ -46,9 +44,9 @@ export default function Pricing() {
 
               <Button
                 href="/contact"
-                variant={model.featured ? 'primary' : 'outline'}
+                variant="primary"
                 size="md"
-                className={cn('w-full', model.featured && 'bg-amber text-white hover:bg-amber-bright')}
+                className="w-full bg-amber text-navy hover:bg-amber-bright"
                 arrow
               >
                 Get in touch

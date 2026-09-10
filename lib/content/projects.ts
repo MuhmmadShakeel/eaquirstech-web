@@ -15,19 +15,20 @@ export const projects: Project[] = [
   {
     slug: 'openinterview',
     name: 'OpenInterview.me',
-    category: 'AI Hiring Platform',
+    category: 'OpenInterview.me',
     summary: 'An AI-generated prototype rescued into a production hiring platform with LangChain + Stripe.',
     description:
       'Rebuilt a fragile AI-generated prototype into a hardened hiring platform: a validated Express API, idempotent Stripe payments, social login, interview scheduling with calendar invites, and a LangChain-backed AI assistant.',
     stack: [
-      'Node.js', 'Express.js', 'Zod', 'Neon DB', 'PostgreSQL', 'JWT',
+      'Next.js', 'NestJS', 'Node.js', 'JavaScript', 'PostgreSQL', 'Tailwind CSS', 'TypeScript',
+      'Express.js', 'Zod', 'Neon DB', 'JWT',
       'Stripe', 'Social Login', 'Cloudinary', 'LangChain', 'OpenAI API', 'ICS Calendar',
     ],
     metrics: [
       { value: 'Idempotent', label: 'Payment flow' },
       { value: 'Prototype → prod', label: 'Rescue engagement' },
     ],
-    href: 'https://openinterview.me/home.html',
+    href: 'https://openinterview.me',
     image: '/mockups/laptop-phone-login.png',
     featured: true,
   },
@@ -38,7 +39,7 @@ export const projects: Project[] = [
     summary: 'Projects, properties, customers and accounting in one controlled workspace.',
     description:
       'A multi-tenant ERP for property development: project and inventory tracking, customer files, instalment plans and accounting, under role-based access and multi-language support.',
-    stack: ['Next.js', 'NestJS', 'PostgreSQL', 'TypeScript', 'Role-Based Access'],
+    stack: ['Next.js', 'NestJS', 'Node.js', 'JavaScript', 'PostgreSQL', 'Tailwind CSS', 'TypeScript', 'Role-Based Access'],
     metrics: [
       { value: '4 modules', label: 'Unified workspace' },
       { value: '3 languages', label: 'EN · UR · AR' },
@@ -54,10 +55,7 @@ export const projects: Project[] = [
     summary: 'A complete hospital system replaced in six weeks — zero disruption to patient care.',
     description:
       'The incumbent vendor abandoned support and left a hospital running on an unmaintained system. We replaced it end to end with zero disruption to patient care, and a 95% performance improvement on core workflows.',
-    stack: [
-      'C# .NET 4.8.1', 'Windows Forms', 'Entity Framework 6.5.1', 'Dapper',
-      'SQL Server', 'Crystal Reports', 'Repository Pattern', 'Service Layer',
-    ],
+    stack: ['Next.js', 'NestJS', 'Node.js', 'JavaScript', 'PostgreSQL', 'Tailwind CSS', 'TypeScript'],
     metrics: [
       { value: '95%', label: 'Faster core workflows' },
       { value: '0 days', label: 'Care disruption' },
@@ -73,7 +71,7 @@ export const projects: Project[] = [
     summary: 'Purity-aware inventory, production, and sales control built for the jewellery trade.',
     description:
       'An ERP shaped around how jewellery businesses actually operate — weight- and purity-aware inventory, production stages, consignment management and sales — with Redis caching keeping heavy stock queries responsive.',
-    stack: ['Next.js', 'NestJS', 'PostgreSQL', 'Redis', 'TypeScript'],
+    stack: ['Next.js', 'NestJS', 'Node.js', 'JavaScript', 'PostgreSQL', 'Tailwind CSS', 'TypeScript', 'Redis'],
     metrics: [
       { value: 'Redis-backed', label: 'Sub-second stock reads' },
       { value: 'Multi-branch', label: 'Inventory control' },

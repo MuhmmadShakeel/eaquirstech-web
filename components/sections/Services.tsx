@@ -2,6 +2,7 @@ import Icon, { type IconName } from '@/components/ui/Icon';
 import Button from '@/components/ui/Button';
 import { services } from '@/lib/content/services';
 import { revealProps } from '@/lib/reveal';
+import CountUp from '@/components/ui/CountUp';
 
 const quickStats = [
   {
@@ -17,7 +18,7 @@ const quickStats = [
   {
     value: '4+',
     title: 'PLATFORMS IN PRODUCTION',
-    sub: 'ERP, AI hiring, healthcare — all live and serving users today',
+    sub: 'ERP, OpenInterview.me, healthcare — all live and serving users today',
   },
 ];
 
@@ -25,9 +26,9 @@ export default function Services() {
   return (
     <section id="services" className="bg-white">
       {/* ── "WHAT YOU GET WHEN" oversized heading ── */}
-      <div className="relative isolate overflow-hidden bg-[#000000] py-12 text-white lg:py-16">
+      <div className="relative isolate overflow-hidden bg-navy py-12 text-white lg:py-16">
       <img src="/mockups/hero-platform.png" alt="" aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 -z-10 w-[46rem] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.14] sm:w-[58rem]" />
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-[#000000]/60" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-navy/75" />
       <div className="container-site relative">
         <div className="mx-auto max-w-3xl text-center">
           {/* Left: giant text */}
@@ -62,13 +63,13 @@ export default function Services() {
           {quickStats.map((s) => (
             <div
               key={s.title}
-              className="rounded-xl border border-white/15 bg-[#000000] p-5 transition-colors duration-base hover:border-amber/60"
+              className="rounded-xl border border-white/15 bg-navy p-5 transition-colors duration-base hover:border-amber/60"
             >
               <p
                 className="font-black leading-none text-amber"
                 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
               >
-                {s.value}
+                <CountUp value={Number.parseInt(s.value, 10)} suffix={s.value.includes('%') ? '%' : s.value.includes('WKS') ? ' WKS' : '+'} />
               </p>
               <p className="mt-3 text-body-sm font-bold uppercase tracking-label text-white">{s.title}</p>
               <p className="mt-2 text-body-sm leading-relaxed text-white/60">{s.sub}</p>

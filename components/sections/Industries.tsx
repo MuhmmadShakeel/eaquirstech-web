@@ -16,7 +16,7 @@ export default function Industries() {
           <div className="marquee-track marquee-track-reverse flex w-max gap-3">
             {[...industries, ...industries].map((ind, index) => (
               <div key={`${ind.label}-${index}`} className="flex items-center gap-2.5 rounded-lg border border-line bg-white px-4 py-3">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-tint text-amber-deep">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-navy text-amber">
                   <Icon name={ind.icon as IconName} className="h-5 w-5" />
                 </span>
                 <span className="whitespace-nowrap text-caption font-semibold text-ink">{ind.label}</span>

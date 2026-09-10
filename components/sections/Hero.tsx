@@ -3,7 +3,7 @@ import { headlineStats } from '@/lib/content/site';
 
 export default function Hero() {
   return (
-    <section className="hero-section relative isolate flex min-h-[100svh] items-center overflow-hidden bg-[#000000] text-center">
+    <section className="hero-section relative isolate flex min-h-[100svh] items-center overflow-hidden bg-navy text-center">
       <video
         aria-hidden="true"
         autoPlay
@@ -15,13 +15,13 @@ export default function Hero() {
       >
         <source src="/hero-background.mp4" type="video/mp4" />
       </video>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[#000000]/35" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-navy/55" />
 
       <div className="container-site relative py-20 sm:py-24 lg:py-20">
         <div className="hidden">
           <span className="inline-flex items-center gap-2.5 rounded-full border border-amber/30 bg-amber/10 px-4 py-2 text-micro font-bold uppercase tracking-label text-amber">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber" />
-            AI-native software engineering · Lahore, Pakistan
+            AI-native software engineering · Bahawalpur, Pakistan
           </span>
         </div>
         <h1 className="hero-enter hero-enter-delay-1 mx-auto max-w-5xl font-black uppercase leading-[0.94] tracking-tight text-white" style={{ fontSize: 'clamp(2.35rem, 5.7vw, 5.25rem)' }}>

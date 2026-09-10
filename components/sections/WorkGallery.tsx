@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import { featuredProjects } from '@/lib/content/projects';
 import { ProjectCard } from './Work';
 
-const filters = ['All', 'AI Hiring', 'Real Estate', 'Healthcare', 'Jewellery'];
+const filters = ['All', 'OpenInterview.me', 'Real Estate', 'Healthcare', 'Jewellery'];
 
 export default function WorkGallery() {
   const [query, setQuery] = useState('');
@@ -19,7 +19,7 @@ export default function WorkGallery() {
   }, [filter, query]);
 
   return (
-    <section className="section-y bg-[#f7f9fc]">
+    <section className="section-y">
       <div className="container-site">
         <div className="flex flex-col justify-between gap-5 border-b border-line pb-7 lg:flex-row lg:items-end">
           <div><p className="text-micro font-bold uppercase tracking-label text-amber">Platform library</p><h2 className="mt-3 text-h2 font-bold text-ink">Work built for real operations.</h2></div>

@@ -19,7 +19,7 @@ export function LogoMark({ className }: { className?: string }) {
       {/* Outer triangular ribbon */}
       <path
         d="M24 3.5 44.5 39H3.5L24 3.5Z"
-        stroke="#F2A93B"
+        stroke="#FFD230"
         strokeWidth="5.5"
         strokeLinejoin="round"
       />

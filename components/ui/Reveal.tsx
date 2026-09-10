@@ -30,10 +30,13 @@ export default function Reveal() {
           observer.unobserve(el);
         }
       },
-      { rootMargin: '0px 0px -12% 0px', threshold: 0.12 },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
     );
 
     const observeAll = () => {
+      document
+        .querySelectorAll<HTMLElement>('main > section:not([data-reveal])')
+        .forEach((el) => el.setAttribute('data-reveal', 'hidden'));
       document
         .querySelectorAll<HTMLElement>('[data-reveal="hidden"]')
         .forEach((el) => observer.observe(el));

@@ -7,7 +7,7 @@ import { revealProps } from '@/lib/reveal';
 
 export const metadata: Metadata = {
   title: 'About | Eaquirs Tech',
-  description: 'Eaquirs Tech is an AI-native software engineering firm from Bahawalpur, Pakistan, building enterprise-grade platforms across ERP, healthcare, and AI hiring.',
+  description: 'Eaquirs Tech is an AI-native software engineering firm from Bahawalpur, Pakistan, building enterprise-grade platforms across ERP, healthcare, and OpenInterview.me.',
 };
 
 const values = [
@@ -33,12 +33,14 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="section-dark relative flex h-[100svh] items-center overflow-hidden pb-6 pt-[calc(var(--header-h)+1rem)] sm:pb-8">
-        <img src="/mockups/desktop-dashboard.png" alt="" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25" />
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-black/75" />
+      <section className="section-dark relative flex min-h-[100svh] items-center overflow-hidden pb-0 pt-[var(--header-h)]">
+        <video autoPlay loop muted playsInline preload="metadata" aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25">
+          <source src="/about/eaquirs-story.mp4" type="video/mp4" />
+        </video>
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-navy/85" />
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid-dark opacity-40" />
         <div className="container-site relative w-full">
-          <div data-reveal="hidden" className="mx-auto max-w-3xl text-center">
+          <div data-reveal="hidden" className="mx-auto max-w-3xl py-8 text-center sm:py-12">
             <p className="mb-2 text-micro font-bold uppercase tracking-label text-amber sm:mb-4">About us</p>
             <h1 className="text-h1 font-bold leading-tight text-white">
               <span className="block">We build software that survives</span>
@@ -80,7 +82,7 @@ export default function AboutPage() {
           <dl data-reveal="hidden" className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {siteConfig.stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <dt className="text-display font-bold text-amber-deep leading-none">{stat.value}</dt>
+                <dt className="text-display font-bold text-amber leading-none">{stat.value}</dt>
                 <dd className="mt-2 text-body-sm text-body">{stat.label}</dd>
               </div>
             ))}
@@ -137,12 +139,12 @@ export default function AboutPage() {
           <div {...revealProps(1)}>
             <p className="text-micro font-bold uppercase tracking-label text-amber">Leadership</p>
             <h2 className="mt-3 max-w-xl text-h3 font-bold text-ink">Muhammad Safdar Iqbal</h2>
-            <p className="mt-2 text-body-sm font-semibold text-amber-deep">CEO, Eaquirs Tech</p>
+            <p className="mt-2 text-body-sm font-semibold text-amber">CEO, Eaquirs Tech</p>
             <p className="mt-5 max-w-2xl text-body leading-relaxed text-body">
-              Muhammad Safdar Iqbal is the CEO of Eaquirs Tech, guiding an engineering-led team that turns demanding business operations into reliable software.
+              I lead Eaquirs Tech with an engineering-first approach: turning demanding business operations into reliable software that teams can depend on every day.
             </p>
             <p className="mt-4 max-w-2xl text-body-sm leading-relaxed text-body">
-              From product direction to production delivery, he keeps the focus on clear decisions, durable systems, and measurable outcomes for every client.
+              From product direction through production delivery, I focus on clear decisions, durable systems, and outcomes that make a visible difference for every client.
             </p>
           </div>
         </div>
@@ -162,11 +164,11 @@ export default function AboutPage() {
               <article
                 key={d.title}
                 {...revealProps(i, 90)}
-                className="radius-sig border border-dark-border bg-dark-card p-7 transition-all duration-base hover:-translate-y-1 hover:border-amber/40"
+                className="radius-sig border border-amber-deep/30 bg-amber p-7 transition-all duration-base hover:-translate-y-1 hover:border-amber-deep/60"
               >
                 <div aria-hidden className="mb-5 h-1 w-8 rounded-full bg-amber" />
-                <h3 className="text-[1.1rem] font-semibold text-white">{d.title}</h3>
-                <p className="mt-3 text-body-sm text-on-dark-muted">{d.description}</p>
+                <h3 className="text-[1.1rem] font-semibold text-navy">{d.title}</h3>
+                <p className="mt-3 text-body-sm text-body">{d.description}</p>
               </article>
             ))}
           </div>

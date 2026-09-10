@@ -5,7 +5,7 @@ import WorkGallery from '@/components/sections/WorkGallery';
 export const metadata: Metadata = {
   title: 'Work | Eaquirs Tech',
   description:
-    'Four production platforms — AI hiring, real estate ERP, hospital management system, and jewellery ERP — built and deployed by Eaquirs Tech.',
+    'Four production platforms — OpenInterview.me, real estate ERP, hospital management system, and jewellery ERP — built and deployed by Eaquirs Tech.',
 };
 
 export default function WorkPage() {
@@ -47,7 +47,7 @@ export default function WorkPage() {
         </div>
       </section>
 
-      <section className="section-y bg-[#000] text-white">
+      <section className="section-y bg-navy text-white">
         <div className="container-site grid gap-8 md:grid-cols-3"><div><p className="text-micro font-bold uppercase tracking-label text-amber">01</p><h2 className="mt-4 text-body-lg font-semibold text-white">Real context</h2><p className="mt-3 text-body-sm leading-relaxed text-white/65">We map the operation before we build the interface.</p></div><div><p className="text-micro font-bold uppercase tracking-label text-amber">02</p><h2 className="mt-4 text-body-lg font-semibold text-white">Visible progress</h2><p className="mt-3 text-body-sm leading-relaxed text-white/65">Working reviews keep decisions close to the actual product.</p></div><div><p className="text-micro font-bold uppercase tracking-label text-amber">03</p><h2 className="mt-4 text-body-lg font-semibold text-white">Durable delivery</h2><p className="mt-3 text-body-sm leading-relaxed text-white/65">Release, reliability, and handover are part of the work—not an afterthought.</p></div></div>
       </section>
 
@@ -71,12 +71,12 @@ export default function WorkPage() {
         </div>
       </section>
 
-      <section className="section-y overflow-hidden bg-[#f7f9fc]">
+      <section className="section-y overflow-hidden">
         <div className="container-site">
           <div className="mx-auto max-w-3xl text-center"><p className="text-micro font-bold uppercase tracking-label text-amber">What good delivery feels like</p><h2 className="mt-3 text-h2 font-bold text-ink">Clear systems. Confident teams. Visible outcomes.</h2><p className="mt-5 text-body leading-relaxed text-body">The platforms above look different because the operations behind them are different. The delivery standard stays the same.</p></div>
           <div className="relative mx-auto mt-12 grid max-w-6xl items-center gap-6 lg:grid-cols-[0.8fr_1.25fr_0.8fr]">
             <div className="space-y-5"><div className="rounded-[1.75rem] bg-white p-6 shadow-card"><p className="text-body font-semibold text-ink">Operational clarity</p><p className="mt-2 text-body-sm leading-relaxed text-body">The critical workflows are understandable at a glance.</p></div><div className="rounded-[1.75rem] bg-white p-6 shadow-card"><p className="text-body font-semibold text-ink">Evidence, not guesses</p><p className="mt-2 text-body-sm leading-relaxed text-body">Teams can see what happened, who owns it, and what comes next.</p></div></div>
-            <div className="relative overflow-hidden rounded-[2rem] bg-[#0d0d0d] p-4 shadow-mega"><img src="/mockups/hero-platform.png" alt="Eaquirs Tech platform interface" className="w-full object-contain" /></div>
+            <div className="relative aspect-square overflow-hidden rounded-full border-8 border-amber/20 bg-navy p-2"><img src="/service-visuals/team-collaboration.png" alt="Eaquirs Tech delivery team" className="h-full w-full rounded-full object-cover" /></div>
             <div className="space-y-5"><div className="rounded-[1.75rem] bg-white p-6 shadow-card"><p className="text-body font-semibold text-ink">Built for adoption</p><p className="mt-2 text-body-sm leading-relaxed text-body">The people doing the work can move through it with confidence.</p></div><div className="rounded-[1.75rem] bg-white p-6 shadow-card"><p className="text-body font-semibold text-ink">Ready for the next stage</p><p className="mt-2 text-body-sm leading-relaxed text-body">A stable foundation makes the next release easier, not riskier.</p></div></div>
           </div>
         </div>

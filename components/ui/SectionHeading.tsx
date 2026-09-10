@@ -4,10 +4,10 @@ export function Eyebrow({ children, className, dark }: { children: React.ReactNo
   return (
     <p className={cn(
       'mb-4 inline-flex items-center gap-2 text-micro font-bold uppercase tracking-label',
-      dark ? 'text-amber' : 'text-amber-deep',
+      'text-amber',
       className,
     )}>
-      <span aria-hidden className={cn('h-px w-5', dark ? 'bg-amber/60' : 'bg-amber-deep/50')} />
+      <span aria-hidden className="h-px w-5 bg-amber/60" />
       {children}
     </p>
   );
@@ -33,7 +33,7 @@ export default function SectionHeading({
       <h2 className={cn(
         'text-[1.875rem] font-semibold leading-tight tracking-snug sm:text-[2.25rem] lg:text-[2.875rem]',
         centered ? 'max-w-[22ch]' : 'max-w-[20ch]',
-        dark ? 'text-white' : 'text-ink',
+        dark ? 'text-amber' : 'text-navy',
       )}>
         {title}
       </h2>

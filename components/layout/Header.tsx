@@ -66,7 +66,7 @@ export default function Header() {
       <header
         className={cn(
           'fixed inset-x-0 top-0 z-[100] transition-all duration-slow',
-          'bg-[#000000] border-b border-white/10 py-0',
+          'bg-navy border-b border-white/10 py-0',
         )}
         style={{ height: 'var(--header-h)' }}
       >
@@ -164,7 +164,7 @@ export default function Header() {
                       <div className="pb-4">
                         {item.mega && item.mega.map((col) => (
                           <div key={col.heading} className="mb-4">
-                            <p className="mb-2 text-micro font-semibold uppercase tracking-label text-amber">{col.heading}</p>
+                            <p className="mb-2 inline-block border border-line px-2 py-1 text-micro font-semibold uppercase tracking-label text-amber">{col.heading}</p>
                             {col.links.map((link) => (
                               <Link key={link.href} href={link.href} className="block py-1.5 text-body-sm text-body hover:text-amber">
                                 {link.label}
@@ -242,10 +242,7 @@ function MegaPanel({ item }: { item: NavItem }) {
     <div className="border-t border-line bg-white">
       <div className="container-site py-6">
       <div className="mb-5 flex items-center justify-between border-b border-line pb-4">
-        <div>
-          <p className="text-micro font-bold uppercase tracking-label text-amber">Eaquirs delivery practice</p>
-          <p className="mt-1 text-body-sm text-body">Senior teams for software that is built to run in production.</p>
-        </div>
+        <p className="border border-line px-3 py-2 text-micro font-bold uppercase tracking-label text-amber">Services</p>
         <Link href={item.href} className="hidden rounded-full border border-amber/30 bg-amber-wash px-4 py-2 text-body-sm font-semibold text-amber-deep transition-colors hover:bg-amber hover:text-white lg:inline-flex">
           Explore all services
         </Link>
@@ -253,16 +250,15 @@ function MegaPanel({ item }: { item: NavItem }) {
       <div className="grid grid-cols-5 gap-5">
         {item.mega!.map((col, index) => (
           <div key={col.heading} className="border-l border-line pl-4 first:border-l-0 first:pl-0">
-            <Link href={categoryPaths[index]} className="mb-3 block text-micro font-bold uppercase tracking-label text-amber hover:text-amber-deep">{col.heading}</Link>
+            <Link href={categoryPaths[index]} className="mb-3 block border border-line px-3 py-2 text-micro font-bold uppercase tracking-label text-amber transition-colors hover:border-amber hover:text-amber-deep">{col.heading}</Link>
             <ul className="flex flex-col gap-1">
               {col.links.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="group flex flex-col rounded-lg px-2 py-2 transition-all duration-fast hover:bg-amber-wash"
+                    className="group block rounded-lg px-2 py-2 transition-colors duration-fast hover:bg-navy"
                   >
-                    <span className="text-body-sm font-medium text-ink group-hover:text-amber">{link.label}</span>
-                    {link.desc && <span className="text-micro text-muted">{link.desc}</span>}
+                    <span className="text-body-sm font-medium text-ink transition-colors group-hover:text-white">{link.label}</span>
                   </Link>
                 </li>
               ))}
@@ -306,9 +302,9 @@ function ConsultancyPanel({ item }: { item: NavItem }) {
               <ul className="space-y-1.5">
                 {group.items.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="group block rounded-lg px-2 py-2.5 transition-colors hover:bg-white">
-                      <span className="block text-body-sm font-semibold text-ink group-hover:text-amber-deep">{link.label}</span>
-                      {link.desc && <span className="mt-0.5 block text-micro leading-relaxed text-muted">{link.desc}</span>}
+                    <Link href={link.href} className="group block rounded-lg px-2 py-2.5 transition-colors hover:bg-navy">
+                      <span className="block text-body-sm font-semibold text-ink transition-colors group-hover:text-white">{link.label}</span>
+                      {link.desc && <span className="mt-0.5 block text-micro leading-relaxed text-muted transition-colors group-hover:text-white/65">{link.desc}</span>}
                     </Link>
                   </li>
                 ))}
@@ -329,10 +325,10 @@ function SimplePanel({ item }: { item: NavItem }) {
           <Link
             key={link.href}
             href={link.href}
-            className="group flex flex-col rounded-xl border border-hairline bg-gray-50 px-4 py-3.5 transition-all duration-fast hover:border-amber/40 hover:bg-amber-wash"
+            className="group flex flex-col rounded-xl border border-hairline bg-gray-50 px-4 py-3.5 transition-colors duration-fast hover:border-navy hover:bg-navy"
           >
-            <span className="text-body-sm font-medium text-ink group-hover:text-amber">{link.label}</span>
-            {link.desc && <span className="mt-0.5 text-micro text-muted">{link.desc}</span>}
+            <span className="text-body-sm font-medium text-ink transition-colors group-hover:text-white">{link.label}</span>
+            {link.desc && <span className="mt-0.5 text-micro text-muted transition-colors group-hover:text-white/65">{link.desc}</span>}
           </Link>
         ))}
       </div>

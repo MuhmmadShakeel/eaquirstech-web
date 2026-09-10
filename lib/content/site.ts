@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     'Eaquirs Tech designs, builds and rescues production software — ERP platforms, AI systems, web and mobile products — for founders and operating teams who need working systems, not prototypes.',
   email: 'hello@eaquirstech.com',
-  location: 'Lahore, Pakistan — working with teams worldwide',
+  location: 'Bahawalpur, Pakistan — working with teams worldwide',
   social: {
     linkedin: '#',
     github: '#',

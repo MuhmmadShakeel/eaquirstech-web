@@ -38,11 +38,11 @@ export default function Differentiators() {
             <article
               key={d.title}
               {...revealProps(i, 90)}
-              className="radius-sig border border-dark-border bg-dark-card p-7 transition-all duration-base hover:-translate-y-1 hover:border-amber/40"
+              className="radius-sig border border-amber-deep/30 bg-amber p-7 transition-all duration-base hover:-translate-y-1 hover:border-amber-deep/60"
             >
               <div aria-hidden className="mb-5 h-1 w-8 rounded-full bg-amber" />
-              <h3 className="text-[1.1rem] font-semibold text-white">{d.title}</h3>
-              <p className="mt-3 text-body-sm text-on-dark-muted">{d.description}</p>
+              <h3 className="text-[1.1rem] font-semibold text-navy">{d.title}</h3>
+              <p className="mt-3 text-body-sm text-body">{d.description}</p>
             </article>
           ))}
         </div>

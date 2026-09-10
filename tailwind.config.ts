@@ -11,19 +11,19 @@ const config: Config = {
       colors: {
         // Brand amber (from logo)
         amber: {
-          DEFAULT: '#F2A93B',
-          bright: '#FFBE5C',
-          mid: '#E09A2C',
-          deep: '#C07C12',
-          dark: '#8A560A',
-          tint: '#FEF3DC',
-          wash: '#FFFBF2',
+          DEFAULT: '#FFD230',
+          bright: '#FFE16B',
+          mid: '#E9BB16',
+          deep: '#B88E00',
+          dark: '#806200',
+          tint: '#FFF7CD',
+          wash: '#FFFBEA',
         },
         // Brand navy
         navy: {
-          DEFAULT: '#161B33',
-          light: '#242B52',
-          deep: '#0E1226',
+          DEFAULT: '#071B3A',
+          light: '#102B55',
+          deep: '#041226',
         },
         // Light surface ladder (primary)
         white: '#FFFFFF',
@@ -38,11 +38,11 @@ const config: Config = {
         'gray-700': '#46433E',
         'gray-800': '#2C2A26',
         'gray-900': '#1A1816',
-        ink: '#14110E',
+        ink: '#071B3A',
         // Dark section surfaces
-        dark: '#0F0F0D',
-        'dark-2': '#181714',
-        'dark-card': '#222120',
+        dark: '#071B3A',
+        'dark-2': '#071B3A',
+        'dark-card': '#102B55',
         'dark-border': 'rgba(255,255,255,0.10)',
         // Line/border
         line: '#E8E5E0',
@@ -73,9 +73,9 @@ const config: Config = {
         lead: ['1.25rem', { lineHeight: '1.6' }],
         h4: ['1.625rem', { lineHeight: '1.25' }],
         h3: ['2rem', { lineHeight: '1.2' }],
-        h2: ['3rem', { lineHeight: '1.12' }],
-        h1: ['4rem', { lineHeight: '1.06' }],
-        display: ['5rem', { lineHeight: '1' }],
+        h2: ['2.75rem', { lineHeight: '1.14' }],
+        h1: ['3.5rem', { lineHeight: '1.08' }],
+        display: ['4.5rem', { lineHeight: '1.02' }],
       },
       letterSpacing: {
         display: '-0.03em',

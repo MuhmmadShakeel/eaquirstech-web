@@ -13,21 +13,21 @@ export default function HeroMockup() {
           className="w-full object-contain drop-shadow-2xl"
           loading="eager"
           decoding="async"
-          fallbackClassName="aspect-[16/10] w-full flex flex-col items-center justify-center gap-4 rounded-2xl bg-dark-card border border-dark-border"
+          fallbackClassName="aspect-[16/10] w-full flex flex-col items-center justify-center gap-4 rounded-2xl bg-amber border border-amber-deep/30"
           fallbackContent={
             <div className="text-center">
               <div className="text-5xl font-light text-amber mb-3">ET</div>
-              <div className="text-body-sm text-on-dark-muted">Production ERP platform</div>
+              <div className="text-body-sm text-body">Production ERP platform</div>
             </div>
           }
         />
       </div>
 
       {/* Floating stat card — bottom left */}
-      <div className="absolute -bottom-3 -left-3 hidden rounded-xl border border-dark-border bg-dark-card p-4 shadow-mega backdrop-blur-sm md:block">
-        <p className="text-micro text-on-dark-muted">Avg. performance gain</p>
+      <div className="absolute -bottom-3 -left-3 hidden rounded-xl border border-amber-deep/30 bg-amber p-4 shadow-mega backdrop-blur-sm md:block">
+        <p className="text-micro text-body">Avg. performance gain</p>
         <p className="mt-0.5 text-[2rem] font-light leading-none text-amber">95%</p>
-        <p className="mt-1 text-micro text-on-dark-muted">hospital system rebuild</p>
+        <p className="mt-1 text-micro text-body">hospital system rebuild</p>
       </div>
 
       {/* Floating badge — top right */}

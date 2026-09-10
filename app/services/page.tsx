@@ -9,7 +9,7 @@ import { revealProps } from '@/lib/reveal';
 export const metadata: Metadata = {
   title: 'Services | Eaquirs Tech',
   description:
-    'Full-stack product engineering, ERP systems, AI automation, legacy rescue and modernization â€” delivered by senior engineers from Lahore, Pakistan.',
+    'Full-stack product engineering, ERP systems, AI automation, legacy rescue and modernization â€” delivered by senior engineers from Bahawalpur, Pakistan.',
 };
 
 /* â”€â”€â”€ re-usable service card â”€â”€â”€ */
@@ -64,11 +64,10 @@ function SectionAnchor({ id, children }: { id: string; children: React.ReactNode
 }
 
 const serviceLevels = [
-  { href: '/services/product-engineering', title: 'Product Engineering', text: 'End-to-end product builds, from architecture through deployment.', image: '/mockups/laptop-dashboard.png' },
-  { href: '/services/business-systems', title: 'Business Systems', text: 'Purpose-built ERP and internal platforms for complex operations.', image: '/mockups/desktop-dashboard.png' },
-  { href: '/services/ai-automation', title: 'AI & Automation', text: 'Production AI systems that reduce cost and improve outcomes.', image: '/mockups/ai-orchestration.png' },
-  { href: '/services/rescue-modernization', title: 'Rescue & Modernization', text: 'A structured path from inherited risk to stable software.', image: '/mockups/systems-architecture.png' },
-  { href: '/services/specialist-services', title: 'Specialist Services', text: 'Focused capability to strengthen your existing roadmap.', image: '/mockups/watch-platform.png' },
+  { href: '/services/product-engineering', title: 'Product Engineering', text: 'End-to-end product builds, from architecture through deployment.', image: '/uploads/services/363f40e1-4d1d-4c30-89d7-5712102dbf83.png' },
+  { href: '/services/business-systems', title: 'Business Systems', text: 'Purpose-built ERP and internal platforms for complex operations.', image: '/uploads/services/014cc575-2241-4c04-a21f-4fdc7032f7eb.png' },
+  { href: '/services/ai-automation', title: 'AI & Automation', text: 'Production AI systems that reduce cost and improve outcomes.', image: '/uploads/services/c5ffdd08-1f64-40af-93b8-464042a68f46.png' },
+  { href: '/services/rescue-modernization', title: 'Rescue & Modernization', text: 'A structured path from inherited risk to stable software.', image: '/uploads/services/d88f0089-b664-4409-8376-c2a0da6ae4e1.png' },
 ];
 
 export default function ServicesPage() {
@@ -89,10 +88,10 @@ export default function ServicesPage() {
                 Senior engineers only. Working software weekly.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
-                <Button href="/contact" size="lg" className="h-15 w-full sm:w-[25rem] bg-amber px-10 text-base text-white hover:bg-amber-bright" arrow>
+                <Button href="/contact" size="lg" className="bg-amber text-white hover:bg-amber-bright" arrow>
                   Get a free scope review
                 </Button>
-                <Button href="/work" variant="outline" size="lg" className="h-15 w-full sm:w-[25rem] border-line bg-white px-10 text-base text-ink hover:border-amber hover:text-amber">
+                <Button href="/work" variant="outline" size="lg" className="border-line bg-white text-ink hover:border-amber hover:text-amber">
                   See live platforms
                 </Button>
               </div>
@@ -148,11 +147,11 @@ export default function ServicesPage() {
             <h2 className="mt-3 text-h2 font-bold text-ink">Choose the capability that moves your work forward</h2>
             <p className="mt-4 text-body-sm leading-relaxed text-body">Each program brings senior engineering, practical delivery, and clear accountability to a different business need.</p>
           </div>
-          <div className="mt-8 grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div className="mt-8 grid items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {serviceLevels.map((service, index) => (
               <Link key={service.href} href={service.href} className="group flex h-full flex-col overflow-hidden rounded-xl border border-line bg-white transition-all duration-base hover:-translate-y-1 hover:border-amber/50">
-                <div className="flex h-32 items-center justify-center border-b border-line bg-[#f6f6f6] p-3">
-                  <img src={service.image} alt="" className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105" />
+                <div className="relative h-56 overflow-hidden border-b border-line bg-white">
+                  <img src={service.image} alt="" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <span className="text-micro font-bold text-amber">0{index + 1}</span>
@@ -170,7 +169,7 @@ export default function ServicesPage() {
           01 Â· PRODUCT ENGINEERING
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <SectionAnchor id="product-engineering">
-        <div className="section-y bg-[#000000] text-white">
+        <div className="section-y bg-navy text-white">
           <div className="container-site">
             <div className="grid items-start gap-8 lg:grid-cols-[1fr_1.5fr]">
               {/* Left */}
@@ -465,13 +464,13 @@ export default function ServicesPage() {
                 },
               ].map((svc) => (
                 <SectionAnchor key={svc.id} id={svc.id}>
-                  <article className="radius-sig border border-dark-border bg-dark-card p-7 h-full flex flex-col transition-all duration-base hover:-translate-y-0.5 hover:border-amber/40">
+                  <article className="radius-sig border border-amber-deep/30 bg-amber p-7 h-full flex flex-col transition-all duration-base hover:-translate-y-0.5 hover:border-amber-deep/60">
                     <div aria-hidden className="mb-5 h-1 w-8 rounded-full bg-amber" />
-                    <h3 className="text-[1.1rem] font-semibold text-white">{svc.title}</h3>
-                    <p className="mt-3 text-body-sm text-on-dark-muted leading-relaxed flex-1">{svc.desc}</p>
-                    <ul className="mt-6 flex flex-col gap-2 border-t border-dark-border pt-5">
+                    <h3 className="text-[1.1rem] font-semibold text-navy">{svc.title}</h3>
+                    <p className="mt-3 text-body-sm text-body leading-relaxed flex-1">{svc.desc}</p>
+                    <ul className="mt-6 flex flex-col gap-2 border-t border-amber-deep/30 pt-5">
                       {svc.points.map((pt) => (
-                        <li key={pt} className="flex items-start gap-2.5 text-body-sm text-on-dark-muted">
+                        <li key={pt} className="flex items-start gap-2.5 text-body-sm text-body">
                           <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-amber" strokeWidth={2.2} />
                           {pt}
                         </li>
@@ -508,8 +507,8 @@ export default function ServicesPage() {
                 <SpecialistCallout icon="card" title="Payments & integrations" description="Stripe subscriptions, metered billing, webhooks, refunds, and third-party integrations handled cleanly." />
                 <SpecialistCallout icon="pen" title="Product design & UX" description="Dashboard design, admin interfaces, and design systems built for clarity and ease of use." />
               </div>
-              <div className="relative flex min-h-[25rem] items-center justify-center overflow-hidden rounded-2xl border border-line bg-[#f7f9fc] p-8">
-                <img src="/mockups/systems-architecture.png" alt="Eaquirs Tech specialist services" className="absolute inset-0 h-full w-full object-contain p-6 opacity-35" />
+              <div className="relative flex min-h-[25rem] items-center justify-center overflow-hidden rounded-2xl border border-line bg-white p-8">
+                <img src="/service-visuals/team-collaboration.png" alt="Eaquirs Tech specialist services" className="absolute inset-0 h-full w-full object-cover opacity-25" />
                 <div className="relative max-w-sm text-center">
                   <h3 className="text-[1.5rem] font-bold leading-tight text-ink">Specialist capability, exactly where it matters.</h3>
                   <p className="mt-4 text-body-sm leading-relaxed text-body">Services that round out a complete engagement — from payment integrations to quality assurance to embedded engineering talent.</p>

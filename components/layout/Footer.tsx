@@ -36,7 +36,7 @@ const cols = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#000000] text-white">
+    <footer className="bg-navy text-white">
       {/* Main footer body */}
       <div className="container-site py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
@@ -44,11 +44,11 @@ export default function Footer() {
           <div>
             <Logo imageClassName="h-16 md:h-20" />
             <p className="mt-5 max-w-xs text-body-sm text-white/60 leading-relaxed">
-              AI-native software engineering from Lahore, Pakistan.
+              AI-native software engineering from Bahawalpur, Pakistan.
               We build production systems that handle real scale, real data, and real edge cases.
             </p>
             <address className="mt-6 not-italic text-body-sm text-white/50 leading-relaxed">
-              DHA Phase 6, Lahore, Pakistan
+              Bahawalpur, Pakistan
               <br />
               <a
                 href={`mailto:${siteConfig.email}`}
@@ -88,7 +88,7 @@ export default function Footer() {
           <p>
             &copy; {new Date().getFullYear()} Eaquirs Tech. All rights reserved.
           </p>
-          <p>Built with Next.js — Lahore, Pakistan</p>
+          <p>Built with Next.js — Bahawalpur, Pakistan</p>
         </div>
       </div>
     </footer>

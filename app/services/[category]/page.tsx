@@ -77,13 +77,13 @@ export default async function ServiceCategoryPage({ params }: { params: Promise<
 
   return (
     <>
-      <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-[#000000] pt-24 text-white">
+      <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-navy pt-24 text-white">
         <div className="container-site grid w-full items-center gap-10 py-14 lg:grid-cols-[1fr_0.9fr]">
           <div className="max-w-3xl">
             <p className="text-micro font-bold uppercase tracking-label text-amber">{page.eyebrow}</p>
-            <h1 className="mt-5 text-h1 font-bold leading-[1.04] text-white md:text-display">{page.title}</h1>
+            <h1 className="mt-5 text-h1 font-bold leading-[1.04] text-white">{page.title}</h1>
             <p className="mt-6 max-w-2xl text-body-lg text-on-dark-muted">{page.intro}</p>
-            <div className="mt-9 flex flex-wrap gap-4"><Button href="/contact" size="lg" arrow className="h-15 w-full sm:w-[25rem] bg-amber px-10 text-base text-white hover:bg-amber-bright">Discuss your project</Button><Button href="/work" size="lg" variant="outline" className="h-15 w-full sm:w-[25rem] border-white/20 bg-transparent px-10 text-base text-white hover:border-amber hover:text-amber">See live work</Button></div>
+            <div className="mt-9 flex flex-wrap gap-4"><Button href="/contact" size="lg" arrow className="bg-amber text-white hover:bg-amber-bright">Discuss your project</Button><Button href="/work" size="lg" variant="outline" className="border-white/20 bg-transparent text-white hover:border-amber hover:text-amber">See live work</Button></div>
           </div>
           <div className="relative mx-auto w-full max-w-xl border border-white/15 bg-white/[0.03] p-3 sm:p-4"><div aria-hidden className="absolute inset-3 border border-amber/25" /><img src={page.image} alt={`${page.eyebrow} service visual`} className="relative w-full object-contain" /></div>
         </div>

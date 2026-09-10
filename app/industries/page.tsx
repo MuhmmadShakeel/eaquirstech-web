@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import Icon, { type IconName } from '@/components/ui/Icon';
 import SectionHeading from '@/components/ui/SectionHeading';
+import { revealProps } from '@/lib/reveal';
 
 export const metadata: Metadata = {
   title: 'Industries | Eaquirs Tech',
@@ -30,11 +31,11 @@ function FeatureList({ items, className }: { items: string[]; className?: string
 function IndustryVisual({ src, side = 'right', dark = false, full = false }: { src: string; side?: 'left' | 'right'; dark?: boolean; full?: boolean }) {
   const placement = full ? 'inset-0' : side === 'left' ? 'inset-y-0 left-0 w-[52%]' : 'inset-y-0 right-0 w-[52%]';
   const overlay = dark
-    ? side === 'left' ? 'bg-gradient-to-r from-black/20 via-black/65 to-black' : 'bg-gradient-to-r from-black via-black/65 to-black/20'
+    ? side === 'left' ? 'bg-gradient-to-r from-navy/30 via-navy/75 to-navy' : 'bg-gradient-to-r from-navy via-navy/75 to-navy/30'
     : side === 'left' ? 'bg-gradient-to-r from-white/15 via-white/75 to-white' : 'bg-gradient-to-r from-white via-white/75 to-white/15';
   return (
     <div aria-hidden className={`pointer-events-none absolute ${placement} z-0 hidden overflow-hidden lg:block`}>
-      <img src={src} alt="" className={`h-full w-full object-cover ${dark ? 'opacity-25' : 'opacity-[0.16]'}`} />
+      <img src={src} alt="" loading="lazy" decoding="async" className={`h-full w-full object-cover ${dark ? 'opacity-25' : 'opacity-[0.16]'}`} />
       <div className={`absolute inset-0 ${overlay}`} />
     </div>
   );
@@ -66,7 +67,7 @@ export default function IndustriesPage() {
             </h1>
             <p className="mt-6 text-body-lg text-on-dark-muted max-w-2xl mx-auto">
               Each sector has different data models, compliance requirements, and failure modes.
-              We carry operational context from live systems in healthcare, real estate, jewellery, and AI hiring â€”
+              We carry operational context from live systems in healthcare, real estate, jewellery, and OpenInterview.me â€”
               and apply that understanding to every new engagement.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -112,7 +113,6 @@ export default function IndustriesPage() {
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <AnchorSection id="real-estate">
         <div className="section-y relative isolate flex min-h-[85vh] flex-col justify-center overflow-hidden bg-white">
-          <IndustryVisual src="/mockups/desktop-dashboard.png" side="right" />
           <div className="container-site relative z-10">
             <div className="grid items-start gap-14 lg:grid-cols-[1fr_1.4fr]">
               <div className="lg:sticky lg:top-32">
@@ -134,7 +134,7 @@ export default function IndustriesPage() {
                 </div>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div {...revealProps(1)} className="grid gap-4 sm:grid-cols-2">
                 {[
                   { title: 'Property inventory system', desc: 'Unit-level tracking across multiple projects â€” plot sizes, pricing tiers, availability status, and booking pipeline in one view.' },
                   { title: 'Commission management', desc: 'Agent commission calculations, installment tracking, approval workflows, and monthly payroll exports that reconcile with your accounts.' },
@@ -156,11 +156,10 @@ export default function IndustriesPage() {
           02 Â· HEALTHCARE
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <AnchorSection id="healthcare">
-        <div className="section-y section-light relative isolate flex min-h-[85vh] flex-col justify-center overflow-hidden">
-          <IndustryVisual src="/mockups/mobile-login.png" side="left" />
+        <div className="section-y relative isolate flex min-h-[85vh] flex-col justify-center overflow-hidden bg-white">
           <div className="container-site relative z-10">
             <div className="grid items-start gap-14 lg:grid-cols-[1.4fr_1fr]">
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div {...revealProps(1)} className="grid gap-4 sm:grid-cols-2">
                 {[
                   { title: 'Patient management', desc: 'Inpatient and outpatient registration, ward assignments, doctor scheduling, and discharge management â€” all in one auditable system.' },
                   { title: 'Pharmacy & dispensing', desc: 'Drug inventory with expiry tracking, prescription fulfilment, and controlled substance logging. Integrated with billing.' },
@@ -186,13 +185,9 @@ export default function IndustriesPage() {
                   a billing dispute at discharge. We build clinical systems with the reliability, audit trails,
                   and role-based controls that healthcare demands.
                 </p>
-                <FeatureList className="mt-8" items={[
-                  'C# .NET and SQL Server â€” enterprise-grade',
-                  'Crystal Reports for clinical documentation',
-                  'Zero-downtime replacement methodology',
-                  'Parallel running until staff are confident',
-                  'Complete staff training included',
-                ]} />
+                <div className="mt-7 overflow-hidden rounded-2xl border border-line bg-white shadow-card">
+                  <img src="/uploads/services/8dd7ea20-fa2f-41f4-acae-0d217f0a0ca5.png" alt="Healthcare technology team reviewing a secure clinical system" className="aspect-[16/8] w-full object-cover" />
+                </div>
               </div>
             </div>
           </div>
@@ -204,7 +199,6 @@ export default function IndustriesPage() {
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <AnchorSection id="manufacturing">
         <div className="section-y relative isolate flex min-h-[85vh] flex-col justify-center overflow-hidden bg-white">
-          <IndustryVisual src="/mockups/systems-architecture.png" side="right" />
           <div className="container-site relative z-10">
             <SectionHeading
               eyebrow="03 Â· Manufacturing & Jewellery"
@@ -212,7 +206,7 @@ export default function IndustriesPage() {
               intro="Manufacturing and jewellery ERPs require exact tracking of weights, purities, batch compositions, and consignment chains. Generic inventory tools are not built for this."
             />
             <div className="mt-10">
-              <div className="grid gap-5 sm:grid-cols-2">
+              <div {...revealProps(1)} className="grid gap-5 sm:grid-cols-2">
                 {[
                   { title: 'Weight-aware stock management', desc: 'Inventory tracked by gram weight, not just unit count. Purity percentages, alloy compositions, and hallmarking data stored per item.' },
                   { title: 'Consignment & trade', desc: 'Outward consignment tracking, return reconciliation, and consignee ledgers â€” audited at both ends of the chain.' },
@@ -236,7 +230,7 @@ export default function IndustriesPage() {
       <AnchorSection id="hr">
         <div className="section-y section-dark relative isolate overflow-hidden">
           <div aria-hidden className="glow-amber-dark pointer-events-none absolute inset-0" />
-          <IndustryVisual src="/mockups/ai-orchestration.png" side="left" dark />
+          <IndustryVisual src="/service-visuals/ai-hiring-platform.png" side="left" dark />
           <div className="container-site relative z-10">
             <div className="grid items-start gap-14 lg:grid-cols-[1fr_1.4fr]">
               <div className="lg:sticky lg:top-32">
@@ -264,16 +258,16 @@ export default function IndustriesPage() {
                 </ul>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div {...revealProps(1)} className="grid gap-4 sm:grid-cols-2">
                 {[
                   { title: 'Applicant tracking', desc: 'Job listings, application collection, status pipeline, and team collaboration on candidates â€” without the bloat of enterprise HR software.' },
                   { title: 'AI interview engine', desc: 'Dynamic question sets generated per role, per seniority level. Adaptive follow-ups when candidates give vague or off-topic answers.' },
                   { title: 'Automated scoring', desc: 'Candidate responses evaluated against role-specific rubrics. Ranked shortlists delivered to the hiring manager without manual review.' },
                   { title: 'Scheduling integration', desc: 'Interview slot booking with calendar sync, automated reminders, and reschedule handling â€” fully automated from shortlist to interview confirmed.' },
                 ].map((card) => (
-                  <div key={card.title} className="rounded-xl border border-dark-border bg-dark-card p-6">
-                    <h4 className="text-[1.05rem] font-semibold text-white">{card.title}</h4>
-                    <p className="mt-2 text-body-sm text-on-dark-muted leading-relaxed">{card.desc}</p>
+                  <div key={card.title} className="rounded-2xl border border-white/10 bg-navy/90 p-6 shadow-card transition-all duration-base hover:-translate-y-1 hover:border-amber">
+                    <h4 className="text-[1.05rem] font-semibold text-amber">{card.title}</h4>
+                    <p className="mt-2 text-body-sm text-white/75 leading-relaxed">{card.desc}</p>
                   </div>
                 ))}
               </div>
@@ -287,14 +281,13 @@ export default function IndustriesPage() {
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <AnchorSection id="fintech">
         <div className="section-y relative isolate flex min-h-[85vh] flex-col justify-center overflow-hidden bg-white">
-          <IndustryVisual src="/mockups/watch-platform.png" side="left" />
           <div className="container-site relative z-10">
             <SectionHeading
               eyebrow="05 Â· Fintech"
               title="Ledger-accurate. Audit-ready. Regulation-aware."
               intro="Financial software must be correct first, fast second. We build payment systems, accounting modules, and financial reporting tools that reconcile to the cent and produce the audit trail regulators expect."
             />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div {...revealProps(1)} className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 { icon: 'card' as IconName, title: 'Payment gateway integration', desc: 'Stripe, Razorpay, JazzCash, EasyPaisa â€” subscription billing, one-time payments, refunds, webhooks, and reconciliation. Tested edge cases first.' },
                 { icon: 'layers' as IconName, title: 'Accounting modules', desc: 'Double-entry bookkeeping, chart of accounts, journal entries, and trial balance â€” custom-built to map to your specific business structure.' },
@@ -303,13 +296,13 @@ export default function IndustriesPage() {
                 { icon: 'lightning' as IconName, title: 'Subscription & billing engine', desc: 'Usage-based billing, tiered pricing, trial periods, upgrade/downgrade flows, dunning management, and tax calculation across jurisdictions.' },
                 { icon: 'link' as IconName, title: 'Third-party integrations', desc: 'ERP connectors, bank statement parsers, SECP filing helpers, and API integrations with financial data providers.' },
               ].map((svc) => (
-                <div key={svc.title} className="group flex flex-col gap-4 rounded-2xl border border-line bg-white p-7 shadow-card transition-all duration-base hover:-translate-y-0.5 hover:shadow-card-hover hover:border-amber/30">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-tint text-amber-deep transition-colors duration-base group-hover:bg-amber group-hover:text-white">
+                <div key={svc.title} className="group flex flex-col gap-4 rounded-2xl border border-white/10 bg-navy p-7 shadow-card transition-all duration-base hover:-translate-y-1 hover:border-amber hover:shadow-card-hover">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-amber transition-colors duration-base group-hover:bg-amber group-hover:text-navy">
                     <Icon name={svc.icon} className="h-6 w-6" />
                   </span>
                   <div>
-                    <h3 className="text-[1.05rem] font-semibold text-ink">{svc.title}</h3>
-                    <p className="mt-2 text-body-sm leading-relaxed">{svc.desc}</p>
+                    <h3 className="text-[1.05rem] font-semibold text-amber">{svc.title}</h3>
+                    <p className="mt-2 text-body-sm leading-relaxed text-white/75">{svc.desc}</p>
                   </div>
                 </div>
               ))}
@@ -323,7 +316,7 @@ export default function IndustriesPage() {
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <AnchorSection id="logistics">
         <div className="section-y section-light relative isolate flex min-h-[85vh] flex-col justify-center overflow-hidden">
-          <IndustryVisual src="/mockups/delivery-system.png" side="right" />
+          <IndustryVisual src="/uploads/services/cc47d428-5705-4cef-87a4-e549dae35401.png" side="right" />
           <div className="container-site relative z-10">
             <div className="grid items-start gap-14 lg:grid-cols-[1fr_1.4fr]">
               <div className="lg:sticky lg:top-32">
@@ -343,7 +336,7 @@ export default function IndustriesPage() {
                   'Returns and reverse logistics management',
                 ]} />
               </div>
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div {...revealProps(1)} className="grid gap-4 sm:grid-cols-2">
                 {[
                   { title: 'Fleet management', desc: 'Vehicle status, driver assignment, maintenance schedules, and fuel tracking across a fleet of any size.' },
                   { title: 'Dispatch & routing', desc: 'Order-to-driver assignment, automated route sequencing, live map view for operations managers, and ETA communication to customers.' },
@@ -367,7 +360,7 @@ export default function IndustriesPage() {
       <AnchorSection id="ecommerce">
         <div className="section-y section-dark relative isolate overflow-hidden">
           <div aria-hidden className="glow-amber-dark pointer-events-none absolute inset-0" />
-          <IndustryVisual src="/mockups/mobile-receipt.png" side="right" dark />
+          <IndustryVisual src="/service-visuals/design-team.png" side="right" dark />
           <div className="container-site relative z-10">
             <SectionHeading
               eyebrow="07 Â· E-commerce & Retail"
@@ -375,16 +368,16 @@ export default function IndustriesPage() {
               intro="Whether you sell physical goods from a warehouse or digital products from a CDN, we build the commerce infrastructure that handles your specific inventory model, fulfillment workflow, and customer experience."
               dark
             />
-            <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div {...revealProps(1)} className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 { title: 'Custom storefront', desc: 'Next.js storefronts with server-side rendering, instant search, filter UX, and optimized product pages â€” fast enough to rank, good enough to convert.' },
                 { title: 'Inventory management', desc: 'Multi-warehouse stock, SKU variants (size/color/type), reorder alerts, and real-time sync with your storefront to prevent oversells.' },
                 { title: 'Order management', desc: 'Order capture, payment confirmation, fulfillment workflow, shipping label generation, and customer notification â€” one system, no manual steps.' },
                 { title: 'Returns & refunds', desc: 'Return authorisation, condition assessment, restocking workflow, and refund processing â€” with the reporting your accounts team needs.' },
               ].map((card) => (
-                <div key={card.title} className="rounded-xl border border-dark-border bg-dark-card p-6">
-                  <h4 className="text-[1.05rem] font-semibold text-white">{card.title}</h4>
-                  <p className="mt-2 text-body-sm text-on-dark-muted leading-relaxed">{card.desc}</p>
+                <div key={card.title} className="rounded-2xl border border-white/10 bg-navy/90 p-6 shadow-card transition-all duration-base hover:-translate-y-1 hover:border-amber">
+                  <h4 className="text-[1.05rem] font-semibold text-amber">{card.title}</h4>
+                  <p className="mt-2 text-body-sm text-white/75 leading-relaxed">{card.desc}</p>
                 </div>
               ))}
             </div>
@@ -402,7 +395,7 @@ export default function IndustriesPage() {
               intro="SaaS architecture is different from standard web development â€” tenant isolation, subscription metering, onboarding flows, and usage analytics need to be right from the beginning, not bolted on later."
               className="lg:[&>h2]:max-w-none"
             />
-            <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div {...revealProps(1)} className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 { title: 'Multi-tenant architecture', desc: 'Row-level security, schema-per-tenant, or database-per-tenant â€” we recommend the right isolation model for your compliance requirements and expected customer count.' },
                 { title: 'Subscription billing', desc: 'Stripe integration for free trials, monthly/annual plans, usage-based billing, upgrade/downgrade flows, and dunning â€” including tax calculation and invoice generation.' },
@@ -411,9 +404,9 @@ export default function IndustriesPage() {
                 { title: 'Admin & ops tooling', desc: 'Internal tooling for your support and operations team â€” customer impersonation, feature flags, usage override, and manual billing adjustments.' },
                 { title: 'API & webhooks', desc: 'Customer-facing APIs with authentication, rate limiting, API key management, and webhook delivery so your platform integrates with your customers\' existing tools.' },
               ].map((card) => (
-                <div key={card.title} className="rounded-xl border border-line bg-white p-6 shadow-card transition-all duration-base hover:-translate-y-0.5 hover:shadow-card-hover">
+                <div key={card.title} className="rounded-2xl border border-amber-deep/25 bg-amber p-6 shadow-card transition-all duration-base hover:-translate-y-1 hover:bg-amber-bright hover:shadow-card-hover">
                   <h4 className="text-[1.05rem] font-semibold text-ink">{card.title}</h4>
-                  <p className="mt-2 text-body-sm leading-relaxed">{card.desc}</p>
+                  <p className="mt-2 text-body-sm leading-relaxed text-navy/80">{card.desc}</p>
                 </div>
               ))}
             </div>

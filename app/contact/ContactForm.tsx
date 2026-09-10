@@ -50,6 +50,18 @@ export default function ContactForm() {
       <Field label="Company (optional)" id="company" type="text" placeholder="Your company" />
 
       <div>
+        <label htmlFor="project-type" className="mb-2 block text-caption font-medium uppercase tracking-label text-muted">Project type</label>
+        <select id="project-type" name="projectType" defaultValue="" className={cn(fieldClass, 'cursor-pointer')}>
+          <option value="" disabled>Select a project type</option>
+          <option value="new-product">New product or MVP</option>
+          <option value="business-system">Business system or ERP</option>
+          <option value="ai-automation">AI or automation</option>
+          <option value="modernization">Rescue or modernization</option>
+          <option value="consultancy">Technical consultancy</option>
+        </select>
+      </div>
+
+      <div>
         <label htmlFor="budget" className="mb-2 block text-caption font-medium uppercase tracking-label text-muted">
           Budget range
         </label>
