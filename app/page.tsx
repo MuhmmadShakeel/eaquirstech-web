@@ -10,9 +10,9 @@ import Pricing from '@/components/sections/Pricing';
 import FAQ from '@/components/sections/FAQ';
 
 export const metadata: Metadata = {
-  title: 'Eaquirs Tech — AI-Native Software Engineering Partner',
+  title: 'Eaquirs Tech | Software Engineering Partner',
   description:
-    'Eaquirs Tech builds ERP platforms, AI systems and production software for founders and operating teams. Four platforms live. Rescue engagements welcome.',
+    'Eaquirs Tech builds ERP platforms, AI systems, and production software for founders and operating teams. We also take on rescue and modernisation work.',
   alternates: { canonical: '/' },
 };
 

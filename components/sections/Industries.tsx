@@ -9,7 +9,7 @@ export default function Industries() {
         <SectionHeading
           eyebrow="Industries"
           title="Built for the demands of your sector"
-          intro="Real estate, healthcare, jewellery, hiring — each domain has different data, compliance requirements and failure modes. We have shipped in several of them."
+          intro="Every industry has its own data, compliance needs, and operational risks. We bring experience from real estate, healthcare, jewellery, and hiring."
         />
 
         <div className="marquee-mask mt-6 overflow-hidden border-y border-line py-4">

@@ -1,12 +1,13 @@
 import Button from '@/components/ui/Button';
 import Icon from '@/components/ui/Icon';
+import BrandedVisual from '@/components/ui/BrandedVisual';
 import { stack } from '@/lib/content/misc';
 import type { SimpleIcon } from 'simple-icons';
 import { siCloudinary, siDocker, siDotnet, siExpress, siJsonwebtokens, siLangchain, siNeon, siNestjs, siNextdotjs, siNodedotjs, siPostgresql, siPrisma, siReact, siRedis, siStripe, siTailwindcss, siTypescript, siZod } from 'simple-icons';
 
 export default function StackMarquee() {
   return (
-    <section className="section-light flex min-h-[calc(100svh-var(--header-h))] items-center py-10 lg:py-12">
+    <section className="section-light py-14 lg:py-16">
       <div className="container-site">
         <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div>
@@ -16,7 +17,7 @@ export default function StackMarquee() {
                 WE BUILD<br /><span className="text-amber">PRODUCTION</span><br /><span className="text-muted">SOFTWARE</span>
               </h2>
               <div className="mt-5 max-w-xl">
-                <p className="text-body-lg leading-relaxed text-body">Senior engineers combine product thinking and AI-assisted delivery to ship software people can rely on.</p>
+                <p className="text-body-lg leading-relaxed text-body">Senior engineers combine product thinking with practical delivery to build software people can rely on.</p>
                 <Button href="/contact" size="lg" arrow className="mt-7 bg-amber text-white hover:bg-amber-bright">Start a project</Button>
               </div>
             </div>
@@ -25,7 +26,7 @@ export default function StackMarquee() {
           <div className="relative">
             <div aria-hidden="true" className="absolute -inset-4 rounded-[2rem] border border-amber/20" />
             <div className="relative rounded-2xl border border-line bg-white p-5 shadow-card">
-              <img src="/home-product-technology.png" alt="Product and technology working together" className="aspect-[4/3] w-full object-cover" />
+              <BrandedVisual src="/home-product-technology.png" alt="Product and technology working together" treatment="both" className="aspect-[4/3] w-full" />
             </div>
           </div>
         </div>
@@ -67,7 +68,7 @@ function TechMarquee({ reverse = false }: { reverse?: boolean }) {
 const techIcons: Record<string, SimpleIcon> = {
   'Next.js': siNextdotjs, NestJS: siNestjs, 'Node.js': siNodedotjs, 'Express.js': siExpress,
   TypeScript: siTypescript, React: siReact, PostgreSQL: siPostgresql, 'Neon DB': siNeon,
-  Redis: siRedis, Prisma: siPrisma, 'C# .NET': siDotnet, 'Entity Framework': siDotnet,
+  Redis: siRedis, Prisma: siPrisma, 'C# .NET': siDotnet,
   LangChain: siLangchain, Stripe: siStripe, JWT: siJsonwebtokens, Zod: siZod,
   Cloudinary: siCloudinary, Docker: siDocker, 'Tailwind CSS': siTailwindcss,
 };

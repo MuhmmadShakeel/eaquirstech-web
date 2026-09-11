@@ -1,11 +1,11 @@
 export const faqs = [
   {
     question: 'What kind of software do you actually build?',
-    answer: 'Production systems: ERP and internal operations platforms, AI-backed products, and web and mobile applications. Our shipped work spans real estate, healthcare, jewellery manufacturing and hiring — see the Work section for four live platforms.',
+    answer: 'We build ERP and internal operations platforms, AI-enabled products, and web and mobile applications. Our work spans real estate, healthcare, jewellery manufacturing, and hiring.',
   },
   {
     question: 'Can you take over a project someone else started?',
-    answer: 'Yes, and it is a large share of what we do. We have taken over an AI-generated prototype and hardened it into a payment-processing platform, and replaced a hospital system after its vendor abandoned support. We audit first, stabilise second, then extend.',
+    answer: 'Yes. We have taken over unstable prototypes and turned them into dependable payment platforms. We have also replaced a hospital system after its vendor stopped supporting it. First we assess the system, then we stabilise it and build from there.',
   },
   {
     question: 'How do you avoid disrupting a system people depend on daily?',

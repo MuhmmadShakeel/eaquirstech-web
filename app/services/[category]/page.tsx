@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import Icon from '@/components/ui/Icon';
+import BrandedVisual from '@/components/ui/BrandedVisual';
 
 const pages = {
   'product-engineering': {
@@ -85,7 +86,7 @@ export default async function ServiceCategoryPage({ params }: { params: Promise<
             <p className="mt-6 max-w-2xl text-body-lg text-on-dark-muted">{page.intro}</p>
             <div className="mt-9 flex flex-wrap gap-4"><Button href="/contact" size="lg" arrow className="bg-amber text-white hover:bg-amber-bright">Discuss your project</Button><Button href="/work" size="lg" variant="outline" className="border-white/20 bg-transparent text-white hover:border-amber hover:text-amber">See live work</Button></div>
           </div>
-          <div className="relative mx-auto w-full max-w-xl border border-white/15 bg-white/[0.03] p-3 sm:p-4"><div aria-hidden className="absolute inset-3 border border-amber/25" /><img src={page.image} alt={`${page.eyebrow} service visual`} className="relative w-full object-contain" /></div>
+          <BrandedVisual src={page.image} alt={`${page.eyebrow} service visual`} treatment="both" className="relative mx-auto w-full max-w-xl border border-white/15 bg-white/[0.03] p-3 sm:p-4" imageClassName="relative object-contain" />
         </div>
       </section>
 

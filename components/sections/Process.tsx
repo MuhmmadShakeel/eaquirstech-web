@@ -10,7 +10,7 @@ export default function Process() {
         <SectionHeading
           eyebrow="How we work"
           title="A four-step path from problem to production"
-          intro="Every engagement follows the same disciplined pattern — whether it's a six-week replacement or a year-long product build."
+          intro="Every engagement follows a clear delivery process, whether it is a six-week replacement or a longer product build."
         />
 
         <div className="relative mt-8">

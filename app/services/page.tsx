@@ -5,6 +5,7 @@ import Icon, { type IconName } from '@/components/ui/Icon';
 import SectionHeading from '@/components/ui/SectionHeading';
 import ServicesHeroImage from './_ServicesHeroImage';
 import { revealProps } from '@/lib/reveal';
+import BrandedVisual from '@/components/ui/BrandedVisual';
 
 export const metadata: Metadata = {
   title: 'Services | Eaquirs Tech',
@@ -18,14 +19,14 @@ function ServiceCard({ title, desc, tags }: { title: string; desc: string; tags:
     <div className="group relative h-full overflow-hidden rounded-xl border border-line bg-white p-5 transition-all duration-base hover:-translate-y-1 hover:border-amber/50">
       <div aria-hidden className="absolute inset-x-0 top-0 h-1 bg-amber opacity-0 transition-opacity duration-base group-hover:opacity-100" />
       <div className="mb-5 flex items-center justify-between">
-        <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-wash text-micro font-bold text-amber-deep">ET</span>
+        <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy text-micro font-bold text-amber">ET</span>
         <span className="h-px w-8 bg-line transition-all duration-base group-hover:w-14 group-hover:bg-amber/50" />
       </div>
       <h4 className="text-[1.08rem] font-semibold text-ink">{title}</h4>
       <p className="mt-2 text-body-sm text-body leading-relaxed">{desc}</p>
       <div className="mt-5 flex flex-wrap gap-1.5 border-t border-line pt-4">
         {tags.map((t) => (
-          <span key={t} className="rounded-md border border-amber/20 bg-amber-wash px-2.5 py-0.5 text-micro text-amber-deep font-medium">
+          <span key={t} className="rounded-md border border-line bg-white px-2.5 py-0.5 text-micro text-navy font-medium">
             {t}
           </span>
         ))}
@@ -37,7 +38,7 @@ function ServiceCard({ title, desc, tags }: { title: string; desc: string; tags:
 function SpecialistCallout({ title, description, icon }: { title: string; description: string; icon: IconName }) {
   return (
     <article className="rounded-xl border border-line bg-white p-5 transition-colors duration-base hover:border-amber/50">
-      <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-wash text-amber-deep"><Icon name={icon} className="h-5 w-5" /></span>
+      <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-navy text-amber"><Icon name={icon} className="h-5 w-5" /></span>
       <h3 className="mt-4 text-body font-semibold text-ink">{title}</h3>
       <p className="mt-2 text-body-sm leading-relaxed text-body">{description}</p>
     </article>
@@ -64,10 +65,10 @@ function SectionAnchor({ id, children }: { id: string; children: React.ReactNode
 }
 
 const serviceLevels = [
-  { href: '/services/product-engineering', title: 'Product Engineering', text: 'End-to-end product builds, from architecture through deployment.', image: '/uploads/services/363f40e1-4d1d-4c30-89d7-5712102dbf83.png' },
-  { href: '/services/business-systems', title: 'Business Systems', text: 'Purpose-built ERP and internal platforms for complex operations.', image: '/uploads/services/014cc575-2241-4c04-a21f-4fdc7032f7eb.png' },
-  { href: '/services/ai-automation', title: 'AI & Automation', text: 'Production AI systems that reduce cost and improve outcomes.', image: '/uploads/services/c5ffdd08-1f64-40af-93b8-464042a68f46.png' },
-  { href: '/services/rescue-modernization', title: 'Rescue & Modernization', text: 'A structured path from inherited risk to stable software.', image: '/uploads/services/d88f0089-b664-4409-8376-c2a0da6ae4e1.png' },
+  { href: '/services/product-engineering', title: 'Product Engineering', text: 'End-to-end product builds, from architecture through deployment.', image: '/service-visuals/product-engineering.png' },
+  { href: '/services/business-systems', title: 'Business Systems', text: 'Purpose-built ERP and internal platforms for complex operations.', image: '/service-visuals/custom-erp-team.png' },
+  { href: '/services/ai-automation', title: 'AI & Automation', text: 'Production AI systems that reduce cost and improve outcomes.', image: '/service-visuals/workflow-team.png' },
+  { href: '/services/rescue-modernization', title: 'Rescue & Modernization', text: 'A structured path from inherited risk to stable software.', image: '/service-visuals/rescue-team.png' },
 ];
 
 export default function ServicesPage() {
@@ -151,7 +152,7 @@ export default function ServicesPage() {
             {serviceLevels.map((service, index) => (
               <Link key={service.href} href={service.href} className="group flex h-full flex-col overflow-hidden rounded-xl border border-line bg-white transition-all duration-base hover:-translate-y-1 hover:border-amber/50">
                 <div className="relative h-56 overflow-hidden border-b border-line bg-white">
-                  <img src={service.image} alt="" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <BrandedVisual src={service.image} alt="" treatment="signature" className="h-full w-full" imageClassName="transition-transform duration-500 group-hover:scale-105" />
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <span className="text-micro font-bold text-amber">0{index + 1}</span>
@@ -300,7 +301,7 @@ export default function ServicesPage() {
                     <ServiceFeature number="02" title="Healthcare management system" description="Inpatient and outpatient workflows, pharmacy, lab, billing, and reporting without care disruption." />
                   </div>
                   <div className="relative overflow-hidden rounded-2xl border border-line bg-white p-4">
-                    <img src="/mockups/desktop-dashboard.png" alt="Eaquirs Tech ERP platform dashboard" className="w-full object-contain" />
+                    <BrandedVisual src="/mockups/desktop-dashboard.png" alt="Eaquirs Tech ERP platform dashboard" treatment="both" imageClassName="object-contain" />
                   </div>
                   <div className="space-y-4">
                     <ServiceFeature number="03" title="Inventory & manufacturing ERP" description="Weight-aware stock management, purity tracking, consignment ledgers, and workshop job cards." />
@@ -386,7 +387,7 @@ export default function ServicesPage() {
               ].map((svc) => (
                 <SectionAnchor key={svc.id} id={svc.id}>
                   <div className="group flex flex-col gap-5 rounded-2xl border border-line bg-white p-7 shadow-card transition-all duration-base hover:-translate-y-1 hover:shadow-card-hover hover:border-amber/30 h-full">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-tint text-amber-deep transition-colors duration-base group-hover:bg-amber group-hover:text-white">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-amber transition-colors duration-base group-hover:bg-amber group-hover:text-navy">
                       <Icon name={svc.icon} className="h-6 w-6" />
                     </span>
                     <div className="flex-1">
@@ -395,7 +396,7 @@ export default function ServicesPage() {
                     </div>
                     <div className="flex flex-wrap gap-1.5">
                       {svc.tags.map((t) => (
-                        <span key={t} className="rounded-md border border-amber/20 bg-amber-wash px-2.5 py-0.5 text-micro text-amber-deep font-medium">{t}</span>
+                        <span key={t} className="rounded-md border border-line bg-white px-2.5 py-0.5 text-micro text-navy font-medium">{t}</span>
                       ))}
                     </div>
                   </div>
@@ -403,16 +404,16 @@ export default function ServicesPage() {
               ))}
 
               {/* Live proof card */}
-              <div className="rounded-2xl border border-amber/30 bg-amber-wash p-7 flex flex-col justify-between">
+              <div className="rounded-2xl border border-amber-deep/40 bg-amber p-7 text-navy shadow-card transition-all duration-base hover:-translate-y-1 hover:border-amber-deep/60 hover:bg-amber hover:shadow-card-hover flex flex-col justify-between">
                 <div>
-                  <p className="text-caption font-bold uppercase tracking-label text-amber-deep mb-3">Built with AI</p>
-                  <h3 className="text-[1.2rem] font-semibold text-ink">OpenInterview.me</h3>
-                  <p className="mt-3 text-body-sm text-body">
-                    AI-generated, role-specific interview questions. Adaptive follow-ups based on candidate answers.
+                  <p className="text-caption font-bold uppercase tracking-label text-navy/70 mb-3">Built with AI</p>
+                  <h3 className="text-[1.2rem] font-semibold text-navy">OpenInterview.me</h3>
+                  <p className="mt-3 text-body-sm text-navy/80">
+                    Role-specific interview questions tailored to the position, with follow-ups based on candidate answers.
                     LangChain + OpenAI, handling real hiring workflows for multiple organizations.
                   </p>
                 </div>
-                <Button href="/work" variant="outline" size="sm" className="mt-6 self-start" arrow>
+                <Button href="/work" variant="outline" size="sm" className="mt-6 self-start border-navy/30 bg-transparent text-navy hover:border-navy hover:text-navy" arrow>
                   See the platform
                 </Button>
               </div>
@@ -432,7 +433,7 @@ export default function ServicesPage() {
             <SectionHeading
               eyebrow="04 Â· Rescue & Modernization"
               title="We take the projects others walk away from"
-              intro="Abandoned vendors, prototypes that cannot go to production, legacy systems past their limit â€” rescue work is our specialism. We have replaced live hospital systems and inherited AI-generated codebases alike."
+              intro="We take over abandoned projects, unstable prototypes, and legacy systems that have reached their limit. Our team has replaced live hospital systems and recovered difficult codebases."
               dark
             />
 
@@ -464,14 +465,14 @@ export default function ServicesPage() {
                 },
               ].map((svc) => (
                 <SectionAnchor key={svc.id} id={svc.id}>
-                  <article className="radius-sig border border-amber-deep/30 bg-amber p-7 h-full flex flex-col transition-all duration-base hover:-translate-y-0.5 hover:border-amber-deep/60">
-                    <div aria-hidden className="mb-5 h-1 w-8 rounded-full bg-amber" />
-                    <h3 className="text-[1.1rem] font-semibold text-navy">{svc.title}</h3>
-                    <p className="mt-3 text-body-sm text-body leading-relaxed flex-1">{svc.desc}</p>
-                    <ul className="mt-6 flex flex-col gap-2 border-t border-amber-deep/30 pt-5">
+                  <article className="radius-sig h-full flex flex-col !border-emerald-950/20 !bg-white p-7 shadow-card transition-all duration-base hover:-translate-y-0.5 hover:!border-emerald-800/50 hover:shadow-card-hover">
+                    <div aria-hidden className="mb-5 h-1 w-8 rounded-full bg-emerald-800" />
+                    <h3 className="text-[1.1rem] font-semibold !text-emerald-950">{svc.title}</h3>
+                    <p className="mt-3 flex-1 text-body-sm leading-relaxed text-emerald-950/75">{svc.desc}</p>
+                    <ul className="mt-6 flex flex-col gap-2 border-t border-emerald-950/15 pt-5">
                       {svc.points.map((pt) => (
-                        <li key={pt} className="flex items-start gap-2.5 text-body-sm text-body">
-                          <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-amber" strokeWidth={2.2} />
+                        <li key={pt} className="flex items-start gap-2.5 text-body-sm text-emerald-950/80">
+                          <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-emerald-800" strokeWidth={2.2} />
                           {pt}
                         </li>
                       ))}
@@ -508,7 +509,7 @@ export default function ServicesPage() {
                 <SpecialistCallout icon="pen" title="Product design & UX" description="Dashboard design, admin interfaces, and design systems built for clarity and ease of use." />
               </div>
               <div className="relative flex min-h-[25rem] items-center justify-center overflow-hidden rounded-2xl border border-line bg-white p-8">
-                <img src="/service-visuals/team-collaboration.png" alt="Eaquirs Tech specialist services" className="absolute inset-0 h-full w-full object-cover opacity-25" />
+                <BrandedVisual src="/service-visuals/team-collaboration.png" alt="Eaquirs Tech specialist services" treatment="both" className="!absolute inset-0" imageClassName="opacity-25" />
                 <div className="relative max-w-sm text-center">
                   <h3 className="text-[1.5rem] font-bold leading-tight text-ink">Specialist capability, exactly where it matters.</h3>
                   <p className="mt-4 text-body-sm leading-relaxed text-body">Services that round out a complete engagement — from payment integrations to quality assurance to embedded engineering talent.</p>
@@ -554,7 +555,7 @@ export default function ServicesPage() {
               ].map((svc) => (
                 <SectionAnchor key={svc.id} id={svc.id}>
                   <div className="group flex flex-col gap-5 rounded-2xl border border-line bg-white p-7 shadow-card transition-all duration-base hover:-translate-y-1 hover:shadow-card-hover hover:border-amber/30 h-full">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-tint text-amber-deep transition-colors duration-base group-hover:bg-amber group-hover:text-white">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy text-amber transition-colors duration-base group-hover:bg-amber group-hover:text-navy">
                       <Icon name={svc.icon} className="h-6 w-6" />
                     </span>
                     <div className="flex-1">
@@ -563,7 +564,7 @@ export default function ServicesPage() {
                     </div>
                     <div className="flex flex-wrap gap-1.5">
                       {svc.tags.map((t) => (
-                        <span key={t} className="rounded-md border border-amber/20 bg-amber-wash px-2.5 py-0.5 text-micro text-amber-deep font-medium">{t}</span>
+                        <span key={t} className="rounded-md border border-line bg-white px-2.5 py-0.5 text-micro text-navy font-medium">{t}</span>
                       ))}
                     </div>
                   </div>

@@ -11,7 +11,7 @@ export default function Pricing() {
       <div className="container-site">
         <SectionHeading
           eyebrow="Engagement models"
-          title="Simple and flexible — no hidden costs"
+          title="Simple, flexible pricing with no hidden costs"
           intro="Choose the model that matches your project shape. We will recommend the one that fits, not the one that bills the most."
         />
 

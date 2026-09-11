@@ -16,9 +16,9 @@ export const projects: Project[] = [
     slug: 'openinterview',
     name: 'OpenInterview.me',
     category: 'OpenInterview.me',
-    summary: 'An AI-generated prototype rescued into a production hiring platform with LangChain + Stripe.',
+    summary: 'A fragile hiring prototype rebuilt into a reliable production platform with LangChain and Stripe.',
     description:
-      'Rebuilt a fragile AI-generated prototype into a hardened hiring platform: a validated Express API, idempotent Stripe payments, social login, interview scheduling with calendar invites, and a LangChain-backed AI assistant.',
+      'Rebuilt an unstable hiring prototype into a dependable platform with a validated Express API, Stripe payments, social login, interview scheduling, and a LangChain-backed assistant.',
     stack: [
       'Next.js', 'NestJS', 'Node.js', 'JavaScript', 'PostgreSQL', 'Tailwind CSS', 'TypeScript',
       'Express.js', 'Zod', 'Neon DB', 'JWT',
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     slug: 'ehms',
     name: 'EHMS',
     category: 'Hospital Management System',
-    summary: 'A complete hospital system replaced in six weeks — zero disruption to patient care.',
+    summary: 'A complete hospital system replaced in six weeks with no disruption to patient care.',
     description:
       'The incumbent vendor abandoned support and left a hospital running on an unmaintained system. We replaced it end to end with zero disruption to patient care, and a 95% performance improvement on core workflows.',
     stack: ['Next.js', 'NestJS', 'Node.js', 'JavaScript', 'PostgreSQL', 'Tailwind CSS', 'TypeScript'],
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     category: 'Jewellery ERP',
     summary: 'Purity-aware inventory, production, and sales control built for the jewellery trade.',
     description:
-      'An ERP shaped around how jewellery businesses actually operate — weight- and purity-aware inventory, production stages, consignment management and sales — with Redis caching keeping heavy stock queries responsive.',
+      'An ERP built around jewellery operations, including weight and purity tracking, production stages, consignment management, sales, and responsive stock queries powered by Redis caching.',
     stack: ['Next.js', 'NestJS', 'Node.js', 'JavaScript', 'PostgreSQL', 'Tailwind CSS', 'TypeScript', 'Redis'],
     metrics: [
       { value: 'Redis-backed', label: 'Sub-second stock reads' },

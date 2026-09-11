@@ -11,7 +11,7 @@ export const services: Service[] = [
     num: '01',
     title: 'Product engineering',
     description:
-      'Full-stack web and mobile builds on architecture that survives the second year — not just the demo.',
+      'Full-stack web and mobile products built on an architecture that supports the next stage of growth.',
     points: ['Next.js & NestJS platforms', 'REST and typed APIs', 'PostgreSQL data modelling'],
     icon: 'code',
   },
@@ -27,7 +27,7 @@ export const services: Service[] = [
     num: '03',
     title: 'AI & automation',
     description:
-      'LLM features that hold up in production — retrieval, agents and assistants wired into your real data.',
+      'LLM features designed for production, with retrieval, agents, and assistants connected to your real data.',
     points: ['LangChain & OpenAI integration', 'Document and retrieval pipelines', 'Workflow automation'],
     icon: 'spark',
   },
@@ -43,7 +43,7 @@ export const services: Service[] = [
     num: '05',
     title: 'Payments & integrations',
     description:
-      'Money movement and third-party systems done carefully — idempotent, reconciled and observable.',
+      'Payments and third-party integrations built carefully, with reliable reconciliation and clear monitoring.',
     points: ['Stripe & billing flows', 'Social login and identity', 'Calendar, storage and media'],
     icon: 'link',
   },

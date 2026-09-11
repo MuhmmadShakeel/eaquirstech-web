@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function ImageWithFallback({
   src,
@@ -15,7 +16,7 @@ export default function ImageWithFallback({
   className?: string;
   fallbackClassName?: string;
   fallbackContent?: React.ReactNode;
-} & React.ImgHTMLAttributes<HTMLImageElement>) {
+} & Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt' | 'width' | 'height'>) {
   const [failed, setFailed] = useState(false);
 
   if (failed) {
@@ -27,9 +28,12 @@ export default function ImageWithFallback({
   }
 
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
+      width={1586}
+      height={992}
+      sizes="(max-width: 639px) 100vw, (max-width: 1023px) 90vw, 720px"
       className={className}
       onError={() => setFailed(true)}
       {...rest}

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Icon from '@/components/ui/Icon';
 import { siteConfig } from '@/lib/content/site';
 import ContactForm from './ContactForm';
+import BrandedVisual from '@/components/ui/BrandedVisual';
 
 export const metadata: Metadata = {
   title: 'Contact | Eaquirs Tech',
@@ -42,7 +43,7 @@ export default function ContactPage() {
           <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
             {/* Left */}
             <div data-reveal="hidden">
-              <img src="/contact-visual.png" alt="A contact form on a mobile device" className="aspect-[3/2] w-full rounded-2xl object-cover" />
+              <BrandedVisual src="/contact-visual.png" alt="A contact form on a mobile device" treatment="both" className="aspect-[3/2] w-full rounded-2xl" />
               <h2 className="text-h3 font-bold text-ink">What to expect</h2>
               <ul className="mt-6 flex flex-col gap-3">
                 {points.map((p) => (

@@ -12,12 +12,12 @@ const config: Config = {
         // Brand amber (from logo)
         amber: {
           DEFAULT: '#FFD230',
-          bright: '#FFE16B',
-          mid: '#E9BB16',
-          deep: '#B88E00',
-          dark: '#806200',
-          tint: '#FFF7CD',
-          wash: '#FFFBEA',
+          bright: '#FFD230',
+          mid: '#FFD230',
+          deep: '#FFD230',
+          dark: '#FFD230',
+          tint: '#FFF9D6',
+          wash: '#FFF9D6',
         },
         // Brand navy
         navy: {
@@ -50,10 +50,10 @@ const config: Config = {
       },
       textColor: {
         DEFAULT: '#14110E',
-        body: '#4A4740',
-        muted: '#88847C',
+        body: '#293A55',
+        muted: '#64748B',
         'on-dark': 'rgba(241,240,238,0.85)',
-        'on-dark-muted': 'rgba(241,240,238,0.56)',
+        'on-dark-muted': 'rgba(255,255,255,0.78)',
       },
       borderColor: {
         DEFAULT: '#E8E5E0',
@@ -65,11 +65,11 @@ const config: Config = {
         display: ['var(--font-archivo)', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        micro: ['0.75rem', { lineHeight: '1.4' }],
-        caption: ['0.875rem', { lineHeight: '1.4' }],
-        'body-sm': ['0.9375rem', { lineHeight: '1.65' }],
-        body: ['1rem', { lineHeight: '1.75' }],
-        'body-lg': ['1.125rem', { lineHeight: '1.7' }],
+        micro: ['0.78rem', { lineHeight: '1.45' }],
+        caption: ['0.9rem', { lineHeight: '1.45' }],
+        'body-sm': ['1rem', { lineHeight: '1.65' }],
+        body: ['1.0625rem', { lineHeight: '1.7' }],
+        'body-lg': ['1.1875rem', { lineHeight: '1.65' }],
         lead: ['1.25rem', { lineHeight: '1.6' }],
         h4: ['1.625rem', { lineHeight: '1.25' }],
         h3: ['2rem', { lineHeight: '1.2' }],
