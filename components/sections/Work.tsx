@@ -2,6 +2,7 @@
 import Button from '@/components/ui/Button';
 import { featuredProjects, type Project } from '@/lib/content/projects';
 import { revealProps } from '@/lib/reveal';
+import BrandedVisual from '@/components/ui/BrandedVisual';
 
 export default function Work() {
   return (
@@ -31,7 +32,7 @@ export function ProjectCard({ project, index = 0, flip = false }: { project: Pro
       <a {...revealProps(index)} href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} demo`} className="group mx-auto block h-[400px] w-[400px] max-w-full [perspective:1200px] focus:outline-none">
         <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
           <div className="absolute inset-0 overflow-hidden rounded-3xl bg-navy [backface-visibility:hidden]">
-            <img src={image} alt={`${project.name} platform preview`} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+            <BrandedVisual src={image} alt={`${project.name} platform preview`} treatment="mark" className="h-full w-full" />
           </div>
           <div className="absolute inset-0 flex overflow-hidden rounded-3xl bg-navy p-6 [backface-visibility:hidden] [transform:rotateY(180deg)]">
             <div className="flex min-w-0 flex-1 flex-col overflow-hidden"><span className="text-micro font-bold uppercase tracking-label text-amber">{project.category}</span><h3 className="mt-2 text-[1.3rem] font-bold leading-snug !text-white">{project.name}</h3><p className="mt-3 line-clamp-4 text-body-sm leading-relaxed text-white/70">{project.summary}</p>
@@ -45,7 +46,7 @@ export function ProjectCard({ project, index = 0, flip = false }: { project: Pro
   return (
     <article {...revealProps(index)} aria-label={`Project: ${project.name}`} className="group mx-auto h-full w-full max-w-[400px] overflow-hidden rounded-2xl bg-white shadow-card transition-all duration-base hover:-translate-y-1 hover:shadow-card-hover">
       <div className="relative aspect-[16/10] overflow-hidden bg-navy">
-        <img src={image} alt={`${project.name} platform preview`} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
+        <BrandedVisual src={image} alt={`${project.name} platform preview`} treatment="both" className="h-full w-full" imageClassName="transition-transform duration-700 group-hover:scale-[1.03]" />
         <span className="absolute left-4 top-4 rounded-full border border-white/30 bg-navy/80 px-3 py-1.5 text-micro font-bold uppercase tracking-label text-white backdrop-blur-sm">{project.category}</span>
       </div>
       <div className="flex h-full flex-col p-6">

@@ -4,6 +4,7 @@ import Button from '@/components/ui/Button';
 import Icon, { type IconName } from '@/components/ui/Icon';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { revealProps } from '@/lib/reveal';
+import BrandedVisual from '@/components/ui/BrandedVisual';
 
 export const metadata: Metadata = {
   title: 'Consultancy | Eaquirs Tech',
@@ -132,7 +133,7 @@ export default function ConsultancyPage() {
               </div>
 
               <div className="grid gap-5">
-                <div className="overflow-hidden rounded-2xl border border-line shadow-card"><img src="/service-visuals/consultancy-strategy.png" alt="Consultants reviewing a technical architecture" className="aspect-[16/9] w-full object-cover" /></div>
+                <BrandedVisual src="/service-visuals/consultancy-strategy.png" alt="Consultants reviewing a technical architecture" treatment="both" className="overflow-hidden rounded-2xl border border-line shadow-card" imageClassName="aspect-[16/9]" />
                 {[
                   {
                     title: 'Stack selection',
@@ -215,7 +216,7 @@ export default function ConsultancyPage() {
               ))}
             </div>
 
-            <div className="mt-12 overflow-hidden rounded-2xl border border-navy/10 bg-navy shadow-card"><img src="/service-visuals/consultancy-ai.png" alt="Team working through an AI strategy" className="aspect-[16/7] w-full object-cover opacity-90" /></div>
+            <BrandedVisual src="/service-visuals/consultancy-ai.png" alt="Team working through an AI strategy" treatment="both" className="mt-12 overflow-hidden rounded-2xl border border-navy/10 bg-navy shadow-card" imageClassName="aspect-[16/7] opacity-90" />
 
           </div>
         </div>
@@ -296,7 +297,7 @@ export default function ConsultancyPage() {
           <div className="container-site">
             <SectionHeading
               eyebrow="Digital Transformation"
-              title="Modernise operations â€” without the disruption"
+              title="Modernise operations without disruption"
               intro="Digital transformation fails when it means replacing everything at once. We take a systematic approach: identify the highest-leverage change, prove it in production, then scale."
             />
 
@@ -341,6 +342,14 @@ export default function ConsultancyPage() {
       <AnchorSection id="security">
         <div className="section-y section-dark relative overflow-hidden">
           <div aria-hidden className="glow-amber-dark pointer-events-none absolute inset-0" />
+          <BrandedVisual
+            src="/mockups/systems-architecture.png"
+            alt=""
+            treatment="both"
+            className="pointer-events-none !absolute inset-0"
+            imageClassName="object-cover opacity-[0.14]"
+          />
+          <div aria-hidden className="pointer-events-none absolute inset-0 bg-navy/80" />
           <div className="container-site relative">
             <div className="grid items-start gap-14 lg:grid-cols-[1fr_1.5fr]">
               <div className="lg:sticky lg:top-32">
@@ -367,10 +376,10 @@ export default function ConsultancyPage() {
                   { title: 'Infrastructure security', desc: 'IAM policies, open ports, unencrypted storage, missing TLS, weak secrets management.' },
                   { title: 'Compliance gap analysis', desc: 'GDPR, HIPAA, PCI-DSS â€” we identify the gaps between your current state and the standard, with a remediation roadmap.' },
                 ].map((item) => (
-                  <div key={item.title} className="rounded-xl border border-amber-deep/30 bg-amber p-6">
+                  <div key={item.title} className="rounded-xl border border-white/15 bg-navy/95 p-6 shadow-card transition-all duration-base hover:-translate-y-1 hover:border-amber/70 hover:bg-navy-light">
                     <div aria-hidden className="mb-4 h-1 w-6 rounded-full bg-amber" />
-                    <h4 className="text-[1rem] font-semibold text-navy">{item.title}</h4>
-                    <p className="mt-2 text-body-sm text-body leading-relaxed">{item.desc}</p>
+                    <h4 className="text-[1rem] font-semibold !text-amber">{item.title}</h4>
+                    <p className="mt-2 text-body-sm leading-relaxed text-white/75">{item.desc}</p>
                   </div>
                 ))}
               </div>

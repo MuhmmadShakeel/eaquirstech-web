@@ -29,9 +29,9 @@ export const differentiators = [
       'Abandoned vendors, prototypes that cannot go to production, legacy systems past their limit. Rescue work is a specialism, not an exception.',
   },
   {
-    title: 'AI-assisted, engineer-reviewed',
+    title: 'Engineer-led delivery',
     description:
-      'We use AI tooling to move faster through the mechanical work. Every line still passes a senior review before it reaches your users.',
+      'We use practical tools to move efficiently, while senior engineers review the work before it reaches your users.',
   },
   {
     title: 'Working software weekly',

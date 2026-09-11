@@ -3,6 +3,7 @@ import Button from '@/components/ui/Button';
 import { services } from '@/lib/content/services';
 import { revealProps } from '@/lib/reveal';
 import CountUp from '@/components/ui/CountUp';
+import BrandedVisual from '@/components/ui/BrandedVisual';
 
 const quickStats = [
   {
@@ -27,7 +28,7 @@ export default function Services() {
     <section id="services" className="bg-white">
       {/* ── "WHAT YOU GET WHEN" oversized heading ── */}
       <div className="relative isolate overflow-hidden bg-navy py-12 text-white lg:py-16">
-      <img src="/mockups/hero-platform.png" alt="" aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/2 -z-10 w-[46rem] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.14] sm:w-[58rem]" />
+      <BrandedVisual src="/mockups/hero-platform.png" alt="" treatment="signature" className="pointer-events-none !absolute left-1/2 top-1/2 -z-10 w-[46rem] max-w-none -translate-x-1/2 -translate-y-1/2 opacity-[0.14] sm:w-[58rem]" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 bg-navy/75" />
       <div className="container-site relative">
         <div className="mx-auto max-w-3xl text-center">

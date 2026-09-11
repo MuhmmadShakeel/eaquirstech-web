@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 
 /**
  * Brand mark — a vector interpretation of the Eaquirs Tech triangular knot,
@@ -53,9 +54,13 @@ export default function Logo({
   if (showWordmark) {
     return (
       <span className={cn('inline-flex items-center', className)}>
-        <img
-          src="/brand/eaquirs-tech-logo.webp"
+        <Image
+          src="/brand/eaquirs-tech-logo-navy-amber.png"
           alt="Eaquirs Tech"
+          width={1287}
+          height={1222}
+          priority
+          sizes="(max-width: 767px) 116px, 128px"
           className={cn('h-11 w-auto object-contain md:h-12', imageClassName)}
         />
       </span>

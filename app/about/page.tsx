@@ -4,6 +4,7 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import { siteConfig } from '@/lib/content/site';
 import { differentiators } from '@/lib/content/misc';
 import { revealProps } from '@/lib/reveal';
+import BrandedVisual from '@/components/ui/BrandedVisual';
 
 export const metadata: Metadata = {
   title: 'About | Eaquirs Tech',
@@ -128,13 +129,15 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section className="section-light py-10 sm:py-14">
+      <section className="bg-white py-10 sm:py-14">
         <div className="container-site grid items-center gap-8 lg:grid-cols-[0.72fr_1fr] lg:gap-14">
-          <img
+          <BrandedVisual
             {...revealProps(0)}
             src="/about/muhammad-safdar-iqbal-coat.png"
             alt="Muhammad Safdar Iqbal, CEO of Eaquirs Tech"
-            className="mx-auto aspect-[4/5] w-full max-w-sm rounded-2xl object-cover object-top"
+            treatment="signature"
+            className="mx-auto aspect-[4/5] w-full max-w-sm rounded-2xl"
+            imageClassName="object-top"
           />
           <div {...revealProps(1)}>
             <p className="text-micro font-bold uppercase tracking-label text-amber">Leadership</p>
@@ -164,18 +167,18 @@ export default function AboutPage() {
               <article
                 key={d.title}
                 {...revealProps(i, 90)}
-                className="radius-sig border border-amber-deep/30 bg-amber p-7 transition-all duration-base hover:-translate-y-1 hover:border-amber-deep/60"
+                className="radius-sig border border-white/15 bg-navy p-7 transition-all duration-base hover:-translate-y-1 hover:border-amber hover:shadow-card-hover"
               >
                 <div aria-hidden className="mb-5 h-1 w-8 rounded-full bg-amber" />
-                <h3 className="text-[1.1rem] font-semibold text-navy">{d.title}</h3>
-                <p className="mt-3 text-body-sm text-body">{d.description}</p>
+                <h3 className="text-[1.1rem] font-semibold text-amber">{d.title}</h3>
+                <p className="mt-3 text-body-sm leading-relaxed text-white/80">{d.description}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-light py-10 sm:py-14">
+      <section className="bg-white py-10 sm:py-14">
         <div className="container-site">
           <div data-reveal="hidden">
             <SectionHeading

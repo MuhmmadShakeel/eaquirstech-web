@@ -3,9 +3,9 @@ export const siteConfig = {
   tagline: 'AI-native software engineering partner',
   url: 'https://eaquirstech.com',
   description:
-    'Eaquirs Tech designs, builds and rescues production software — ERP platforms, AI systems, web and mobile products — for founders and operating teams who need working systems, not prototypes.',
+    'Eaquirs Tech designs, builds and rescues production software for founders and operating teams. We deliver ERP platforms, AI systems, and web and mobile products that work in the real world.',
   email: 'hello@eaquirstech.com',
-  location: 'Bahawalpur, Pakistan — working with teams worldwide',
+  location: 'Bahawalpur, Pakistan. Working with teams worldwide.',
   social: {
     linkedin: '#',
     github: '#',

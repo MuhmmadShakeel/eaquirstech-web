@@ -30,7 +30,7 @@ export default function Hero() {
           <span className="text-white/35">PARTNER</span>
         </h1>
         <div className="hero-enter hero-enter-delay-2 mx-auto mt-8 max-w-2xl">
-          <p className="text-body-lg leading-relaxed text-on-dark-muted">We build ERP platforms, AI systems and production software — including the projects other vendors left behind.</p>
+          <p className="text-body-lg leading-relaxed text-on-dark-muted">We build ERP platforms, AI systems, and production software. We also take on projects that need a dependable team to move forward.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button href="/contact" size="lg" arrow className="!h-16 !px-11 text-body-lg bg-amber text-white hover:bg-amber-bright">Book a free call</Button>
             <Button href="/work" size="lg" variant="outline" className="!h-16 !px-11 border-amber bg-transparent text-body-lg text-amber hover:border-amber-bright hover:text-amber-bright">See our work</Button>

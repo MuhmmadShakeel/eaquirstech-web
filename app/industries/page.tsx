@@ -4,6 +4,7 @@ import Button from '@/components/ui/Button';
 import Icon, { type IconName } from '@/components/ui/Icon';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { revealProps } from '@/lib/reveal';
+import BrandedVisual from '@/components/ui/BrandedVisual';
 
 export const metadata: Metadata = {
   title: 'Industries | Eaquirs Tech',
@@ -35,7 +36,7 @@ function IndustryVisual({ src, side = 'right', dark = false, full = false }: { s
     : side === 'left' ? 'bg-gradient-to-r from-white/15 via-white/75 to-white' : 'bg-gradient-to-r from-white via-white/75 to-white/15';
   return (
     <div aria-hidden className={`pointer-events-none absolute ${placement} z-0 hidden overflow-hidden lg:block`}>
-      <img src={src} alt="" loading="lazy" decoding="async" className={`h-full w-full object-cover ${dark ? 'opacity-25' : 'opacity-[0.16]'}`} />
+      <BrandedVisual src={src} alt="" treatment="signature" className="h-full w-full" imageClassName={dark ? 'opacity-25' : 'opacity-[0.16]'} />
       <div className={`absolute inset-0 ${overlay}`} />
     </div>
   );
@@ -156,7 +157,7 @@ export default function IndustriesPage() {
           02 Â· HEALTHCARE
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <AnchorSection id="healthcare">
-        <div className="section-y relative isolate flex min-h-[85vh] flex-col justify-center overflow-hidden bg-white">
+        <div className="relative isolate overflow-hidden bg-white py-16 lg:py-20">
           <div className="container-site relative z-10">
             <div className="grid items-start gap-14 lg:grid-cols-[1.4fr_1fr]">
               <div {...revealProps(1)} className="grid gap-4 sm:grid-cols-2">
@@ -168,9 +169,9 @@ export default function IndustriesPage() {
                   { title: 'Crystal Reports & analytics', desc: 'Pre-built clinical and financial reports â€” occupancy rates, revenue per department, doctor performance, and regulatory submissions.' },
                   { title: 'Role-based access', desc: 'Doctors, nurses, pharmacists, lab technicians, billing staff â€” each sees only what their role requires. Audit log for every sensitive action.' },
                 ].map((card) => (
-                  <div key={card.title} className="rounded-xl border border-line bg-white p-6 shadow-card">
-                    <h4 className="text-[1.05rem] font-semibold text-ink">{card.title}</h4>
-                    <p className="mt-2 text-body-sm leading-relaxed">{card.desc}</p>
+                  <div key={card.title} className="rounded-xl border border-navy bg-navy p-6 shadow-card transition-all duration-base hover:-translate-y-1 hover:border-amber hover:shadow-card-hover">
+                    <h4 className="text-[1.05rem] font-semibold text-amber">{card.title}</h4>
+                    <p className="mt-2 text-body-sm leading-relaxed text-white/80">{card.desc}</p>
                   </div>
                 ))}
               </div>
@@ -186,7 +187,7 @@ export default function IndustriesPage() {
                   and role-based controls that healthcare demands.
                 </p>
                 <div className="mt-7 overflow-hidden rounded-2xl border border-line bg-white shadow-card">
-                  <img src="/uploads/services/8dd7ea20-fa2f-41f4-acae-0d217f0a0ca5.png" alt="Healthcare technology team reviewing a secure clinical system" className="aspect-[16/8] w-full object-cover" />
+                  <BrandedVisual src="/uploads/services/8dd7ea20-fa2f-41f4-acae-0d217f0a0ca5.png" alt="Healthcare technology team reviewing a secure clinical system" treatment="both" className="aspect-[16/8] w-full" />
                 </div>
               </div>
             </div>
@@ -386,7 +387,7 @@ export default function IndustriesPage() {
       </AnchorSection>
 
       <AnchorSection id="saas">
-        <div className="section-y relative isolate flex min-h-[85vh] flex-col justify-center overflow-hidden bg-white">
+        <div className="relative isolate overflow-hidden bg-white pb-16 pt-8 lg:pb-20 lg:pt-10">
           <IndustryVisual src="/service-visuals/saas-platform.png" full />
           <div className="container-site relative z-10">
             <SectionHeading
@@ -404,9 +405,9 @@ export default function IndustriesPage() {
                 { title: 'Admin & ops tooling', desc: 'Internal tooling for your support and operations team â€” customer impersonation, feature flags, usage override, and manual billing adjustments.' },
                 { title: 'API & webhooks', desc: 'Customer-facing APIs with authentication, rate limiting, API key management, and webhook delivery so your platform integrates with your customers\' existing tools.' },
               ].map((card) => (
-                <div key={card.title} className="rounded-2xl border border-amber-deep/25 bg-amber p-6 shadow-card transition-all duration-base hover:-translate-y-1 hover:bg-amber-bright hover:shadow-card-hover">
-                  <h4 className="text-[1.05rem] font-semibold text-ink">{card.title}</h4>
-                  <p className="mt-2 text-body-sm leading-relaxed text-navy/80">{card.desc}</p>
+                <div key={card.title} className="rounded-2xl border border-navy bg-navy p-6 shadow-card transition-all duration-base hover:-translate-y-1 hover:border-amber hover:shadow-card-hover">
+                  <h4 className="text-[1.05rem] font-semibold text-amber">{card.title}</h4>
+                  <p className="mt-2 text-body-sm leading-relaxed text-white/80">{card.desc}</p>
                 </div>
               ))}
             </div>

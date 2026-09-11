@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { LogoMark } from './Logo';
 
@@ -39,13 +40,14 @@ export default function Mockup({
           <span className="text-center text-caption text-muted">{alt}</span>
         </div>
       ) : (
-        /* eslint-disable-next-line @next/next/no-img-element */
-        <img
+        <Image
           src={src}
           alt={alt}
+          width={1500}
+          height={1125}
+          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 90vw, 720px"
           onError={() => setFailed(true)}
-          loading={priority ? 'eager' : 'lazy'}
-          decoding="async"
+          priority={priority}
           className={cn('h-full w-full object-contain', imgClassName)}
         />
       )}

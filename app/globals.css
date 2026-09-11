@@ -25,8 +25,9 @@
   body {
     background: #FFFFFF;
     color: #071B3A;
-    font-size: 1rem;
-    line-height: 1.75;
+    font-size: 1.0625rem;
+    font-weight: 400;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
@@ -39,6 +40,12 @@
   }
 
   p { text-wrap: pretty; }
+
+  /* Long URLs, technology names, and labels never create horizontal scrolling. */
+  p, li, h1, h2, h3, h4, a, button { overflow-wrap: anywhere; }
+
+  /* Preserve a confident, readable Archivo voice wherever legacy light classes remain. */
+  .font-light { font-weight: 500 !important; }
 
   :focus-visible {
     outline: 2px solid #FFD230;
@@ -94,7 +101,7 @@
 .hero-orbit { animation: orbit-drift 14s ease-in-out infinite; }
 .hero-orbit-delayed { animation-delay: -7s; animation-duration: 18s; }
 .tech-chip { animation: chip-rise 480ms cubic-bezier(0.16, 1, 0.3, 1) both; transition: border-color 160ms ease, color 160ms ease, transform 160ms ease; }
-.tech-chip:hover { border-color: #F2A93B; color: #B76E0B; transform: translateY(-2px); }
+.tech-chip:hover { border-color: #FFD230; color: #FFD230; transform: translateY(-2px); }
 .marquee-track { animation: marquee-left 30s linear infinite; will-change: transform; }
 .marquee-track-reverse { animation-name: marquee-right; animation-duration: 34s; }
 .marquee-track:hover { animation-play-state: paused; }
@@ -147,7 +154,7 @@
 
   /* Gradient text */
   .text-gradient {
-    background: linear-gradient(110deg, #FFD230 0%, #FFE16B 45%, #E9BB16 100%);
+    background: #FFD230;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -179,6 +186,16 @@
 }
 
 @layer utilities {
+  /* Section titles stand on their own; remove the small decorative labels above them. */
+  main p.text-micro.font-bold.uppercase.tracking-label {
+    display: none;
+  }
+
+  main p.text-micro.font-bold.uppercase.tracking-label + h1,
+  main p.text-micro.font-bold.uppercase.tracking-label + h2 {
+    margin-top: 0 !important;
+  }
+
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -207,6 +224,15 @@
   opacity: 1;
   transform: none;
   will-change: auto;
+}
+
+/* Compact phones retain the desktop composition's hierarchy without clipped controls. */
+@media (max-width: 374px) {
+  .container-site { padding-left: 1rem; padding-right: 1rem; }
+  .hero-section .container-site { padding-top: 5.5rem; padding-bottom: 2.25rem; }
+  .hero-section .text-body-lg { font-size: 1.0625rem; }
+  .hero-section .flex.flex-wrap.justify-center { gap: 0.75rem; }
+  .hero-section .flex.flex-wrap.justify-center > a { width: 100%; }
 }
 
 .button-sweep::before {
@@ -243,4 +269,83 @@
     transition-duration: 0.01ms !important;
   }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
+/* Consultancy detail pages: compact white sections with a single strong navy surface. */
+.consultancy-detail > section:not(.section-dark):not(.bg-navy) {
+  background: #FFFFFF;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .consultancy-detail > section:not(.section-dark):not(.bg-navy) {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+.consultancy-detail > section:nth-of-type(5) .bg-amber-wash,
+.consultancy-detail > section:nth-of-type(7) article {
+  background: #071B3A;
+  border-color: rgba(255, 210, 48, 0.45);
+  box-shadow: 0 8px 24px rgba(7, 27, 58, 0.16);
+}
+
+.consultancy-detail > section:nth-of-type(5) .bg-amber-wash > span,
+.consultancy-detail > section:nth-of-type(7) article > span,
+.consultancy-detail > section:nth-of-type(7) article h3 {
+  color: #FFD230;
+}
+
+.consultancy-detail > section:nth-of-type(5) .bg-amber-wash p,
+.consultancy-detail > section:nth-of-type(7) article p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* Keep the final proof section close to the preceding action section. */
+.consultancy-detail > section:nth-of-type(7) {
+  padding-top: 1.75rem;
+}
+
+/* A restrained interaction treatment for consultancy content cards. */
+.consultancy-detail article,
+.consultancy-detail > section:nth-of-type(2) .space-y-4 > div,
+.consultancy-detail > section:nth-of-type(5) .bg-amber-wash {
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.consultancy-detail article:hover,
+.consultancy-detail > section:nth-of-type(2) .space-y-4 > div:hover,
+.consultancy-detail > section:nth-of-type(5) .bg-amber-wash:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 210, 48, 0.8);
+  box-shadow: 0 10px 24px rgba(7, 27, 58, 0.14);
+}
+
+/* Work-page delivery highlights: compact, responsive cards with a light interaction cue. */
+.work-delivery .container-site > div {
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.work-delivery .container-site > div:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 210, 48, 0.6);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+/* Finish the Work page with a calm, tactile hover rather than a heavy animation. */
+.work-outcomes .space-y-5 > div {
+  border: 1px solid transparent;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.work-outcomes .space-y-5 > div:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 210, 48, 0.75);
+  box-shadow: 0 12px 28px rgba(7, 27, 58, 0.12);
 }
