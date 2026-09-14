@@ -243,7 +243,7 @@ export default function ServicesPage() {
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <SectionAnchor id="erp">
         <div className="hidden">
-          <img src="/mockups/desktop-dashboard.png" alt="" aria-hidden="true" className="pointer-events-none absolute right-[-26rem] top-1/2 -z-10 hidden w-[58rem] -translate-y-1/2 opacity-[0.08] lg:block" />
+          <img src="/mockups/desktop-dashboard.webp" alt="" aria-hidden="true" className="pointer-events-none absolute right-[-26rem] top-1/2 -z-10 hidden w-[58rem] -translate-y-1/2 opacity-[0.08] lg:block" />
           <div className="container-site">
             <div className="relative">
               {/* Left: sub-service cards */}
@@ -339,7 +339,7 @@ export default function ServicesPage() {
       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <SectionAnchor id="ai">
         <div className="section-y relative isolate overflow-hidden bg-white">
-          <img src="/mockups/systems-architecture.png" alt="" aria-hidden="true" className="pointer-events-none absolute -left-52 top-1/2 -z-10 hidden w-[50rem] -translate-y-1/2 opacity-[0.12] lg:block" />
+          <img src="/mockups/systems-architecture.webp" alt="" aria-hidden="true" className="pointer-events-none absolute -left-52 top-1/2 -z-10 hidden w-[50rem] -translate-y-1/2 opacity-[0.12] lg:block" />
           <div className="container-site relative">
             <SectionHeading
               eyebrow="03 Â· AI & Automation"
@@ -428,7 +428,7 @@ export default function ServicesPage() {
       <SectionAnchor id="rescue">
         <div className="section-y section-dark relative isolate overflow-hidden">
           <div aria-hidden className="glow-amber-dark pointer-events-none absolute inset-0" />
-          <img src="/mockups/ai-orchestration.png" alt="" aria-hidden="true" className="pointer-events-none absolute -right-64 top-1/2 -z-10 hidden w-[62rem] -translate-y-1/2 opacity-25 lg:block" />
+          <img src="/mockups/ai-orchestration.webp" alt="" aria-hidden="true" className="pointer-events-none absolute -right-64 top-1/2 -z-10 hidden w-[62rem] -translate-y-1/2 opacity-25 lg:block" />
           <div className="container-site relative">
             <SectionHeading
               eyebrow="04 Â· Rescue & Modernization"

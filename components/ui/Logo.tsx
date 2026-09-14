@@ -55,11 +55,12 @@ export default function Logo({
     return (
       <span className={cn('inline-flex items-center', className)}>
         <Image
-          src="/brand/eaquirs-tech-logo-navy-amber.png"
+          src="/brand/eaquirs-tech-logo-navy-amber.webp"
           alt="Eaquirs Tech"
           width={1287}
           height={1222}
           priority
+          quality={82}
           sizes="(max-width: 767px) 116px, 128px"
           className={cn('h-11 w-auto object-contain md:h-12', imageClassName)}
         />

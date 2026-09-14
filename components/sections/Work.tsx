@@ -12,7 +12,7 @@ export default function Work() {
           <div><h2 className="font-black uppercase leading-[0.92] tracking-tight text-ink" style={{ fontSize: 'clamp(2.3rem, 4.8vw, 4.75rem)' }}>PROJECTS</h2><p className="mt-2 text-body-sm font-medium uppercase tracking-widest text-muted">Built for real teams, serving real users</p></div>
           <div><p className="text-body-sm text-body">Not demos. Real inventory, patients, payments, and OpenInterview.me operating every day.</p><Button href="/work" variant="outline" size="md" arrow className="mt-4">View all work</Button></div>
         </div>
-        <div className="mt-7 grid justify-items-center gap-4 border-t border-line pt-7 sm:grid-cols-2 lg:grid-cols-4">{featuredProjects.map((project, index) => <ProjectCard key={project.slug} project={project} index={index} flip />)}</div>
+        <div className="mt-7 grid grid-cols-1 justify-items-center gap-4 border-t border-line pt-7 sm:grid-cols-2 lg:grid-cols-4">{featuredProjects.map((project, index) => <ProjectCard key={project.slug} project={project} index={index} flip />)}</div>
       </div>
     </section>
   );
@@ -29,7 +29,7 @@ export function ProjectCard({ project, index = 0, flip = false }: { project: Pro
   const image = projectImages[project.slug] ?? images[index % images.length];
   if (flip) {
     return (
-      <a {...revealProps(index)} href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} demo`} className="group mx-auto block h-[400px] w-[400px] max-w-full [perspective:1200px] focus:outline-none">
+      <a {...revealProps(index)} href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.name} demo`} className="group mx-auto block aspect-square w-full max-w-[400px] [perspective:1200px] focus:outline-none sm:h-[400px] sm:w-[400px] sm:max-w-full">
         <div className="relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
           <div className="absolute inset-0 overflow-hidden rounded-3xl bg-navy [backface-visibility:hidden]">
             <BrandedVisual src={image} alt={`${project.name} platform preview`} treatment="mark" className="h-full w-full" />

@@ -10,8 +10,8 @@ export default function Hero() {
         muted
         loop
         playsInline
-        preload="metadata"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center opacity-45"
+        preload="auto"
+        className="pointer-events-none absolute inset-0 hidden h-full w-full object-cover object-center opacity-45 lg:block"
       >
         <source src="/hero-background.mp4" type="video/mp4" />
       </video>

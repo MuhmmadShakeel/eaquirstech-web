@@ -41,27 +41,29 @@ export default function BrandedVisual({
   const showMark = treatment === 'mark' || treatment === 'both';
   const showSignature = treatment === 'signature' || treatment === 'both';
   const dimensions = imageDimensions[src] ?? { width: 1600, height: 900 };
+  const optimizedSrc = src.endsWith('.png') ? src.replace(/\.png$/, '.webp') : src;
 
   return (
     <div className={cn('group/brand relative isolate overflow-hidden', className)}>
       <Image
-        src={src}
+        src={optimizedSrc}
         alt={alt}
         width={dimensions.width}
         height={dimensions.height}
         priority={priority}
+        quality={82}
         sizes="(max-width: 639px) 100vw, (max-width: 1023px) 90vw, 1280px"
         className={cn('h-full w-full object-cover', imageClassName)}
       />
       <div aria-hidden className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-navy/10" />
       {showMark && (
         <span aria-hidden className="pointer-events-none absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-xl border border-amber/60 bg-navy/95 p-2 shadow-xl backdrop-blur-sm">
-          <Image src="/brand/eaquirs-tech-logo-navy-amber.png" alt="" width={1287} height={1222} sizes="40px" className="h-full w-full object-contain object-top" />
+          <Image src="/brand/eaquirs-tech-logo-navy-amber.webp" alt="" width={1287} height={1222} sizes="40px" className="h-full w-full object-contain object-top" />
         </span>
       )}
       {showSignature && (
         <span aria-hidden className="pointer-events-none absolute bottom-4 right-4 inline-flex items-center gap-2 rounded-lg border border-amber/60 bg-navy/95 px-3 py-2 shadow-xl backdrop-blur-sm">
-          <Image src="/brand/eaquirs-tech-logo-navy-amber.png" alt="" width={1287} height={1222} sizes="16px" className="h-4 w-4 object-contain object-top" />
+          <Image src="/brand/eaquirs-tech-logo-navy-amber.webp" alt="" width={1287} height={1222} sizes="16px" className="h-4 w-4 object-contain object-top" />
           <span className="text-[10px] font-extrabold uppercase tracking-[0.14em] text-amber-bright">Eaquirs Tech</span>
         </span>
       )}

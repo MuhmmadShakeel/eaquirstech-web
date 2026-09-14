@@ -10,7 +10,7 @@ import { LogoMark } from './Logo';
  *
  * The brand mockups live in /public/mockups. Until a file is present (or if one
  * ever fails to load) this renders an on-brand placeholder instead of a broken
- * image, so the layout never collapses. Drop the real PNG at the given path and
+ * image, so the layout never collapses. Drop the optimized WebP at the given path and
  * it appears automatically — no code change needed.
  */
 export default function Mockup({
@@ -27,6 +27,7 @@ export default function Mockup({
   priority?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
+  const optimizedSrc = src.endsWith('.png') ? src.replace(/\.png$/, '.webp') : src;
 
   return (
     <div className={cn('relative overflow-hidden', className)}>
@@ -41,13 +42,14 @@ export default function Mockup({
         </div>
       ) : (
         <Image
-          src={src}
+          src={optimizedSrc}
           alt={alt}
           width={1500}
           height={1125}
           sizes="(max-width: 639px) 100vw, (max-width: 1023px) 90vw, 720px"
           onError={() => setFailed(true)}
           priority={priority}
+          quality={82}
           className={cn('h-full w-full object-contain', imgClassName)}
         />
       )}

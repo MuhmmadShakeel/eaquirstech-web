@@ -18,6 +18,7 @@ export default function ImageWithFallback({
   fallbackContent?: React.ReactNode;
 } & Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt' | 'width' | 'height'>) {
   const [failed, setFailed] = useState(false);
+  const optimizedSrc = src.endsWith('.png') ? src.replace(/\.png$/, '.webp') : src;
 
   if (failed) {
     return (
@@ -29,11 +30,12 @@ export default function ImageWithFallback({
 
   return (
     <Image
-      src={src}
+      src={optimizedSrc}
       alt={alt}
       width={1586}
       height={992}
       sizes="(max-width: 639px) 100vw, (max-width: 1023px) 90vw, 720px"
+      quality={82}
       className={className}
       onError={() => setFailed(true)}
       {...rest}
