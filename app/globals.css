@@ -25,6 +25,7 @@
   body {
     background: #FFFFFF;
     color: #071B3A;
+    font-family: var(--font-archivo), system-ui, sans-serif;
     font-size: 1.0625rem;
     font-weight: 400;
     line-height: 1.7;
@@ -35,8 +36,13 @@
 
   h1, h2, h3, h4, h5, h6 {
     color: #071B3A;
+    font-family: var(--font-archivo), system-ui, sans-serif;
     font-weight: 500;
     text-wrap: balance;
+  }
+
+  button, input, select, textarea {
+    font: inherit;
   }
 
   p { text-wrap: pretty; }
@@ -74,6 +80,25 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes hero-orbit-spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes hero-signal-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 210, 48, 0.35), 0 0 20px rgba(255, 210, 48, 0.55); }
+  50% { box-shadow: 0 0 0 12px rgba(255, 210, 48, 0), 0 0 30px rgba(255, 210, 48, 0.7); }
+}
+
+@keyframes hero-glow-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(4%, -5%, 0) scale(1.12); }
+}
+
+@keyframes hero-beam-sweep {
+  from { transform: translateX(-135%) rotate(-24deg); }
+  to { transform: translateX(165%) rotate(-24deg); }
+}
+
 @keyframes orbit-drift {
   0%, 100% { transform: translate(-50%, -50%) rotate(0deg) scale(1); }
   50% { transform: translate(-50%, -50%) rotate(10deg) scale(1.05); }
@@ -100,6 +125,18 @@
 .hero-enter-delay-3 { animation-delay: 300ms; }
 .hero-orbit { animation: orbit-drift 14s ease-in-out infinite; }
 .hero-orbit-delayed { animation-delay: -7s; animation-duration: 18s; }
+.hero-background { position: absolute; inset: 0; overflow: hidden; pointer-events: none; contain: paint; }
+.hero-background__grid { position: absolute; inset: -20%; opacity: .08; background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px); background-size: 54px 54px; mask-image: radial-gradient(ellipse at center, black 10%, transparent 68%); }
+.hero-background__glow { position: absolute; width: 52rem; height: 52rem; border-radius: 50%; filter: blur(70px); opacity: .16; animation: hero-glow-drift 14s ease-in-out infinite; will-change: transform; }
+.hero-background__glow--amber { top: -30rem; right: -14rem; background: #FFD230; }
+.hero-background__glow--blue { bottom: -34rem; left: -16rem; background: #2c7fd3; animation-delay: -7s; }
+.hero-background__system { position: absolute; top: 50%; left: 50%; width: min(94vw, 74rem); aspect-ratio: 1; transform: translate(-50%, -50%); opacity: .98; }
+.hero-background__ring { position: absolute; inset: 0; border: 1.25px solid rgba(255,255,255,.18); border-radius: 50%; transform: scale(var(--ring-scale)); }
+.hero-background__ring:nth-child(9n) { border-color: rgba(255,210,48,.48); }
+.hero-background__orbit { position: absolute; top: 50%; left: 50%; width: var(--orbit-size); height: var(--orbit-size); border-radius: 50%; transform: translate(-50%, -50%); animation: hero-orbit-spin var(--orbit-duration) linear infinite var(--orbit-direction); animation-delay: var(--orbit-delay); will-change: transform; }
+.hero-background__signal { position: absolute; top: -3px; left: 50%; width: 6px; height: 6px; border-radius: 50%; background: #FFD230; transform: translateX(-50%); animation: hero-signal-pulse 2.4s ease-in-out infinite; animation-delay: var(--signal-delay); }
+.hero-background__core { position: absolute; top: 50%; left: 50%; display: grid; width: 7rem; height: 7rem; place-items: center; border: 1.5px solid rgba(255,210,48,.7); border-radius: 50%; background: rgba(7,27,58,.78); box-shadow: 0 0 0 12px rgba(7,27,58,.3), 0 0 48px rgba(255,210,48,.25); color: #FFD230; font-size: 2.35rem; font-weight: 900; letter-spacing: .04em; line-height: 1; transform: translate(-50%, -50%); }
+.hero-background__vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 20%, rgba(7,27,58,.24) 100%); }
 .tech-chip { animation: chip-rise 480ms cubic-bezier(0.16, 1, 0.3, 1) both; transition: border-color 160ms ease, color 160ms ease, transform 160ms ease; }
 .tech-chip:hover { border-color: #FFD230; color: #FFD230; transform: translateY(-2px); }
 .marquee-track { animation: marquee-left 30s linear infinite; will-change: transform; }

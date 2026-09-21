@@ -1,21 +1,12 @@
 import Button from '@/components/ui/Button';
+import HeroBackground from '@/components/sections/HeroBackground';
 import { headlineStats } from '@/lib/content/site';
 
 export default function Hero() {
   return (
     <section className="hero-section relative isolate flex min-h-[100svh] items-center overflow-hidden bg-navy text-center">
-      <video
-        aria-hidden="true"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className="pointer-events-none absolute inset-0 hidden h-full w-full object-cover object-center opacity-45 lg:block"
-      >
-        <source src="/hero-background.mp4" type="video/mp4" />
-      </video>
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-navy/55" />
+      <HeroBackground />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-navy/25" />
 
       <div className="container-site relative py-20 sm:py-24 lg:py-20">
         <div className="hidden">

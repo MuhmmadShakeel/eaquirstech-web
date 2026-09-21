@@ -34,7 +34,7 @@ export default function StackMarquee() {
         <div className="mt-8 overflow-hidden border-t border-line pt-5">
           <div className="flex items-center justify-between gap-4">
             <p className="inline-flex items-center gap-2 text-micro font-bold uppercase tracking-label text-muted"><Icon name="code" className="h-4 w-4 text-amber" strokeWidth={2} />Technologies we ship with</p>
-            <span className="inline-flex items-center gap-2 text-micro uppercase tracking-label text-amber"><Icon name="cpu" className="h-4 w-4" strokeWidth={2} />Production-ready stack</span>
+            <span className="inline-flex items-center gap-3 text-h4 font-bold tracking-heading text-amber"><Icon name="cpu" className="h-6 w-6" strokeWidth={2} />Production-ready stack</span>
           </div>
           <div className="marquee-mask mt-4 space-y-2">
             <TechMarquee />

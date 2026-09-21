@@ -8,7 +8,7 @@ const pages = {
   'product-engineering': {
     eyebrow: '01 · Product Engineering', title: 'From first system map to a confident launch.',
     intro: 'Senior engineers build the product, the platform, and the release process as one accountable delivery team.',
-    image: '/mockups/delivery-system.png', proof: '/mockups/laptop-dashboard.png',
+    image: '/service-visuals/product-engineering-platform.png', proof: '/mockups/laptop-dashboard.png',
     items: [
       { slug: 'full-stack-web-development', title: 'Full-stack web development', description: 'Production-grade web applications built across frontend, backend, data, and deployment.' },
       { slug: 'mobile-app-development', title: 'Mobile app development', description: 'Cross-platform mobile experiences designed for dependable release and long-term support.' },

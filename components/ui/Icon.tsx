@@ -4,7 +4,7 @@ export type IconName =
   | 'code' | 'layers' | 'spark' | 'shield' | 'link' | 'pen'
   | 'building' | 'health' | 'factory' | 'store' | 'users' | 'card' | 'truck' | 'cloud'
   | 'arrow' | 'check' | 'plus' | 'minus' | 'external' | 'menu' | 'close' | 'mail'
-  | 'globe' | 'ai' | 'chart' | 'rocket' | 'lightning' | 'monitor' | 'cpu';
+  | 'globe' | 'ai' | 'chart' | 'rocket' | 'lightning' | 'monitor' | 'cpu' | 'server' | 'database' | 'mobile';
 
 const paths: Record<IconName, React.ReactNode> = {
   code: <><path d="m8 6-6 6 6 6" /><path d="m16 6 6 6-6 6" /></>,
@@ -36,6 +36,9 @@ const paths: Record<IconName, React.ReactNode> = {
   lightning: <><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z" /></>,
   monitor: <><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8" /><path d="M12 17v4" /></>,
   cpu: <><rect x="4" y="4" width="16" height="16" rx="2" /><rect x="9" y="9" width="6" height="6" /><path d="M15 2v2M9 2v2M15 20v2M9 20v2M2 15h2M2 9h2M20 15h2M20 9h2" /></>,
+  server: <><rect x="3" y="3" width="18" height="7" rx="2" /><rect x="3" y="14" width="18" height="7" rx="2" /><path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6" /></>,
+  database: <><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5" /><path d="M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7" /></>,
+  mobile: <><rect x="6" y="2" width="12" height="20" rx="2" /><path d="M10 5h4M11 18h2" /></>,
 };
 
 export default function Icon({

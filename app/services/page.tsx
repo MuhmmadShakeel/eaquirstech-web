@@ -14,12 +14,12 @@ export const metadata: Metadata = {
 };
 
 /* â”€â”€â”€ re-usable service card â”€â”€â”€ */
-function ServiceCard({ title, desc, tags }: { title: string; desc: string; tags: string[] }) {
+function ServiceCard({ title, desc, tags, icon }: { title: string; desc: string; tags: string[]; icon: IconName }) {
   return (
     <div className="group relative h-full overflow-hidden rounded-xl border border-line bg-white p-5 transition-all duration-base hover:-translate-y-1 hover:border-amber/50">
       <div aria-hidden className="absolute inset-x-0 top-0 h-1 bg-amber opacity-0 transition-opacity duration-base group-hover:opacity-100" />
       <div className="mb-5 flex items-center justify-between">
-        <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy text-micro font-bold text-amber">ET</span>
+        <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy text-amber"><Icon name={icon} className="h-5 w-5" /></span>
         <span className="h-px w-8 bg-line transition-all duration-base group-hover:w-14 group-hover:bg-amber/50" />
       </div>
       <h4 className="text-[1.08rem] font-semibold text-ink">{title}</h4>
@@ -206,6 +206,7 @@ export default function ServicesPage() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <SectionAnchor id="web">
                   <ServiceCard
+                    icon="code"
                     title="Full-stack web development"
                     desc="Production-grade web applications on Next.js and NestJS. Server-side rendering, optimistic UI, real-time features â€” built once, maintained cheaply."
                     tags={['Next.js', 'NestJS', 'TypeScript', 'PostgreSQL']}
@@ -213,6 +214,7 @@ export default function ServicesPage() {
                 </SectionAnchor>
                 <SectionAnchor id="mobile">
                   <ServiceCard
+                    icon="mobile"
                     title="Mobile app development"
                     desc="Cross-platform mobile applications that share business logic with your web product. React Native and Flutter, deployed to both stores."
                     tags={['React Native', 'Flutter', 'Expo', 'REST APIs']}
@@ -220,6 +222,7 @@ export default function ServicesPage() {
                 </SectionAnchor>
                 <SectionAnchor id="api">
                   <ServiceCard
+                    icon="server"
                     title="Backend, APIs & delivery"
                     desc="Scalable APIs and reliable delivery pipelines designed for the traffic you expect and the traffic you do not. Modelled to your domain, monitored in production."
                     tags={['REST', 'GraphQL', 'Docker', 'CI/CD', 'OpenAPI']}
@@ -227,6 +230,7 @@ export default function ServicesPage() {
                 </SectionAnchor>
                 <SectionAnchor id="mvp">
                   <ServiceCard
+                    icon="rocket"
                     title="MVP development"
                     desc="A working, deployable product in six to ten weeks â€” not a prototype, not a mockup. Architecture that survives the pivot, not just the demo day."
                     tags={['Fixed scope', 'Rapid delivery', 'Investor-ready', 'Scalable base']}
@@ -472,7 +476,7 @@ export default function ServicesPage() {
                     <ul className="mt-6 flex flex-col gap-2 border-t border-emerald-950/15 pt-5">
                       {svc.points.map((pt) => (
                         <li key={pt} className="flex items-start gap-2.5 text-body-sm text-emerald-950/80">
-                          <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-emerald-800" strokeWidth={2.2} />
+                          <Icon name="check" className="mt-0.5 h-4 w-4 shrink-0 text-amber" strokeWidth={2.2} />
                           {pt}
                         </li>
                       ))}
